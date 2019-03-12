@@ -1,0 +1,2362 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>DOL Comply Chain WEB Automation Testing Report</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>WEB Automation Testing</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Mar 10, 2019 04:20:55 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>9</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='51.261%'><span class='strong'>183</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='48.739%'>174</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Home Page in English</span>
+						<span class='test-time'>Mar 10, 2019 04:21:01 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:21:01 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:21:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+210ms</span>
+</div>
+	<div class='test-desc'>Verify Home Page - Logo, Header, Home Page, Menu, Bottom bar Items in English </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:01 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:01 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162101211.png' width='10%' src='./screenshots/0310162101211.png' data-src='./screenshots/0310162101211.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:01 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:02 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162102212.png' width='10%' src='./screenshots/0310162102212.png' data-src='./screenshots/0310162102212.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>Home Page Header is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:02 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162102212.png' width='10%' src='./screenshots/0310162102212.png' data-src='./screenshots/0310162102212.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:02 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162102212.png' width='10%' src='./screenshots/0310162102212.png' data-src='./screenshots/0310162102212.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:03 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:04 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162104214.png' width='10%' src='./screenshots/0310162104214.png' data-src='./screenshots/0310162104214.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:04 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162104214.png' width='10%' src='./screenshots/0310162104214.png' data-src='./screenshots/0310162104214.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>Bookmarks link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:04 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162104214.png' width='10%' src='./screenshots/0310162104214.png' data-src='./screenshots/0310162104214.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>Bookmarks link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:05 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162105215.png' width='10%' src='./screenshots/0310162105215.png' data-src='./screenshots/0310162105215.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:05 PM</td>
+					<td class='step-details'><span class='label white-text green'>Search link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:05 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162105215.png' width='10%' src='./screenshots/0310162105215.png' data-src='./screenshots/0310162105215.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:05 PM</td>
+					<td class='step-details'><span class='label white-text green'>Search link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162106216.png' width='10%' src='./screenshots/0310162106216.png' data-src='./screenshots/0310162106216.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Share link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162106216.png' width='10%' src='./screenshots/0310162106216.png' data-src='./screenshots/0310162106216.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Share link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162106216.png' width='10%' src='./screenshots/0310162106216.png' data-src='./screenshots/0310162106216.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>About link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:07 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162107217.png' width='10%' src='./screenshots/0310162107217.png' data-src='./screenshots/0310162107217.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>About link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:07 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162107217.png' width='10%' src='./screenshots/0310162107217.png' data-src='./screenshots/0310162107217.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>HomePageVerification_English Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Home Page in Español</span>
+						<span class='test-time'>Mar 10, 2019 04:21:13 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:21:13 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:21:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+364ms</span>
+</div>
+	<div class='test-desc'>Verify Home Page - Logo, Header, Home Menu, Bottom bar Items in Español </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:13 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:13 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621132113.png' width='10%' src='./screenshots/03101621132113.png' data-src='./screenshots/03101621132113.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:13 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:13 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621132113.png' width='10%' src='./screenshots/03101621132113.png' data-src='./screenshots/03101621132113.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:13 PM</td>
+					<td class='step-details'><span class='label white-text green'>Home Page Header is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:14 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621142114.png' width='10%' src='./screenshots/03101621142114.png' data-src='./screenshots/03101621142114.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:14 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:14 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621142114.png' width='10%' src='./screenshots/03101621142114.png' data-src='./screenshots/03101621142114.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:16 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:17 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621172117.png' width='10%' src='./screenshots/03101621172117.png' data-src='./screenshots/03101621172117.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:17 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:17 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621172117.png' width='10%' src='./screenshots/03101621172117.png' data-src='./screenshots/03101621172117.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:17 PM</td>
+					<td class='step-details'><span class='label white-text green'>Bookmarks link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:17 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621172117.png' width='10%' src='./screenshots/03101621172117.png' data-src='./screenshots/03101621172117.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:17 PM</td>
+					<td class='step-details'><span class='label white-text green'>Bookmarks link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:18 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621182118.png' width='10%' src='./screenshots/03101621182118.png' data-src='./screenshots/03101621182118.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:18 PM</td>
+					<td class='step-details'><span class='label white-text green'>Buscar link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:18 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621182118.png' width='10%' src='./screenshots/03101621182118.png' data-src='./screenshots/03101621182118.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:18 PM</td>
+					<td class='step-details'><span class='label white-text green'>Buscar link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:18 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621182118.png' width='10%' src='./screenshots/03101621182118.png' data-src='./screenshots/03101621182118.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:18 PM</td>
+					<td class='step-details'><span class='label white-text green'>Share link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:19 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621192119.png' width='10%' src='./screenshots/03101621192119.png' data-src='./screenshots/03101621192119.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:19 PM</td>
+					<td class='step-details'><span class='label white-text green'>Share link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:19 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621192119.png' width='10%' src='./screenshots/03101621192119.png' data-src='./screenshots/03101621192119.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:19 PM</td>
+					<td class='step-details'><span class='label white-text green'>About link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:20 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621202120.png' width='10%' src='./screenshots/03101621202120.png' data-src='./screenshots/03101621202120.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:20 PM</td>
+					<td class='step-details'><span class='label white-text green'>About link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:20 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621202120.png' width='10%' src='./screenshots/03101621202120.png' data-src='./screenshots/03101621202120.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:20 PM</td>
+					<td class='step-details'><span class='label white-text green'>HomePageVerification_Español Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Home Page in Français</span>
+						<span class='test-time'>Mar 10, 2019 04:21:26 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:21:26 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:21:33 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+375ms</span>
+</div>
+	<div class='test-desc'>Verify Home Page - Logo, Header, Home Menu, Bottom bar Items in Français </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:26 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:26 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621262126.png' width='10%' src='./screenshots/03101621262126.png' data-src='./screenshots/03101621262126.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:26 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:26 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621262126.png' width='10%' src='./screenshots/03101621262126.png' data-src='./screenshots/03101621262126.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:26 PM</td>
+					<td class='step-details'><span class='label white-text green'>Home Page Header is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:27 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621272127.png' width='10%' src='./screenshots/03101621272127.png' data-src='./screenshots/03101621272127.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:27 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menu is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:27 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621272127.png' width='10%' src='./screenshots/03101621272127.png' data-src='./screenshots/03101621272127.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:29 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:30 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621302130.png' width='10%' src='./screenshots/03101621302130.png' data-src='./screenshots/03101621302130.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:30 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menu is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:30 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621302130.png' width='10%' src='./screenshots/03101621302130.png' data-src='./screenshots/03101621302130.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:30 PM</td>
+					<td class='step-details'><span class='label white-text green'>Bookmarks link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:30 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621302130.png' width='10%' src='./screenshots/03101621302130.png' data-src='./screenshots/03101621302130.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:30 PM</td>
+					<td class='step-details'><span class='label white-text green'>Bookmarks link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:31 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621312131.png' width='10%' src='./screenshots/03101621312131.png' data-src='./screenshots/03101621312131.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:31 PM</td>
+					<td class='step-details'><span class='label white-text green'>Rechercher link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:31 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621312131.png' width='10%' src='./screenshots/03101621312131.png' data-src='./screenshots/03101621312131.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:31 PM</td>
+					<td class='step-details'><span class='label white-text green'>Rechercher link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:31 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621312131.png' width='10%' src='./screenshots/03101621312131.png' data-src='./screenshots/03101621312131.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:31 PM</td>
+					<td class='step-details'><span class='label white-text green'>Share link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:32 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621322132.png' width='10%' src='./screenshots/03101621322132.png' data-src='./screenshots/03101621322132.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:32 PM</td>
+					<td class='step-details'><span class='label white-text green'>Share link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:32 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621322132.png' width='10%' src='./screenshots/03101621322132.png' data-src='./screenshots/03101621322132.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:32 PM</td>
+					<td class='step-details'><span class='label white-text green'>About link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:33 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621332133.png' width='10%' src='./screenshots/03101621332133.png' data-src='./screenshots/03101621332133.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:33 PM</td>
+					<td class='step-details'><span class='label white-text green'>About link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:33 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621332133.png' width='10%' src='./screenshots/03101621332133.png' data-src='./screenshots/03101621332133.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:33 PM</td>
+					<td class='step-details'><span class='label white-text green'>HomePageVerification_Français Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Menu in English</span>
+						<span class='test-time'>Mar 10, 2019 04:21:38 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:21:38 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:21:44 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 5s+840ms</span>
+</div>
+	<div class='test-desc'>Verify Menu - Topics and Language Items in English </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:39 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:39 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621392139.png' width='10%' src='./screenshots/03101621392139.png' data-src='./screenshots/03101621392139.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:39 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:39 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621392139.png' width='10%' src='./screenshots/03101621392139.png' data-src='./screenshots/03101621392139.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:39 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:40 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621402140.png' width='10%' src='./screenshots/03101621402140.png' data-src='./screenshots/03101621402140.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:41 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:41 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621412141.png' width='10%' src='./screenshots/03101621412141.png' data-src='./screenshots/03101621412141.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:41 PM</td>
+					<td class='step-details'><span class='label white-text green'>What are Child Labor and Forced Labor? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:41 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621412141.png' width='10%' src='./screenshots/03101621412141.png' data-src='./screenshots/03101621412141.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:41 PM</td>
+					<td class='step-details'><span class='label white-text green'>What are Child Labor and Forced Labor? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:42 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621422142.png' width='10%' src='./screenshots/03101621422142.png' data-src='./screenshots/03101621422142.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:42 PM</td>
+					<td class='step-details'><span class='label white-text green'>Why Develop a Social Compliance System? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:42 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621422142.png' width='10%' src='./screenshots/03101621422142.png' data-src='./screenshots/03101621422142.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:42 PM</td>
+					<td class='step-details'><span class='label white-text green'>Why Develop a Social Compliance System? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:42 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621422142.png' width='10%' src='./screenshots/03101621422142.png' data-src='./screenshots/03101621422142.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:42 PM</td>
+					<td class='step-details'><span class='label white-text green'>Basics of a Social Compliance System link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:43 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621432143.png' width='10%' src='./screenshots/03101621432143.png' data-src='./screenshots/03101621432143.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:43 PM</td>
+					<td class='step-details'><span class='label white-text green'>Basics of a Social Compliance System link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:43 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621432143.png' width='10%' src='./screenshots/03101621432143.png' data-src='./screenshots/03101621432143.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:43 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:43 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621432143.png' width='10%' src='./screenshots/03101621432143.png' data-src='./screenshots/03101621432143.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:44 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Verified with Expandable Arrow Mark</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:44 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621442144.png' width='10%' src='./screenshots/03101621442144.png' data-src='./screenshots/03101621442144.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:44 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:44 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621442144.png' width='10%' src='./screenshots/03101621442144.png' data-src='./screenshots/03101621442144.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:44 PM</td>
+					<td class='step-details'><span class='label white-text green'>MenuVerification_English Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Menu in Español</span>
+						<span class='test-time'>Mar 10, 2019 04:21:50 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:21:50 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:21:57 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+679ms</span>
+</div>
+	<div class='test-desc'>Verify Menu - Topics and Language Items in Español </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:50 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:50 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621502150.png' width='10%' src='./screenshots/03101621502150.png' data-src='./screenshots/03101621502150.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:50 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:51 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621512151.png' width='10%' src='./screenshots/03101621512151.png' data-src='./screenshots/03101621512151.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:51 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:51 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621512151.png' width='10%' src='./screenshots/03101621512151.png' data-src='./screenshots/03101621512151.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:53 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:53 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621532153.png' width='10%' src='./screenshots/03101621532153.png' data-src='./screenshots/03101621532153.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:54 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Qué son el trabajo infantil y el trabajo forzoso? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:54 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621542154.png' width='10%' src='./screenshots/03101621542154.png' data-src='./screenshots/03101621542154.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:54 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Qué son el trabajo infantil y el trabajo forzoso? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:54 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621542154.png' width='10%' src='./screenshots/03101621542154.png' data-src='./screenshots/03101621542154.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:54 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Por qué crear un sistema de cumplimiento social? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:54 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621542154.png' width='10%' src='./screenshots/03101621542154.png' data-src='./screenshots/03101621542154.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:55 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Por qué crear un sistema de cumplimiento social? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:55 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621552155.png' width='10%' src='./screenshots/03101621552155.png' data-src='./screenshots/03101621552155.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:55 PM</td>
+					<td class='step-details'><span class='label white-text green'>Aspectos básicos de un sistema de cumplimiento social link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:55 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621552155.png' width='10%' src='./screenshots/03101621552155.png' data-src='./screenshots/03101621552155.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:55 PM</td>
+					<td class='step-details'><span class='label white-text green'>Aspectos básicos de un sistema de cumplimiento social link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:55 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621552155.png' width='10%' src='./screenshots/03101621552155.png' data-src='./screenshots/03101621552155.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:56 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pasos hacia un sistema de cumplimiento social is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:56 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621562156.png' width='10%' src='./screenshots/03101621562156.png' data-src='./screenshots/03101621562156.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:56 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:56 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621562156.png' width='10%' src='./screenshots/03101621562156.png' data-src='./screenshots/03101621562156.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:56 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:21:57 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101621572157.png' width='10%' src='./screenshots/03101621572157.png' data-src='./screenshots/03101621572157.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:21:57 PM</td>
+					<td class='step-details'><span class='label white-text green'>MenuVerification_Español Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Menu in Français</span>
+						<span class='test-time'>Mar 10, 2019 04:22:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:22:02 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:22:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+962ms</span>
+</div>
+	<div class='test-desc'>Verify Menu - Topics and Language Items in Français </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:03 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162203223.png' width='10%' src='./screenshots/0310162203223.png' data-src='./screenshots/0310162203223.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:03 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:03 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162203223.png' width='10%' src='./screenshots/0310162203223.png' data-src='./screenshots/0310162203223.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:03 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menu is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:03 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162203223.png' width='10%' src='./screenshots/0310162203223.png' data-src='./screenshots/0310162203223.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162206226.png' width='10%' src='./screenshots/0310162206226.png' data-src='./screenshots/0310162206226.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162206226.png' width='10%' src='./screenshots/0310162206226.png' data-src='./screenshots/0310162206226.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Qu'est-ce que le travail des enfants et le travail forcé ? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:07 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162207227.png' width='10%' src='./screenshots/0310162207227.png' data-src='./screenshots/0310162207227.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pourquoi élaborer un système de conformité sociale ? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:07 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162207227.png' width='10%' src='./screenshots/0310162207227.png' data-src='./screenshots/0310162207227.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pourquoi élaborer un système de conformité sociale ? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:07 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162207227.png' width='10%' src='./screenshots/0310162207227.png' data-src='./screenshots/0310162207227.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>Fondements d’un système de conformité sociale link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:08 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162208228.png' width='10%' src='./screenshots/0310162208228.png' data-src='./screenshots/0310162208228.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:08 PM</td>
+					<td class='step-details'><span class='label white-text green'>Fondements d’un système de conformité sociale link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:08 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162208228.png' width='10%' src='./screenshots/0310162208228.png' data-src='./screenshots/0310162208228.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:08 PM</td>
+					<td class='step-details'><span class='label white-text green'>Étapes vers un système de conformité sociale is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:08 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162208228.png' width='10%' src='./screenshots/0310162208228.png' data-src='./screenshots/0310162208228.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:08 PM</td>
+					<td class='step-details'><span class='label white-text green'>Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:09 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162209229.png' width='10%' src='./screenshots/0310162209229.png' data-src='./screenshots/0310162209229.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:09 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menu is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:09 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162209229.png' width='10%' src='./screenshots/0310162209229.png' data-src='./screenshots/0310162209229.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:09 PM</td>
+					<td class='step-details'><span class='label white-text green'>MenuVerification_Français Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Steps in English</span>
+						<span class='test-time'>Mar 10, 2019 04:22:15 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:22:15 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:22:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+342ms</span>
+</div>
+	<div class='test-desc'>Verify Step Items in English </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:15 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:15 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622152215.png' width='10%' src='./screenshots/03101622152215.png' data-src='./screenshots/03101622152215.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:15 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:15 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622152215.png' width='10%' src='./screenshots/03101622152215.png' data-src='./screenshots/03101622152215.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:15 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:16 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622162216.png' width='10%' src='./screenshots/03101622162216.png' data-src='./screenshots/03101622162216.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:17 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:17 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622172217.png' width='10%' src='./screenshots/03101622172217.png' data-src='./screenshots/03101622172217.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:17 PM</td>
+					<td class='step-details'><span class='label white-text green'>What are Child Labor and Forced Labor? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:18 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622182218.png' width='10%' src='./screenshots/03101622182218.png' data-src='./screenshots/03101622182218.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:18 PM</td>
+					<td class='step-details'><span class='label white-text green'>What are Child Labor and Forced Labor? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:18 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622182218.png' width='10%' src='./screenshots/03101622182218.png' data-src='./screenshots/03101622182218.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:18 PM</td>
+					<td class='step-details'><span class='label white-text green'>Why Develop a Social Compliance System? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:18 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622182218.png' width='10%' src='./screenshots/03101622182218.png' data-src='./screenshots/03101622182218.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:18 PM</td>
+					<td class='step-details'><span class='label white-text green'>Why Develop a Social Compliance System? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:19 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622192219.png' width='10%' src='./screenshots/03101622192219.png' data-src='./screenshots/03101622192219.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:19 PM</td>
+					<td class='step-details'><span class='label white-text green'>Basics of a Social Compliance System link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:19 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622192219.png' width='10%' src='./screenshots/03101622192219.png' data-src='./screenshots/03101622192219.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:19 PM</td>
+					<td class='step-details'><span class='label white-text green'>Basics of a Social Compliance System link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:19 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622192219.png' width='10%' src='./screenshots/03101622192219.png' data-src='./screenshots/03101622192219.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:19 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:20 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622202220.png' width='10%' src='./screenshots/03101622202220.png' data-src='./screenshots/03101622202220.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:20 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Verified with Expandable Arrow Mark</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:20 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622202220.png' width='10%' src='./screenshots/03101622202220.png' data-src='./screenshots/03101622202220.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:20 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Expanded</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:20 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622202220.png' width='10%' src='./screenshots/03101622202220.png' data-src='./screenshots/03101622202220.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:20 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 1: Engage Stakeholders and Partners is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:21 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622212221.png' width='10%' src='./screenshots/03101622212221.png' data-src='./screenshots/03101622212221.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:21 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 1: Engage Stakeholders and Partners is Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:21 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622212221.png' width='10%' src='./screenshots/03101622212221.png' data-src='./screenshots/03101622212221.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:21 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 2: Assess Risks And Impacts is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:22 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622222222.png' width='10%' src='./screenshots/03101622222222.png' data-src='./screenshots/03101622222222.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:22 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 2: Assess Risks And Impacts is Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:22 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622222222.png' width='10%' src='./screenshots/03101622222222.png' data-src='./screenshots/03101622222222.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:22 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 3: Develop a Code of Conduct displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:22 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622222222.png' width='10%' src='./screenshots/03101622222222.png' data-src='./screenshots/03101622222222.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:22 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 3: Develop a Code of Conduct Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:23 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622232223.png' width='10%' src='./screenshots/03101622232223.png' data-src='./screenshots/03101622232223.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:23 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 4: Communicate and Train across your Supply Chain displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:23 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622232223.png' width='10%' src='./screenshots/03101622232223.png' data-src='./screenshots/03101622232223.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:23 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 4: Communicate and Train across your Supply Chain Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:23 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622232223.png' width='10%' src='./screenshots/03101622232223.png' data-src='./screenshots/03101622232223.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:23 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 5: Monitor Compliance is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:24 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622242224.png' width='10%' src='./screenshots/03101622242224.png' data-src='./screenshots/03101622242224.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:24 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 5: Monitor Compliance Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:24 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622242224.png' width='10%' src='./screenshots/03101622242224.png' data-src='./screenshots/03101622242224.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:24 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 6: Remediate Violations displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:25 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622252225.png' width='10%' src='./screenshots/03101622252225.png' data-src='./screenshots/03101622252225.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:25 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 6: Remediate Violations Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:25 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622252225.png' width='10%' src='./screenshots/03101622252225.png' data-src='./screenshots/03101622252225.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:25 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 7: Independent Review displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:25 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622252225.png' width='10%' src='./screenshots/03101622252225.png' data-src='./screenshots/03101622252225.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:25 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 7: Independent Review Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:26 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622262226.png' width='10%' src='./screenshots/03101622262226.png' data-src='./screenshots/03101622262226.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:26 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 8: Report Performance displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:26 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622262226.png' width='10%' src='./screenshots/03101622262226.png' data-src='./screenshots/03101622262226.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:26 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 8: Report Performance Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:26 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622262226.png' width='10%' src='./screenshots/03101622262226.png' data-src='./screenshots/03101622262226.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:26 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Collapsed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:27 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622272227.png' width='10%' src='./screenshots/03101622272227.png' data-src='./screenshots/03101622272227.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:27 PM</td>
+					<td class='step-details'><span class='label white-text green'>MENU is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:27 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622272227.png' width='10%' src='./screenshots/03101622272227.png' data-src='./screenshots/03101622272227.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:27 PM</td>
+					<td class='step-details'><span class='label white-text green'>MenuVerification_English Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Steps in Español</span>
+						<span class='test-time'>Mar 10, 2019 04:22:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:22:33 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:22:47 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+56ms</span>
+</div>
+	<div class='test-desc'>Verify Step Items in Español </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:33 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:33 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622332233.png' width='10%' src='./screenshots/03101622332233.png' data-src='./screenshots/03101622332233.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:33 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:34 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622342234.png' width='10%' src='./screenshots/03101622342234.png' data-src='./screenshots/03101622342234.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:34 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:34 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622342234.png' width='10%' src='./screenshots/03101622342234.png' data-src='./screenshots/03101622342234.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:36 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:36 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622362236.png' width='10%' src='./screenshots/03101622362236.png' data-src='./screenshots/03101622362236.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:37 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Qué son el trabajo infantil y el trabajo forzoso? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:37 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622372237.png' width='10%' src='./screenshots/03101622372237.png' data-src='./screenshots/03101622372237.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:37 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Qué son el trabajo infantil y el trabajo forzoso? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:37 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622372237.png' width='10%' src='./screenshots/03101622372237.png' data-src='./screenshots/03101622372237.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:37 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Por qué crear un sistema de cumplimiento social? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:38 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622382238.png' width='10%' src='./screenshots/03101622382238.png' data-src='./screenshots/03101622382238.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:38 PM</td>
+					<td class='step-details'><span class='label white-text green'>¿Por qué crear un sistema de cumplimiento social? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:38 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622382238.png' width='10%' src='./screenshots/03101622382238.png' data-src='./screenshots/03101622382238.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:38 PM</td>
+					<td class='step-details'><span class='label white-text green'>Aspectos básicos de un sistema de cumplimiento social link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:38 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622382238.png' width='10%' src='./screenshots/03101622382238.png' data-src='./screenshots/03101622382238.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:38 PM</td>
+					<td class='step-details'><span class='label white-text green'>Aspectos básicos de un sistema de cumplimiento social link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:39 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622392239.png' width='10%' src='./screenshots/03101622392239.png' data-src='./screenshots/03101622392239.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:39 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pasos hacia un sistema de cumplimiento social is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:39 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622392239.png' width='10%' src='./screenshots/03101622392239.png' data-src='./screenshots/03101622392239.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:39 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:40 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622402240.png' width='10%' src='./screenshots/03101622402240.png' data-src='./screenshots/03101622402240.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:40 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Expanded</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:40 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622402240.png' width='10%' src='./screenshots/03101622402240.png' data-src='./screenshots/03101622402240.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:40 PM</td>
+					<td class='step-details'><span class='label white-text green'>Primer paso: Participación de las partes interesadas y los socios is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:40 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622402240.png' width='10%' src='./screenshots/03101622402240.png' data-src='./screenshots/03101622402240.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:41 PM</td>
+					<td class='step-details'><span class='label white-text green'>Primer paso: Participación de las partes interesadas y los socios is Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:41 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622412241.png' width='10%' src='./screenshots/03101622412241.png' data-src='./screenshots/03101622412241.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:41 PM</td>
+					<td class='step-details'><span class='label white-text green'>Segundo paso: Evaluación de riesgos e impacto is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:41 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622412241.png' width='10%' src='./screenshots/03101622412241.png' data-src='./screenshots/03101622412241.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:41 PM</td>
+					<td class='step-details'><span class='label white-text green'>Segundo paso: Evaluación de riesgos e impacto is Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:42 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622422242.png' width='10%' src='./screenshots/03101622422242.png' data-src='./screenshots/03101622422242.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:42 PM</td>
+					<td class='step-details'><span class='label white-text green'>Tercer paso: Formulación de un código de conducta is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:42 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622422242.png' width='10%' src='./screenshots/03101622422242.png' data-src='./screenshots/03101622422242.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:42 PM</td>
+					<td class='step-details'><span class='label white-text green'>Tercer paso: Formulación de un código de conducta Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:42 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622422242.png' width='10%' src='./screenshots/03101622422242.png' data-src='./screenshots/03101622422242.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:42 PM</td>
+					<td class='step-details'><span class='label white-text green'>Cuarto paso: Comunicación y capacitación en la cadena de suministro is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:43 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622432243.png' width='10%' src='./screenshots/03101622432243.png' data-src='./screenshots/03101622432243.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:43 PM</td>
+					<td class='step-details'><span class='label white-text green'>Cuarto paso: Comunicación y capacitación en la cadena de suministro Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:43 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622432243.png' width='10%' src='./screenshots/03101622432243.png' data-src='./screenshots/03101622432243.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:43 PM</td>
+					<td class='step-details'><span class='label white-text green'>Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:43 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622432243.png' width='10%' src='./screenshots/03101622432243.png' data-src='./screenshots/03101622432243.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:43 PM</td>
+					<td class='step-details'><span class='label white-text green'>Quinto paso: Vigilancia y seguimiento del cumplimiento Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:44 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622442244.png' width='10%' src='./screenshots/03101622442244.png' data-src='./screenshots/03101622442244.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:44 PM</td>
+					<td class='step-details'><span class='label white-text green'>Sexto paso: Remediación de infracciones is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:44 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622442244.png' width='10%' src='./screenshots/03101622442244.png' data-src='./screenshots/03101622442244.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:44 PM</td>
+					<td class='step-details'><span class='label white-text green'>Sexto paso: Remediación de infracciones Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:45 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622452245.png' width='10%' src='./screenshots/03101622452245.png' data-src='./screenshots/03101622452245.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:45 PM</td>
+					<td class='step-details'><span class='label white-text green'>Séptimo paso: Examen independiente displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:45 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622452245.png' width='10%' src='./screenshots/03101622452245.png' data-src='./screenshots/03101622452245.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:45 PM</td>
+					<td class='step-details'><span class='label white-text green'>Séptimo paso: Examen independiente Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:45 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622452245.png' width='10%' src='./screenshots/03101622452245.png' data-src='./screenshots/03101622452245.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:45 PM</td>
+					<td class='step-details'><span class='label white-text green'>Octavo paso: Notificación del desempeño is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:46 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622462246.png' width='10%' src='./screenshots/03101622462246.png' data-src='./screenshots/03101622462246.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:46 PM</td>
+					<td class='step-details'><span class='label white-text green'>Octavo paso: Notificación del desempeño Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:46 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622462246.png' width='10%' src='./screenshots/03101622462246.png' data-src='./screenshots/03101622462246.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:46 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Collapsed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:46 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622462246.png' width='10%' src='./screenshots/03101622462246.png' data-src='./screenshots/03101622462246.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:47 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:47 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622472247.png' width='10%' src='./screenshots/03101622472247.png' data-src='./screenshots/03101622472247.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:47 PM</td>
+					<td class='step-details'><span class='label white-text green'>MenuVerification_Español Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>Verify Steps in Français</span>
+						<span class='test-time'>Mar 10, 2019 04:22:53 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 10, 2019 04:22:53 PM</span>
+	<span class='label end-time'>Mar 10, 2019 04:23:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 13s+738ms</span>
+</div>
+	<div class='test-desc'>Verify Step Items in Français </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:53 PM</td>
+					<td class='step-details'><span class='label white-text green'>Comply Chain Logo is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:53 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622532253.png' width='10%' src='./screenshots/03101622532253.png' data-src='./screenshots/03101622532253.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:53 PM</td>
+					<td class='step-details'><span class='label white-text green'>ILAB is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:54 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622542254.png' width='10%' src='./screenshots/03101622542254.png' data-src='./screenshots/03101622542254.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:54 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menu is Displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:54 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622542254.png' width='10%' src='./screenshots/03101622542254.png' data-src='./screenshots/03101622542254.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:56 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menú is opened Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:57 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622572257.png' width='10%' src='./screenshots/03101622572257.png' data-src='./screenshots/03101622572257.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:57 PM</td>
+					<td class='step-details'><span class='label white-text green'>Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:57 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622572257.png' width='10%' src='./screenshots/03101622572257.png' data-src='./screenshots/03101622572257.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:57 PM</td>
+					<td class='step-details'><span class='label white-text green'>Qu'est-ce que le travail des enfants et le travail forcé ? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:57 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622572257.png' width='10%' src='./screenshots/03101622572257.png' data-src='./screenshots/03101622572257.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:57 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pourquoi élaborer un système de conformité sociale ? link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:58 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622582258.png' width='10%' src='./screenshots/03101622582258.png' data-src='./screenshots/03101622582258.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:58 PM</td>
+					<td class='step-details'><span class='label white-text green'>Pourquoi élaborer un système de conformité sociale ? link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:58 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622582258.png' width='10%' src='./screenshots/03101622582258.png' data-src='./screenshots/03101622582258.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:58 PM</td>
+					<td class='step-details'><span class='label white-text green'>Fondements d’un système de conformité sociale link is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:58 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622582258.png' width='10%' src='./screenshots/03101622582258.png' data-src='./screenshots/03101622582258.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:58 PM</td>
+					<td class='step-details'><span class='label white-text green'>Fondements d’un système de conformité sociale link Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:59 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622592259.png' width='10%' src='./screenshots/03101622592259.png' data-src='./screenshots/03101622592259.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:59 PM</td>
+					<td class='step-details'><span class='label white-text green'>Étapes vers un système de conformité sociale is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:59 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622592259.png' width='10%' src='./screenshots/03101622592259.png' data-src='./screenshots/03101622592259.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:22:59 PM</td>
+					<td class='step-details'><span class='label white-text green'>Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:22:59 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/03101622592259.png' width='10%' src='./screenshots/03101622592259.png' data-src='./screenshots/03101622592259.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:00 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Expanded</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:00 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162300230.png' width='10%' src='./screenshots/0310162300230.png' data-src='./screenshots/0310162300230.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:00 PM</td>
+					<td class='step-details'><span class='label white-text green'>Première étape: faire participer les parties prenantes et les partenaires is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:00 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162300230.png' width='10%' src='./screenshots/0310162300230.png' data-src='./screenshots/0310162300230.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:00 PM</td>
+					<td class='step-details'><span class='label white-text green'>Première étape: faire participer les parties prenantes et les partenaires is Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:01 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162301231.png' width='10%' src='./screenshots/0310162301231.png' data-src='./screenshots/0310162301231.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:01 PM</td>
+					<td class='step-details'><span class='label white-text green'>Deuxième étape: Évaluer les risques et les incidences is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:01 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162301231.png' width='10%' src='./screenshots/0310162301231.png' data-src='./screenshots/0310162301231.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:01 PM</td>
+					<td class='step-details'><span class='label white-text green'>Deuxième étape: Évaluer les risques et les incidences is Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:01 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162301231.png' width='10%' src='./screenshots/0310162301231.png' data-src='./screenshots/0310162301231.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>Troisième étape: élaborer un code de conduite is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:02 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162302232.png' width='10%' src='./screenshots/0310162302232.png' data-src='./screenshots/0310162302232.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>Troisième étape: élaborer un code de conduite Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:02 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162302232.png' width='10%' src='./screenshots/0310162302232.png' data-src='./screenshots/0310162302232.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>Step 4: Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:03 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162303233.png' width='10%' src='./screenshots/0310162303233.png' data-src='./screenshots/0310162303233.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:03 PM</td>
+					<td class='step-details'><span class='label white-text green'>Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:03 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162303233.png' width='10%' src='./screenshots/0310162303233.png' data-src='./screenshots/0310162303233.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:03 PM</td>
+					<td class='step-details'><span class='label white-text green'>Cinquième étape: Surveiller la conformité is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:03 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162303233.png' width='10%' src='./screenshots/0310162303233.png' data-src='./screenshots/0310162303233.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:03 PM</td>
+					<td class='step-details'><span class='label white-text green'>Cinquième étape:  Surveiller la conformité Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:04 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162304234.png' width='10%' src='./screenshots/0310162304234.png' data-src='./screenshots/0310162304234.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>Sixième étape: Réparer les infractions is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:04 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162304234.png' width='10%' src='./screenshots/0310162304234.png' data-src='./screenshots/0310162304234.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>Sixième étape: Réparer les infractions</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:04 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162304234.png' width='10%' src='./screenshots/0310162304234.png' data-src='./screenshots/0310162304234.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>Septième étape: Examen indépendant is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:05 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162305235.png' width='10%' src='./screenshots/0310162305235.png' data-src='./screenshots/0310162305235.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:05 PM</td>
+					<td class='step-details'><span class='label white-text green'>Septième étape: Examen indépendant Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:05 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162305235.png' width='10%' src='./screenshots/0310162305235.png' data-src='./screenshots/0310162305235.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:05 PM</td>
+					<td class='step-details'><span class='label white-text green'>Huitième étape: Rendre compte des résultats is displayed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:05 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162305235.png' width='10%' src='./screenshots/0310162305235.png' data-src='./screenshots/0310162305235.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:05 PM</td>
+					<td class='step-details'><span class='label white-text green'>Huitième étape: Rendre compte des résultats Verified</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162306236.png' width='10%' src='./screenshots/0310162306236.png' data-src='./screenshots/0310162306236.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Steps to a social compliance system Collapsed</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:06 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162306236.png' width='10%' src='./screenshots/0310162306236.png' data-src='./screenshots/0310162306236.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:06 PM</td>
+					<td class='step-details'><span class='label white-text green'>Menu is closed Successfully</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>4:23:07 PM</td>
+					<td class='step-details'><img data-featherlight='./screenshots/0310162307237.png' width='10%' src='./screenshots/0310162307237.png' data-src='./screenshots/0310162307237.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>4:23:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>MenuVerification_Français Test Case PASSED</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>9</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>357</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Mar 10, 2019 04:20:55 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Mar 10, 2019 04:23:07 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 2m 12s+602ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Project Name</td>
+								<td>DOL COMPLY CHAIN</td>
+							</tr>
+							<tr>
+								<td>User Name</td>
+								<td>KAVITHA MALLIPEDDI</td>
+							</tr>
+							<tr>
+								<td>Automation Tool</td>
+								<td>SELENIUM/JAVA</td>
+							</tr>
+							<tr>
+								<td>Java Version</td>
+								<td>1.8.0_191</td>
+							</tr>
+							<tr>
+								<td>Operating System</td>
+								<td>WINDOWS 10</td>
+							</tr>
+							<tr>
+								<td>Host Name</td>
+								<td>DESKTOP-I4MRD09</td>
+							</tr>
+							<tr>
+								<td>IP Address</td>
+								<td>192.168.200.4</td>
+							</tr>
+							<tr>
+								<td>Environment</td>
+								<td>TEST</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 9,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 183,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 174,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
