@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WEB Regression Suite" configfailurepolicy="continue"
+	preserve-order="true">
+	<test name="Regression Test">
+		<classes>
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_002" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_003" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_004" />
+		</classes>
+	</test>
+</suite> 
