@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [ANDROID Regression Suite]">
+  <test thread-count="5" name="Regression Test(failed)">
+    <classes>
+      <class name="com.framework.testcases.ANDROID.AndroidTest1">
+        <methods>
+          <include name="initializeReport"/>
+          <include name="tearDown"/>
+          <include name="quitbrowser"/>
+          <include name="androidTest1"/>
+          <include name="initializeDriver"/>
+        </methods>
+      </class> <!-- com.framework.testcases.ANDROID.AndroidTest1 -->
+    </classes>
+  </test> <!-- Regression Test(failed) -->
+</suite> <!-- Failed suite [ANDROID Regression Suite] -->
