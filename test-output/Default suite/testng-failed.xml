@@ -6,10 +6,8 @@
       <class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001">
         <methods>
           <include name="HomePageVerification_Español"/>
-          <include name="HomePageVerification_English"/>
           <include name="quitbrowser"/>
           <include name="initializeDriver"/>
-          <include name="HomePageVerification_Français"/>
           <include name="initializeReport"/>
           <include name="tearDown"/>
         </methods>
