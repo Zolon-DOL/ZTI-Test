@@ -6,7 +6,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.dol.complychain.basetest.BaseTest;
 import com.dol.complychain.pages.*;
 
-public class DOL_CC_HP_TC_002 extends BaseTest {
+public class DOL_CC_WEB_TC_002 extends BaseTest {
 
 	@Test
 	public void MenuVerification_English() throws Exception {

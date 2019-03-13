@@ -160,8 +160,7 @@ public class HomePage extends BasePage {
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
 			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")
-					&& share.getAttribute("href").trim().contains("/share")) {
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
 			} else {
 				logFail("Share Verification Failed");
@@ -182,45 +181,6 @@ public class HomePage extends BasePage {
 		} else {
 			logFail("About link is not displayed");
 		}
-
-		/*
-		 * // WHAT_ARE if (whatare.isDisplayed()) {
-		 * logPass("What are Child Labor and Forced Labor? link is displayed"); if
-		 * (whatare.getText().trim().
-		 * equalsIgnoreCase("What are Child Labor and Forced Labor?") &&
-		 * whatare.getAttribute("href").trim().contains("/what-are")) {
-		 * logPass("What are Child Labor and Forced Labor? link Verified"); } else {
-		 * logFail("What are Child Labor and Forced Labor? Verification Failed"); } }
-		 * else {
-		 * logFail("What are Child Labor and Forced Labor? link is not displayed"); }
-		 * 
-		 * // WHY_DEVOLOP if (whydevelop.isDisplayed()) {
-		 * logPass("Why Develop a Social Compliance System? link is displayed"); if
-		 * (whydevelop.getText().trim().
-		 * equalsIgnoreCase("Why Develop a Social Compliance System?") &&
-		 * whydevelop.getAttribute("href").trim().contains("/why-develop")) {
-		 * logPass("Why Develop a Social Compliance System? link Verified"); } else {
-		 * logFail("Why Develop a Social Compliance System? Verification Failed"); } }
-		 * else {
-		 * logFail("Why Develop a Social Compliance System? link is not displayed"); }
-		 * 
-		 * // BASICS if (basics.isDisplayed()) {
-		 * logPass("Basics of a Social Compliance System link is displayed"); if
-		 * (basics.getText().trim().
-		 * equalsIgnoreCase("Basics of a Social Compliance System") &&
-		 * basics.getAttribute("href").trim().contains("/basics")) {
-		 * logPass("Basics of a Social Compliance System link Verified"); } else {
-		 * logFail("Basics of a Social Compliance System Verification Failed"); } } else
-		 * { logFail("Basics of a Social Compliance System link is not displayed"); }
-		 * 
-		 * // Steps Drop Down if (stepsdropdown.isDisplayed()) {
-		 * logPass("Steps to a social compliance system is displayed"); if
-		 * (stepsdropdown.getText().trim().
-		 * equalsIgnoreCase("Steps to a social compliance system")) {
-		 * logPass("Steps to a social compliance system Verified"); } else {
-		 * logFail("Steps to a social compliance system Verification Failed"); } } else
-		 * { logFail("Steps to a social compliance system link is not displayed"); }
-		 */
 	}
 
 	public void HomePageVerification_ES() throws Exception {
@@ -286,8 +246,7 @@ public class HomePage extends BasePage {
 		// Bottom Bar - Buscar
 		if (search.isDisplayed()) {
 			logPass("Buscar link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Buscar")
-					&& search.getAttribute("href").trim().contains("/search")) {
+			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Buscar")) {
 				logPass("Buscar link Verified");
 			} else {
 				logFail("Buscar Verification Failed");
@@ -299,8 +258,7 @@ public class HomePage extends BasePage {
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
 			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")
-					&& share.getAttribute("href").trim().contains("/share")) {
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
 			} else {
 				logFail("Share Verification Failed");
@@ -322,53 +280,6 @@ public class HomePage extends BasePage {
 			logFail("About link is not displayed");
 		}
 
-		/*
-		 * // WHAT_ARE if (whatare.isDisplayed()) {
-		 * logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link is displayed"
-		 * ); if (whatare.getText().trim().
-		 * equalsIgnoreCase("¿Qué son el trabajo infantil y el trabajo forzoso?") &&
-		 * whatare.getAttribute("href").trim().contains("/what-are")) {
-		 * logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link Verified");
-		 * } else {
-		 * logFail("¿Qué son el trabajo infantil y el trabajo forzoso?? Verification Failed"
-		 * ); } } else {
-		 * logFail("¿Qué son el trabajo infantil y el trabajo forzoso? link is not displayed"
-		 * ); }
-		 * 
-		 * // WHY_DEVOLOP if (whydevelop.isDisplayed()) {
-		 * logPass("¿Por qué crear un sistema de cumplimiento social? link is displayed"
-		 * ); if (whydevelop.getText().trim().
-		 * equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?") &&
-		 * whydevelop.getAttribute("href").trim().contains("/why-develop")) {
-		 * logPass("¿Por qué crear un sistema de cumplimiento social? link Verified"); }
-		 * else {
-		 * logFail("¿Por qué crear un sistema de cumplimiento social? Verification Failed"
-		 * ); } } else {
-		 * logFail("¿Por qué crear un sistema de cumplimiento social? link is not displayed"
-		 * ); }
-		 * 
-		 * // BASICS if (basics.isDisplayed()) {
-		 * logPass("Aspectos básicos de un sistema de cumplimiento social link is displayed"
-		 * ); if (basics.getText().trim().
-		 * equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social") &&
-		 * basics.getAttribute("href").trim().contains("/basics")) {
-		 * logPass("Aspectos básicos de un sistema de cumplimiento social link Verified"
-		 * ); } else {
-		 * logFail("Aspectos básicos de un sistema de cumplimiento social Verification Failed"
-		 * ); } } else {
-		 * logFail("Aspectos básicos de un sistema de cumplimiento social link is not displayed"
-		 * ); }
-		 * 
-		 * // Steps Drop Down if (stepsdropdown.isDisplayed()) {
-		 * logPass("Pasos hacia un sistema de cumplimiento social is displayed"); if
-		 * (stepsdropdown.getText().trim().
-		 * equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
-		 * logPass("Pasos hacia un sistema de cumplimiento social Verified"); } else {
-		 * logFail("Pasos hacia un sistema de cumplimiento social Verification Failed");
-		 * } } else {
-		 * logFail("Pasos hacia un sistema de cumplimiento social link is not displayed"
-		 * ); }
-		 */
 	}
 
 	public void HomePageVerification_FR() throws Exception {
@@ -447,8 +358,7 @@ public class HomePage extends BasePage {
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
 			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")
-					&& share.getAttribute("href").trim().contains("/share")) {
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
 			} else {
 				logFail("Share Verification Failed");

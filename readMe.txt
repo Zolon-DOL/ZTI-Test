@@ -1,5 +1,3 @@
-test -Denvironment=test -Dtesttype=Regression -Dbrowser=CHROME -Dplatform=WEB
-test -Denvironment=test -Dtesttype=Regression -Dbrowser=FIREFOX -Dplatform=WEB
-test -Denvironment=test -Dtesttype=Regression -Dbrowser=IE -Dplatform=WEB
-
-test -Denvironment=test -Dtesttype=Regression -Dbrowser=null -Dplatform=WEB
+test -Denvironment=TEST -Dplatform=WEB
+test -Denvironment=TEST -Dplatform=ANDROID
+test -Denvironment=TEST -Dplatform=IOS
