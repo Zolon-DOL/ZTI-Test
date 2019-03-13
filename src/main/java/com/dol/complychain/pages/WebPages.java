@@ -10,8 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import com.aventstack.extentreports.ExtentTest;
 import com.dol.complychain.basepage.BasePage;
 import com.dol.complychain.repo.Locator;
+import com.dol.complychain.util.PropUtils;
 
-public class HomePage extends BasePage {
+public class WebPages extends BasePage {
 
 	@FindBy(how = How.ID, using = Locator.COMPLYCHAIN_LOGO_IMG)
 	public WebElement ComplyChainLogo;
@@ -82,7 +83,7 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.ID, using = Locator.STEP8)
 	public WebElement step8;
 
-	public HomePage(WebDriver driver, ExtentTest test) {
+	public WebPages(WebDriver driver, ExtentTest test) {
 		super(DRIVER_LOCAL.get(), test);
 	}
 

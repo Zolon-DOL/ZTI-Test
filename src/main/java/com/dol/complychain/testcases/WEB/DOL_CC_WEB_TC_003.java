@@ -12,7 +12,7 @@ public class DOL_CC_WEB_TC_003 extends BaseTest {
 	public void MenuVerification_English() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in English", "Verify Step Items in English");
 		EXTENT_LOCAL.set(test);
-		HomePage homePage = new HomePage(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
 		homePage.StepsVerification_EN();
 	}
 
@@ -20,7 +20,7 @@ public class DOL_CC_WEB_TC_003 extends BaseTest {
 	public void MenuVerification_Español() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in Español", "Verify Step Items in Español");
 		EXTENT_LOCAL.set(test);
-		HomePage homePage = new HomePage(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
 		homePage.StepsVerification_ES();
 	}
 
@@ -28,7 +28,7 @@ public class DOL_CC_WEB_TC_003 extends BaseTest {
 	public void MenuVerification_Français() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in Français", "Verify Step Items in Français");
 		EXTENT_LOCAL.set(test);
-		HomePage homePage = new HomePage(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
 		homePage.StepsVerification_FR();
 	}
 

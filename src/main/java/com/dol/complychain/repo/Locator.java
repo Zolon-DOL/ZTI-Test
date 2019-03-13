@@ -74,6 +74,18 @@ public class Locator {
 	public static final String REGNOTE = "//*[contains(text(),'Note')]";
 
 	// ANDROID Objects
+	
+	public static final String A_COMPLYCHAIN_LOGO_IMG = "brand-logo";
+	public static final String A_ILAB = "brand-name";
+	public static final String A_MENU = "menu-btn";
+	public static final String A_ENGLISH_BUTTON = "en-btn";
+	public static final String A_SPANISH_BUTTON = "es-btn";
+	public static final String A_FRENCH_BUTTON = "fr-btn";
+	public static final String A_WHAT_ARE = "what-are-link";
+	public static final String A_WHY_DEVOLOP = "why-develop-link";
+	public static final String A_BASICS = "basics-link";
+	public static final String A_STEPS_DROPDOWN = "steps-dropdown";
+	public static final String A_HOMEPAGE_HEADER = "//div[@id='container']/div";
 
 	public static final String AND_CONTACTUS = "//*[@text='Contact Us']";
 	public static final String AND_NAME = "//*[@id='crname']";
