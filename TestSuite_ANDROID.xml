@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ANDROID Regression Suite" configfailurepolicy="continue"
+<suite name="ANDROID Test Suite" configfailurepolicy="continue"
 	preserve-order="true">
-	<test name="Regression Test">
+	<test name="ANDROID Test">
 		<classes>
-			<class name="com.framework.testcases.ANDROID.AndroidTest1" />
-			<class name="com.framework.testcases.ANDROID.AndroidTest1" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_001" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_002" />
 		</classes>
 	</test>
 </suite> 

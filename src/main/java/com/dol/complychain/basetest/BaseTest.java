@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +19,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.ie.InternetExplorerDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -37,7 +35,6 @@ import com.dol.complychain.util.Constants;
 import com.dol.complychain.util.PropUtils;
 import com.dol.complychain.util.ReportUtils;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -57,9 +54,7 @@ public class BaseTest {
 	public static ChromeDriverService GCService;
 	public static String logfolder = null;
 	public static File configFile = PropUtils.getPropFile(Constants.CONFIG_DIR, Constants.CONFIG_FILE_NAME);
-	public static File testconfigFile = PropUtils.getPropFile(Constants.CONFIG_DIR, Constants.TEST_CONFIG_FILE_NAME);
 	public static Properties configProp = PropUtils.getProps(configFile);
-	public static Properties testconfigProp = PropUtils.getProps(testconfigFile);
 	public static String resultFile;
 	public static String indexFile;
 	public static String reportsFolder;
@@ -70,44 +65,33 @@ public class BaseTest {
 	public static void initializeReport() throws Exception {
 
 		if (System.getProperty("pomPlatform") != null) {
-
-			System.out.println("POM Environment is: " + System.getProperty("pomEnvironment"));
 			System.out.println("POM Platform  is: " + System.getProperty("pomPlatform"));
-
-			PropUtils.setProps(configProp, "environment", System.getProperty("pomEnvironment"));
 			PropUtils.setProps(configProp, "platform", System.getProperty("pomPlatform"));
 		}
 
-		if (PropUtils.getPropValue(configProp, "environment").equalsIgnoreCase("TEST")) {
-			PropUtils.setProps(configProp, "appURL", testconfigProp.getProperty("appURL"));
-		}
+		PropUtils.setProps(configProp, "appURL", configProp.getProperty("appURL"));
 
 		ReportUtils.createResultsFolder(Constants.REPORTS_DIR);
 		Date currentdate = new Date();
 		reportsFolder = Constants.REPORTS_DIR + new SimpleDateFormat("MMMMM_dd_yyyy").format(currentdate);
 		ReportUtils.createResultsFolder(reportsFolder);
-		System.out.println("reportsFolder" + reportsFolder);
 
 		instancereportsFolder = reportsFolder + Constants.FILE_SEPARATOR
 				+ new SimpleDateFormat("MMMMM_dd_yyyy_hh-mm").format(currentdate);
 		ReportUtils.createResultsFolder(instancereportsFolder);
-		System.out.println("instancereportsFolder" + instancereportsFolder);
 
 		ssFolder = instancereportsFolder + Constants.FILE_SEPARATOR + "screenshots";
 		ReportUtils.createResultsFolder(ssFolder);
 		FileUtils.cleanDirectory(new File(ssFolder));
 		ReportUtils.createResultsFolder("./screenshots");
 		FileUtils.cleanDirectory(new File("./screenshots"));
-		System.out.println("ssFolder" + ssFolder);
 
 		resultFile = instancereportsFolder + Constants.FILE_SEPARATOR
 				+ PropUtils.getPropValue(configProp, "projectName") + "_"
 				+ new SimpleDateFormat("MMM-dd-yyyy_hh-mm").format(currentdate) + "_" + "AutomationResults.html";
-		System.out.println("resultFile" + resultFile);
 
 		// indexFile = Constants.REPORTS_DIR + Constants.FILE_SEPARATOR + "index.html";
 		indexFile = "./index.html";
-		System.out.println("indexFile" + indexFile);
 
 		// Configuring Extent Reports
 		if (extent == null) {
@@ -123,8 +107,8 @@ public class BaseTest {
 			extent.setSystemInfo("IP Address", InetAddress.getLocalHost().getHostAddress().trim().toUpperCase());
 			extent.setSystemInfo("Environment", PropUtils.getPropValue(configProp, "environment").trim().toUpperCase());
 
-			htmlReporter.config().setDocumentTitle(PropUtils.getPropValue(configProp, "projectName")
-					+ " " +  PropUtils.getPropValue(configProp, "platform") + " Automation Testing Report");
+			htmlReporter.config().setDocumentTitle(PropUtils.getPropValue(configProp, "projectName") + " "
+					+ PropUtils.getPropValue(configProp, "platform") + " Automation Testing Report");
 			htmlReporter.config().setReportName(PropUtils.getPropValue(configProp, "platform") + " Automation Testing");
 			htmlReporter.config().setTheme(Theme.STANDARD);
 		}
@@ -142,12 +126,17 @@ public class BaseTest {
 			dc.setCapability("reportFormat", "xml");
 			dc.setCapability("testName", "Android Test");
 			dc.setCapability(MobileCapabilityType.UDID, PropUtils.getPropValue(configProp, "AndroidUDID"));
-			dc.setCapability("accessKey",PropUtils.getPropValue(configProp, "accessKey"));
+			dc.setCapability("accessKey", PropUtils.getPropValue(configProp, "accessKey"));
+			dc.setCapability("fullReset", false);
+			
 			// dc.setCapability("appPackage", "in.smartappcart.contactmanager");
 			// dc.setCapability("appActivity", "in.smartappcart.contactmanager.Sactivity");
-			dc.setCapability(MobileCapabilityType.APP, "cloud:" + PropUtils.getPropValue(configProp, "AndroidBundleId"));
+			dc.setCapability(MobileCapabilityType.APP,
+					"cloud:" + PropUtils.getPropValue(configProp, "AndroidBundleId"));
 			driver = new AndroidDriver<MobileElement>(new URL(PropUtils.getPropValue(configProp, "server")), dc);
 			DRIVER_LOCAL.set(driver);
+			DRIVER_LOCAL.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			DRIVER_LOCAL.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			break;
 		case "IOS":
 			System.out.println("Platform - " + platform);
@@ -155,12 +144,16 @@ public class BaseTest {
 			dc.setCapability("reportFormat", "xml");
 			dc.setCapability("testName", "IOS Test");
 			dc.setCapability(MobileCapabilityType.UDID, PropUtils.getPropValue(configProp, "IOSUDID"));
-			dc.setCapability("accessKey",PropUtils.getPropValue(configProp, "accessKey"));
+			dc.setCapability("accessKey", PropUtils.getPropValue(configProp, "accessKey"));
 			dc.setCapability(MobileCapabilityType.APP, "cloud:" + PropUtils.getPropValue(configProp, "IOSBundleId"));
 			dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, PropUtils.getPropValue(configProp, "IOSBundleId"));
 			dc.setCapability("autoWebview", "false");
+			dc.setCapability("fullReset", true);
+			//dc.setCapability("nativeInstrumentsLib", true);
 			driver = new IOSDriver<MobileElement>(new URL(PropUtils.getPropValue(configProp, "server")), dc);
 			DRIVER_LOCAL.set(driver);
+			DRIVER_LOCAL.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			DRIVER_LOCAL.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			break;
 		case "WEB":
 			System.out.println("Platform - " + platform);

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="WEB Regression Suite" configfailurepolicy="continue"
+<suite name="WEB Test Suite" configfailurepolicy="continue"
 	preserve-order="true">
-	<test name="Regression Test">
+	<test name="WEB Test">
 		<classes>
-			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001" />
-			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_002" />
-			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_003" />
-			<class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_004" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_002" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_003" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_004" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_005" />
+			<class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_006" />
 		</classes>
 	</test>
 </suite> 

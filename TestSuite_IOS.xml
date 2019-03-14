@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="IOS Regression Suite" configfailurepolicy="continue"
+<suite name="IOS Test Suite" configfailurepolicy="continue"
 	preserve-order="true">
-	<test name="Regression Test">
+	<test name="IOS Test">
 		<classes>
-			<class name="com.framework.testcases.IOS.IOSTest1" />
-			<class name="com.framework.testcases.IOS.IOSTest2" />
+			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_001" />
+			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_002" />
+			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_003" />
 		</classes>
 	</test>
 </suite> 

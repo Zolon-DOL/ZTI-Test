@@ -26,5 +26,4 @@ public interface Constants {
 
 	// Files names of Configuration
 	public static final String CONFIG_FILE_NAME = "config.properties";
-	public static final String TEST_CONFIG_FILE_NAME = "test.properties";
 }

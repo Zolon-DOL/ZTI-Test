@@ -11,7 +11,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<environment></environment>
 		<platform></platform>
 	</properties>
 
@@ -38,7 +37,6 @@
 					</includes>
 
 					<systemProperties>
-						<pomEnvironment>${environment}</pomEnvironment>
 						<pomPlatform>${platform}</pomPlatform>
 					</systemProperties>
 

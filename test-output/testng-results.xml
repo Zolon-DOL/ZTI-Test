@@ -1,78 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="36695" started-at="2019-03-13T00:08:05Z" finished-at="2019-03-13T00:08:42Z">
+  <suite name="Default suite" duration-ms="22260" started-at="2019-03-14T20:10:50Z" finished-at="2019-03-14T20:11:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="36695" started-at="2019-03-13T00:08:05Z" finished-at="2019-03-13T00:08:42Z">
-      <class name="com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001">
-        <test-method status="PASS" signature="initializeReport()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="initializeReport" is-config="true" duration-ms="182" started-at="2019-03-13T00:08:05Z" finished-at="2019-03-13T00:08:05Z">
+    <test name="Default test" duration-ms="22260" started-at="2019-03-14T20:10:50Z" finished-at="2019-03-14T20:11:12Z">
+      <class name="com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001">
+        <test-method status="PASS" signature="initializeReport()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001@7085bdee]" name="initializeReport" is-config="true" duration-ms="130" started-at="2019-03-14T20:10:49Z" finished-at="2019-03-14T20:10:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeReport -->
-        <test-method status="PASS" signature="initializeDriver()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="initializeDriver" is-config="true" duration-ms="5526" started-at="2019-03-13T00:08:05Z" finished-at="2019-03-13T00:08:11Z">
+        <test-method status="PASS" signature="initializeDriver()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001@7085bdee]" name="initializeDriver" is-config="true" duration-ms="14059" started-at="2019-03-14T20:10:50Z" finished-at="2019-03-14T20:11:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeDriver -->
-        <test-method status="PASS" signature="HomePageVerification_English()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="HomePageVerification_English" duration-ms="6116" started-at="2019-03-13T00:08:11Z" finished-at="2019-03-13T00:08:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- HomePageVerification_English -->
-        <test-method status="PASS" signature="quitbrowser(org.testng.ITestResult)[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="quitbrowser" is-config="true" duration-ms="621" started-at="2019-03-13T00:08:17Z" finished-at="2019-03-13T00:08:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=HomePageVerification_English status=SUCCESS method=DOL_CC_HP_TC_001.HomePageVerification_English()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quitbrowser -->
-        <test-method status="PASS" signature="initializeDriver()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="initializeDriver" is-config="true" duration-ms="4262" started-at="2019-03-13T00:08:18Z" finished-at="2019-03-13T00:08:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeDriver -->
-        <test-method status="PASS" signature="HomePageVerification_Español()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="HomePageVerification_Español" duration-ms="7356" started-at="2019-03-13T00:08:22Z" finished-at="2019-03-13T00:08:29Z">
+        <test-method status="PASS" signature="HomePageVerification_Español()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001@7085bdee]" name="HomePageVerification_Español" duration-ms="7197" started-at="2019-03-14T20:11:04Z" finished-at="2019-03-14T20:11:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HomePageVerification_Español -->
-        <test-method status="PASS" signature="quitbrowser(org.testng.ITestResult)[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="quitbrowser" is-config="true" duration-ms="667" started-at="2019-03-13T00:08:29Z" finished-at="2019-03-13T00:08:30Z">
+        <test-method status="PASS" signature="quitbrowser(org.testng.ITestResult)[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001@7085bdee]" name="quitbrowser" is-config="true" duration-ms="988" started-at="2019-03-14T20:11:11Z" finished-at="2019-03-14T20:11:12Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=HomePageVerification_Español status=SUCCESS method=DOL_CC_HP_TC_001.HomePageVerification_Español()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5] output={null}]]]>
+                <![CDATA[[TestResult name=HomePageVerification_Español status=SUCCESS method=DOL_CC_WEB_TC_001.HomePageVerification_Español()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001@7085bdee] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitbrowser -->
-        <test-method status="PASS" signature="initializeDriver()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="initializeDriver" is-config="true" duration-ms="4299" started-at="2019-03-13T00:08:30Z" finished-at="2019-03-13T00:08:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeDriver -->
-        <test-method status="PASS" signature="HomePageVerification_Français()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="HomePageVerification_Français" duration-ms="7167" started-at="2019-03-13T00:08:34Z" finished-at="2019-03-13T00:08:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- HomePageVerification_Français -->
-        <test-method status="PASS" signature="quitbrowser(org.testng.ITestResult)[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="quitbrowser" is-config="true" duration-ms="660" started-at="2019-03-13T00:08:41Z" finished-at="2019-03-13T00:08:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=HomePageVerification_Français status=SUCCESS method=DOL_CC_HP_TC_001.HomePageVerification_Français()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quitbrowser -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001@598067a5]" name="tearDown" is-config="true" duration-ms="326" started-at="2019-03-13T00:08:42Z" finished-at="2019-03-13T00:08:42Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001@7085bdee]" name="tearDown" is-config="true" duration-ms="189" started-at="2019-03-14T20:11:12Z" finished-at="2019-03-14T20:11:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.dol.complychain.testcases.WEB.DOL_CC_HP_TC_001 -->
+      </class> <!-- com.dol.complychain.testcases.WEB.DOL_CC_WEB_TC_001 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

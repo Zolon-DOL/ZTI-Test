@@ -1,9 +1,5 @@
 package com.dol.complychain.pages;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +10,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.dol.complychain.basepage.BasePage;
 import com.dol.complychain.repo.Locator;
 
-public class WebPages extends BasePage {
+public class AndroidPages extends BasePage {
 
 	@FindBy(how = How.ID, using = Locator.COMPLYCHAIN_LOGO_IMG)
 	public WebElement ComplyChainLogo;
@@ -46,7 +42,7 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.STEPS_DROPDOWN)
 	public WebElement stepsdropdown;
 
-	@FindBy(how = How.XPATH, using = Locator.HOMEPAGE_HEADER)
+	@FindBy(how = How.XPATH, using = Locator.A_HOMEPAGE_HEADER)
 	public WebElement homepageHeader;
 
 	@FindBy(how = How.ID, using = Locator.BOOKMARKS)
@@ -57,6 +53,9 @@ public class WebPages extends BasePage {
 
 	@FindBy(how = How.ID, using = Locator.SHARE)
 	public WebElement share;
+
+	@FindBy(how = How.XPATH, using = Locator.A_SHARE)
+	public WebElement androidshare;
 
 	@FindBy(how = How.ID, using = Locator.ABOUT)
 	public WebElement about;
@@ -85,30 +84,7 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.STEP8)
 	public WebElement step8;
 
-	@FindBy(how = How.ID, using = Locator.PREVIOUSSTEP)
-	public WebElement previosstep;
-
-	@FindBy(how = How.ID, using = Locator.NEXTSTEP)
-	public WebElement nextstep;
-
-	@FindBy(how = How.XPATH, using = Locator.STEPHEADER)
-	public WebElement stepheader;
-
-	@FindBy(how = How.XPATH, using = Locator.STEPACCORDIONS)
-	public List<WebElement> stepAccordions;
-
-	@FindBy(how = How.ID, using = Locator.SEARCHBAR)
-	public WebElement searchbar;
-
-	@FindBy(how = How.XPATH, using = Locator.SEARCHRESULTHEADER)
-	public WebElement searchresultheader;
-
-	@FindBy(how = How.XPATH, using = Locator.SEARCHRESULTSLIST)
-	public List<WebElement> searchresultslist;
-
-	JavascriptExecutor js = (JavascriptExecutor) DRIVER_LOCAL.get();
-
-	public WebPages(WebDriver driver, ExtentTest test) {
+	public AndroidPages(WebDriver driver, ExtentTest test) {
 		super(DRIVER_LOCAL.get(), test);
 	}
 
@@ -144,7 +120,7 @@ public class WebPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Close")) {
 				logPass("MENU is opened Successfully");
-				menu.click();
+				DRIVER_LOCAL.get().navigate().back();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("MENU is closed Successfully");
 				} else {
@@ -160,8 +136,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Bookmarks
 		if (bookmarks.isDisplayed()) {
 			logPass("Bookmarks link is displayed");
-			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
-					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
+			if (bookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
 				logPass("Bookmarks link Verified");
 			} else {
 				logFail("Bookmarks Verification Failed");
@@ -173,8 +148,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Search
 		if (search.isDisplayed()) {
 			logPass("Search link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Search")
-					&& search.getAttribute("href").trim().contains("/search")) {
+			if (search.getText().trim().equalsIgnoreCase("Search")) {
 				logPass("Search link Verified");
 			} else {
 				logFail("Search Verification Failed");
@@ -186,7 +160,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
 			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
+			if (androidshare.getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
 			} else {
 				logFail("Share Verification Failed");
@@ -198,8 +172,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - About
 		if (about.isDisplayed()) {
 			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.getText().trim().equalsIgnoreCase("About")) {
 				logPass("About link Verified");
 			} else {
 				logFail("About Verification Failed");
@@ -243,7 +216,7 @@ public class WebPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Cerrar")) {
 				logPass("Menú is opened Successfully");
-				menu.click();
+				DRIVER_LOCAL.get().navigate().back();
 				if (menu.getText().equalsIgnoreCase("Menú")) {
 					logPass("Menú is closed Successfully");
 				} else {
@@ -259,8 +232,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Bookmarks
 		if (bookmarks.isDisplayed()) {
 			logPass("Bookmarks link is displayed");
-			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
-					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
+			if (bookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
 				logPass("Bookmarks link Verified");
 			} else {
 				logFail("Bookmarks Verification Failed");
@@ -272,7 +244,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Buscar
 		if (search.isDisplayed()) {
 			logPass("Buscar link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Buscar")) {
+			if (search.getText().trim().equalsIgnoreCase("Buscar")) {
 				logPass("Buscar link Verified");
 			} else {
 				logFail("Buscar Verification Failed");
@@ -284,7 +256,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
 			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
+			if (androidshare.getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
 			} else {
 				logFail("Share Verification Failed");
@@ -296,8 +268,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - About
 		if (about.isDisplayed()) {
 			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.getText().trim().equalsIgnoreCase("About")) {
 				logPass("About link Verified");
 			} else {
 				logFail("About Verification Failed");
@@ -342,7 +313,7 @@ public class WebPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Fermer")) {
 				logPass("Menú is opened Successfully");
-				menu.click();
+				DRIVER_LOCAL.get().navigate().back();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("Menu is closed Successfully");
 				} else {
@@ -358,8 +329,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Bookmarks
 		if (bookmarks.isDisplayed()) {
 			logPass("Bookmarks link is displayed");
-			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
-					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
+			if (bookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
 				logPass("Bookmarks link Verified");
 			} else {
 				logFail("Bookmarks Verification Failed");
@@ -371,8 +341,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Rechercher
 		if (search.isDisplayed()) {
 			logPass("Rechercher link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Rechercher")
-					&& search.getAttribute("href").trim().contains("/search")) {
+			if (search.getText().trim().equalsIgnoreCase("Rechercher")) {
 				logPass("Rechercher link Verified");
 			} else {
 				logFail("Rechercher Verification Failed");
@@ -384,7 +353,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
 			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
+			if (androidshare.getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
 			} else {
 				logFail("Share Verification Failed");
@@ -396,8 +365,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - About
 		if (about.isDisplayed()) {
 			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.getText().trim().equalsIgnoreCase("About")) {
 				logPass("About link Verified");
 			} else {
 				logFail("About Verification Failed");
@@ -1389,592 +1357,6 @@ public class WebPages extends BasePage {
 				logPass("Menu is closed Successfully");
 			} else {
 				logFail("Menu is not closed Successfully");
-			}
-		}
-
-	}
-
-	public void LanguageVerification() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("MENU is Displayed");
-			menu.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Close")) {
-				logPass("MENU is opened Successfully");
-			} else {
-				logFail("MENU is not opened Successfully");
-			}
-		} else {
-			logFail("MENU is Not Displayed");
-		}
-
-		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
-			logPass("English Language Button is displayed");
-			english.click();
-			if (DRIVER_LOCAL.get().getCurrentUrl().contains("lang=en")) {
-				logPass("English Language is Selected and Validated from URL");
-			} else {
-				logFail("English Language Selection and Validation Failed");
-			}
-		} else {
-			logFail("English Language Button is not displayed");
-		}
-
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
-			logPass("Español Language Button is displayed");
-			spanish.click();
-			if (DRIVER_LOCAL.get().getCurrentUrl().contains("lang=es")) {
-				logPass("Español Language is Selected and Validated from URL");
-			} else {
-				logFail("Español Language Selection and Validation Failed");
-			}
-		} else {
-			logFail("Español Language Button is not displayed");
-		}
-
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
-			logPass("Français Language Button is displayed");
-			french.click();
-			if (DRIVER_LOCAL.get().getCurrentUrl().contains("lang=fr")) {
-				logPass("Français Language is Selected and Validated from URL");
-			} else {
-				logFail("Français Language Selection and Validation Failed");
-			}
-		} else {
-			logFail("Français Language Button is not displayed");
-		}
-
-		// Close Menu
-		if (menu.isDisplayed()) {
-			menu.click();
-			if (menu.getText().equalsIgnoreCase("Menu")) {
-				logPass("MENU is closed Successfully");
-			} else {
-				logFail("MENU is not closed Successfully");
-			}
-		}
-	}
-
-	public void Search_EN() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("MENU is Displayed");
-			menu.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Close")) {
-				logPass("MENU is opened Successfully");
-				menu.click();
-				if (menu.getText().equalsIgnoreCase("Menu")) {
-					logPass("MENU is closed Successfully");
-				} else {
-					logFail("MENU is not closed Successfully");
-				}
-			} else {
-				logFail("MENU is not opened Successfully");
-			}
-		} else {
-			logFail("MENU is Not Displayed");
-		}
-
-		// Bottom Bar - Search
-		if (search.isDisplayed()) {
-			logPass("Search link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Search")
-					&& search.getAttribute("href").trim().contains("/search")) {
-				logPass("Search link Verified");
-				search.click();
-			} else {
-				logFail("Search Verification Failed");
-			}
-		} else {
-			logFail("Search link is not displayed");
-		}
-
-		// Search Bar
-		if (searchbar.isDisplayed()) {
-			logPass("Search Bar is displayed");
-			searchbar.clear();
-			searchbar.sendKeys("Child Labor");
-			logPass("Search Value 'Child Labor' is displayed");
-			searchbar.submit();
-			sleep(2);
-		} else {
-			logFail("Search bar Verification Failed");
-		}
-
-		// search results validation
-		if (searchresultheader.isDisplayed()) {
-			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
-			System.out.println(resultsheadercount);
-
-			String resultscount = Integer.toString(searchresultslist.size()).trim();
-			System.out.println(resultscount);
-			int SearchCount = 0;
-			int iCount = 0;
-			for (int i = 1; i <= searchresultslist.size(); i++) {
-				iCount = DRIVER_LOCAL.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark"))
-						.size();
-				if (iCount >= 1) {
-					SearchCount++;
-				}
-			}
-			if (resultsheadercount.trim().equals(resultscount) && SearchCount >= Integer.valueOf(resultsheadercount)) {
-				logPass("Search Results for 'Child Labor' are Validated");
-			} else {
-				logFail("Search Results Validation Failed");
-			}
-		}
-	}
-
-	public void Search_ES() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menú is Displayed");
-			menu.click();
-			sleep(1);
-			spanish.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Cerrar")) {
-				logPass("Menú is opened Successfully");
-				menu.click();
-				if (menu.getText().equalsIgnoreCase("Menú")) {
-					logPass("MENU is closed Successfully");
-				} else {
-					logFail("MENU is not closed Successfully");
-				}
-			} else {
-				logFail("Menú is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
-		// Bottom Bar - Buscar
-		if (search.isDisplayed()) {
-			logPass("Buscar link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Buscar")
-					&& search.getAttribute("href").trim().contains("/search")) {
-				logPass("Buscar link Verified");
-				search.click();
-			} else {
-				logFail("Buscar Verification Failed");
-			}
-		} else {
-			logFail("Buscar link is not displayed");
-		}
-
-		// Search Bar
-
-		if (searchbar.isDisplayed()) {
-			logPass("Search Bar is displayed");
-			searchbar.clear();
-			searchbar.sendKeys("trabajo infantil");
-			logPass("Search Value 'trabajo infantil' is Entered");
-			searchbar.submit();
-			sleep(2);
-		} else {
-			logFail("Search bar Verification Failed");
-		}
-
-		// search results validation
-		if (searchresultheader.isDisplayed()) {
-			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
-			System.out.println(resultsheadercount);
-
-			String resultscount = Integer.toString(searchresultslist.size()).trim();
-			System.out.println(resultscount);
-			int SearchCount = 0;
-			int iCount = 0;
-			for (int i = 1; i <= searchresultslist.size(); i++) {
-				iCount = DRIVER_LOCAL.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark"))
-						.size();
-				if (iCount >= 1) {
-					SearchCount++;
-				}
-			}
-			if (resultsheadercount.trim().equals(resultscount) && SearchCount >= Integer.valueOf(resultsheadercount)) {
-				logPass("Search Results for 'trabajo infantil' are Validated");
-			} else {
-				logFail("Search Results Validation Failed");
-			}
-		}
-
-	}
-
-	public void Search_FR() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menu is Displayed");
-			menu.click();
-			sleep(1);
-			french.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Fermer")) {
-				logPass("Menú is opened Successfully");
-				menu.click();
-				if (menu.getText().equalsIgnoreCase("Menu")) {
-					logPass("MENU is closed Successfully");
-				} else {
-					logFail("MENU is not closed Successfully");
-				}
-			} else {
-				logFail("Menu is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
-		// Bottom Bar - Buscar
-		if (search.isDisplayed()) {
-			logPass("Rechercher link is displayed");
-			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Rechercher")) {
-				logPass("Rechercher link Verified");
-				search.click();
-			} else {
-				logFail("Rechercher Verification Failed");
-			}
-		} else {
-			logFail("Rechercher link is not displayed");
-		}
-
-		// Search Bar
-
-		if (searchbar.isDisplayed()) {
-			logPass("Search Bar is displayed");
-			searchbar.clear();
-			searchbar.sendKeys("le travail des enfants");
-			logPass("Search Value 'le travail des enfants' is Entered");
-			searchbar.submit();
-			sleep(2);
-		} else {
-			logFail("Search bar Verification Failed");
-		}
-
-		// search results validation
-		if (searchresultheader.isDisplayed()) {
-			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
-			System.out.println(resultsheadercount);
-
-			String resultscount = Integer.toString(searchresultslist.size()).trim();
-			System.out.println(resultscount);
-			int SearchCount = 0;
-			int iCount = 0;
-			for (int i = 1; i <= searchresultslist.size(); i++) {
-				iCount = DRIVER_LOCAL.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark"))
-						.size();
-				if (iCount >= 1) {
-					SearchCount++;
-				}
-			}
-			if (resultsheadercount.trim().equals(resultscount) && SearchCount >= Integer.valueOf(resultsheadercount)) {
-				logPass("Search Results for 'le travail des enfants' are Validated");
-			} else {
-				logFail("Search Results Validation Failed");
-			}
-		}
-
-	}
-
-	public void StepsAccordion_EN() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("MENU is Displayed");
-			menu.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Close")) {
-				logPass("MENU is opened Successfully");
-			} else {
-				logFail("MENU is not opened Successfully");
-			}
-		} else {
-			logFail("MENU is Not Displayed");
-		}
-
-		// Steps Drop Down
-		if (stepsdropdown.isDisplayed()) {
-			logPass("Steps to a social compliance system is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Steps to a social compliance system")) {
-				logPass("Steps to a social compliance system Verified with Expandable Arrow Mark");
-			} else {
-				logFail("Steps to a social compliance system Verification Failed");
-			}
-		} else {
-			logFail("Steps to a social compliance system link is not displayed");
-		}
-
-		// Steps Expanded
-		if (stepsdropdown.isDisplayed()) {
-			stepsdropdown.click();
-			sleep(1);
-			logPass("Steps to a social compliance system Expanded");
-			step1.click();
-		}
-
-		// Validate Step Accordions
-		for (int j = 1; j <= 8; j++) {
-			for (int i = 1; i <= stepAccordions.size(); i++) {
-				DRIVER_LOCAL.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
-				sleep(1);
-				js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-				sleep(1);
-			}
-			String header = stepheader.getText().trim();
-			logPass(header + " Accordions Validation Success");
-			if (j != 8) {
-				nextstep.click();
-				sleep(1);
-			}
-		}
-
-	}
-
-	public void StepsAccordion_ES() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menú is Displayed");
-			menu.click();
-			sleep(1);
-			spanish.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Cerrar")) {
-				logPass("Menú is opened Successfully");
-			} else {
-				logFail("Menú is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
-		// Steps Drop Down
-		if (stepsdropdown.isDisplayed()) {
-			logPass("Pasos hacia un sistema de cumplimiento social is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
-				logPass("Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark");
-			} else {
-				logFail("Pasos hacia un sistema de cumplimiento social Verification Failed");
-			}
-		} else {
-			logFail("Pasos hacia un sistema de cumplimiento social link is not displayed");
-		}
-
-		// Steps Expanded
-		if (stepsdropdown.isDisplayed()) {
-			stepsdropdown.click();
-			sleep(1);
-			logPass("Pasos hacia un sistema de cumplimiento social Expanded");
-			step1.click();
-		}
-
-		// Validate Step Accordions
-		for (int j = 1; j <= 8; j++) {
-			for (int i = 1; i <= stepAccordions.size(); i++) {
-				DRIVER_LOCAL.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
-				sleep(1);
-				js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-				sleep(1);
-			}
-			String header = stepheader.getText().trim();
-			logPass(header + " Accordions Validation Success");
-			if (j != 8) {
-				nextstep.click();
-				sleep(1);
-			}
-		}
-
-	}
-
-	public void StepsAccordion_FR() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menu is Displayed");
-			menu.click();
-			sleep(1);
-			french.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Fermer")) {
-				logPass("Menú is opened Successfully");
-			} else {
-				logFail("Menu is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
-		// Steps Drop Down
-		if (stepsdropdown.isDisplayed()) {
-			logPass("Étapes vers un système de conformité sociale is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Étapes vers un système de conformité sociale")) {
-				logPass("Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark");
-			} else {
-				logFail("Étapes vers un système de conformité sociale Verification Failed");
-			}
-		} else {
-			logFail("Étapes vers un système de conformité sociale link is not displayed");
-		}
-
-		// Steps Expanded
-		if (stepsdropdown.isDisplayed()) {
-			stepsdropdown.click();
-			sleep(1);
-			logPass("Étapes vers un système de conformité sociale Expanded");
-			step1.click();
-		}
-
-		// Validate Step Accordions
-		for (int j = 1; j <= 8; j++) {
-			for (int i = 1; i <= stepAccordions.size(); i++) {
-				DRIVER_LOCAL.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
-				sleep(1);
-				js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-				sleep(1);
-			}
-			String header = stepheader.getText().trim();
-			logPass(header + " Accordions Validation Success");
-			if (j != 8) {
-				nextstep.click();
-				sleep(1);
 			}
 		}
 
