@@ -1,5 +1,6 @@
 package com.dol.complychain.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +13,6 @@ import com.dol.complychain.repo.Locator;
 
 public class AndroidPages extends BasePage {
 
-	
 	@FindBy(how = How.ID, using = Locator.COMPLYCHAIN_LOGO_IMG)
 	public WebElement ComplyChainLogo;
 
@@ -92,6 +92,14 @@ public class AndroidPages extends BasePage {
 	public void HomePageVerification_EN() throws Exception {
 		// Initialize Elements
 		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -187,6 +195,14 @@ public class AndroidPages extends BasePage {
 		// Initialize Elements
 		PageFactory.initElements(DRIVER_LOCAL.get(), this);
 
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
 			logPass("Comply Chain Logo is Displayed");
@@ -212,8 +228,6 @@ public class AndroidPages extends BasePage {
 		if (menu.isDisplayed()) {
 			logPass("Menú is Displayed");
 			menu.click();
-			sleep(1);
-			spanish.click();
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Cerrar")) {
 				logPass("Menú is opened Successfully");
@@ -284,6 +298,13 @@ public class AndroidPages extends BasePage {
 		// Initialize Elements
 		PageFactory.initElements(DRIVER_LOCAL.get(), this);
 
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
 			logPass("Comply Chain Logo is Displayed");
@@ -309,8 +330,6 @@ public class AndroidPages extends BasePage {
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
 			menu.click();
-			sleep(1);
-			french.click();
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Fermer")) {
 				logPass("Menú is opened Successfully");
@@ -381,351 +400,13 @@ public class AndroidPages extends BasePage {
 		// Initialize Elements
 		PageFactory.initElements(DRIVER_LOCAL.get(), this);
 
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
 		} else {
-			logFail("Comply Chain Logo is Not Displayed");
+			logFail("DOL Comply Chain Landing Page is not Displayed");
 		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("MENU is Displayed");
-			menu.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Close")) {
-				logPass("MENU is opened Successfully");
-			} else {
-				logFail("MENU is not opened Successfully");
-			}
-		} else {
-			logFail("MENU is Not Displayed");
-		}
-
-		// WHAT_ARE
-		if (whatare.isDisplayed()) {
-			logPass("What are Child Labor and Forced Labor? link is displayed");
-			if (whatare.getText().trim().equalsIgnoreCase("What are Child Labor and Forced Labor?")
-					&& whatare.getAttribute("href").trim().contains("/what-are")) {
-				logPass("What are Child Labor and Forced Labor? link Verified");
-			} else {
-				logFail("What are Child Labor and Forced Labor? Verification Failed");
-			}
-		} else {
-			logFail("What are Child Labor and Forced Labor? link is not displayed");
-		}
-
-		// WHY_DEVOLOP
-		if (whydevelop.isDisplayed()) {
-			logPass("Why Develop a Social Compliance System? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("Why Develop a Social Compliance System?")
-					&& whydevelop.getAttribute("href").trim().contains("/why-develop")) {
-				logPass("Why Develop a Social Compliance System? link Verified");
-			} else {
-				logFail("Why Develop a Social Compliance System? Verification Failed");
-			}
-		} else {
-			logFail("Why Develop a Social Compliance System? link is not displayed");
-		}
-
-		// BASICS
-		if (basics.isDisplayed()) {
-			logPass("Basics of a Social Compliance System link is displayed");
-			if (basics.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")
-					&& basics.getAttribute("href").trim().contains("/basics")) {
-				logPass("Basics of a Social Compliance System link Verified");
-			} else {
-				logFail("Basics of a Social Compliance System Verification Failed");
-			}
-		} else {
-			logFail("Basics of a Social Compliance System link is not displayed");
-		}
-
-		// Steps Drop Down
-		if (stepsdropdown.isDisplayed()) {
-			logPass("Steps to a social compliance system is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Steps to a social compliance system")) {
-				logPass("Steps to a social compliance system Verified with Expandable Arrow Mark");
-			} else {
-				logFail("Steps to a social compliance system Verification Failed");
-			}
-		} else {
-			logFail("Steps to a social compliance system link is not displayed");
-		}
-
-		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
-			logPass("English Language Button is displayed and Verfied");
-		} else {
-			logFail("English Language Button is not displayed");
-		}
-
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
-			logPass("Español Language Button is displayed and Verfied");
-		} else {
-			logFail("Español Language Button is not displayed");
-		}
-
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
-			logPass("Français Language Button is displayed and Verfied");
-		} else {
-			logFail("Français Language Button is not displayed");
-		}
-
-		// Close Menu
-		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
-			if (menu.getText().equalsIgnoreCase("Menu")) {
-				logPass("MENU is closed Successfully");
-			} else {
-				logFail("MENU is not closed Successfully");
-			}
-		}
-	}
-
-	public void MenuVerification_ES() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menú is Displayed");
-			menu.click();
-			sleep(1);
-			spanish.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Cerrar")) {
-				logPass("Menú is opened Successfully");
-			} else {
-				logFail("Menú is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
-		// WHAT_ARE
-		if (whatare.isDisplayed()) {
-			logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link is displayed");
-			if (whatare.getText().trim().equalsIgnoreCase("¿Qué son el trabajo infantil y el trabajo forzoso?")
-					&& whatare.getAttribute("href").trim().contains("/what-are")) {
-				logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link Verified");
-			} else {
-				logFail("¿Qué son el trabajo infantil y el trabajo forzoso?? Verification Failed");
-			}
-		} else {
-			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? link is not displayed");
-		}
-
-		// WHY_DEVOLOP
-		if (whydevelop.isDisplayed()) {
-			logPass("¿Por qué crear un sistema de cumplimiento social? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")
-					&& whydevelop.getAttribute("href").trim().contains("/why-develop")) {
-				logPass("¿Por qué crear un sistema de cumplimiento social? link Verified");
-			} else {
-				logFail("¿Por qué crear un sistema de cumplimiento social? Verification Failed");
-			}
-		} else {
-			logFail("¿Por qué crear un sistema de cumplimiento social? link is not displayed");
-		}
-
-		// BASICS
-		if (basics.isDisplayed()) {
-			logPass("Aspectos básicos de un sistema de cumplimiento social link is displayed");
-			if (basics.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")
-					&& basics.getAttribute("href").trim().contains("/basics")) {
-				logPass("Aspectos básicos de un sistema de cumplimiento social link Verified");
-			} else {
-				logFail("Aspectos básicos de un sistema de cumplimiento social Verification Failed");
-			}
-		} else {
-			logFail("Aspectos básicos de un sistema de cumplimiento social link is not displayed");
-		}
-
-		// Steps Drop Down
-		if (stepsdropdown.isDisplayed()) {
-			logPass("Pasos hacia un sistema de cumplimiento social is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
-				logPass("Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark");
-			} else {
-				logFail("Pasos hacia un sistema de cumplimiento social Verification Failed");
-			}
-		} else {
-			logFail("Pasos hacia un sistema de cumplimiento social link is not displayed");
-		}
-
-		// Language Buttons Verification
-		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
-			logPass("English Language Button is displayed and Verfied");
-		} else {
-			logFail("English Language Button is not displayed");
-		}
-
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
-			logPass("Español Language Button is displayed and Verfied");
-		} else {
-			logFail("Español Language Button is not displayed");
-		}
-
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
-			logPass("Français Language Button is displayed and Verfied");
-		} else {
-			logFail("Français Language Button is not displayed");
-		}
-
-		// Close Menu
-		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
-			if (menu.getText().equalsIgnoreCase("Menú")) {
-				logPass("Menú is closed Successfully");
-			} else {
-				logFail("Menú is not closed Successfully");
-			}
-		}
-
-	}
-
-	public void MenuVerification_FR() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
-
-		// Comply Chain Logo
-		if (ComplyChainLogo.isDisplayed()) {
-			logPass("Comply Chain Logo is Displayed");
-		} else {
-			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menu is Displayed");
-			menu.click();
-			sleep(1);
-			french.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Fermer")) {
-				logPass("Menú is opened Successfully");
-			} else {
-				logFail("Menu is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
-		// WHAT_ARE
-		if (whatare.isDisplayed()) {
-			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed");
-			if (whatare.getText().trim().equalsIgnoreCase("Qu'est-ce que le travail des enfants et le travail forcé ?")
-					&& whatare.getAttribute("href").trim().contains("/what-are")) {
-				logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link Verified");
-			} else {
-				logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Verification Failed");
-			}
-		} else {
-			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? link is not displayed");
-		}
-
-		// WHY_DEVOLOP
-		if (whydevelop.isDisplayed()) {
-			logPass("Pourquoi élaborer un système de conformité sociale ? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")
-					&& whydevelop.getAttribute("href").trim().contains("/why-develop")) {
-				logPass("Pourquoi élaborer un système de conformité sociale ? link Verified");
-			} else {
-				logFail("Pourquoi élaborer un système de conformité sociale ? Verification Failed");
-			}
-		} else {
-			logFail("Pourquoi élaborer un système de conformité sociale ? link is not displayed");
-		}
-
-		// BASICS
-		if (basics.isDisplayed()) {
-			logPass("Fondements d’un système de conformité sociale link is displayed");
-			if (basics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")
-					&& basics.getAttribute("href").trim().contains("/basics")) {
-				logPass("Fondements d’un système de conformité sociale link Verified");
-			} else {
-				logFail("Fondements d’un système de conformité sociale Verification Failed");
-			}
-		} else {
-			logFail("Fondements d’un système de conformité sociale link is not displayed");
-		}
-
-		// Steps Drop Down
-		if (stepsdropdown.isDisplayed()) {
-			logPass("Étapes vers un système de conformité sociale is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Étapes vers un système de conformité sociale")) {
-				logPass("Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark");
-			} else {
-				logFail("Étapes vers un système de conformité sociale Verification Failed");
-			}
-		} else {
-			logFail("Étapes vers un système de conformité sociale link is not displayed");
-		}
-
-		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
-			logPass("English Language Button is displayed and Verfied");
-		} else {
-			logFail("English Language Button is not displayed");
-		}
-
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
-			logPass("Español Language Button is displayed and Verfied");
-		} else {
-			logFail("Español Language Button is not displayed");
-		}
-
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
-			logPass("Français Language Button is displayed and Verfied");
-		} else {
-			logFail("Français Language Button is not displayed");
-		}
-
-		// Close Menu
-		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
-			if (menu.getText().equalsIgnoreCase("Menu")) {
-				logPass("Menu is closed Successfully");
-			} else {
-				logFail("Menu is not closed Successfully");
-			}
-		}
-
-	}
-
-	public void StepsVerification_EN() throws Exception {
-		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -794,7 +475,368 @@ public class AndroidPages extends BasePage {
 		// Steps Drop Down
 		if (stepsdropdown.isDisplayed()) {
 			logPass("Steps to a social compliance system is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Steps to a social compliance system")) {
+			if (stepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Steps to a social compliance system")) {
+				logPass("Steps to a social compliance system Verified with Expandable Arrow Mark");
+			} else {
+				logFail("Steps to a social compliance system Verification Failed");
+			}
+		} else {
+			logFail("Steps to a social compliance system link is not displayed");
+		}
+
+		// Language Buttons Verification
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+			logPass("English Language Button is displayed and Verfied");
+		} else {
+			logFail("English Language Button is not displayed");
+		}
+
+		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
+			logPass("Español Language Button is displayed and Verfied");
+		} else {
+			logFail("Español Language Button is not displayed");
+		}
+
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+			logPass("Français Language Button is displayed and Verfied");
+		} else {
+			logFail("Français Language Button is not displayed");
+		}
+
+		// Close Menu
+		if (menu.isDisplayed()) {
+			DRIVER_LOCAL.get().navigate().back();
+			if (menu.getText().equalsIgnoreCase("Menu")) {
+				logPass("MENU is closed Successfully");
+			} else {
+				logFail("MENU is not closed Successfully");
+			}
+		}
+	}
+
+	public void MenuVerification_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// WHAT_ARE
+		if (whatare.isDisplayed()) {
+			logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link is displayed");
+			if (whatare.getText().trim().equalsIgnoreCase("¿Qué son el trabajo infantil y el trabajo forzoso?")) {
+				logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link Verified");
+			} else {
+				logFail("¿Qué son el trabajo infantil y el trabajo forzoso?? Verification Failed");
+			}
+		} else {
+			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? link is not displayed");
+		}
+
+		// WHY_DEVOLOP
+		if (whydevelop.isDisplayed()) {
+			logPass("¿Por qué crear un sistema de cumplimiento social? link is displayed");
+			if (whydevelop.getText().trim().equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
+				logPass("¿Por qué crear un sistema de cumplimiento social? link Verified");
+			} else {
+				logFail("¿Por qué crear un sistema de cumplimiento social? Verification Failed");
+			}
+		} else {
+			logFail("¿Por qué crear un sistema de cumplimiento social? link is not displayed");
+		}
+
+		// BASICS
+		if (basics.isDisplayed()) {
+			logPass("Aspectos básicos de un sistema de cumplimiento social link is displayed");
+			if (basics.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
+				logPass("Aspectos básicos de un sistema de cumplimiento social link Verified");
+			} else {
+				logFail("Aspectos básicos de un sistema de cumplimiento social Verification Failed");
+			}
+		} else {
+			logFail("Aspectos básicos de un sistema de cumplimiento social link is not displayed");
+		}
+
+		// Steps Drop Down
+		if (stepsdropdown.isDisplayed()) {
+			logPass("Pasos hacia un sistema de cumplimiento social is displayed");
+			if (stepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
+				logPass("Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark");
+			} else {
+				logFail("Pasos hacia un sistema de cumplimiento social Verification Failed");
+			}
+		} else {
+			logFail("Pasos hacia un sistema de cumplimiento social link is not displayed");
+		}
+
+		// Language Buttons Verification
+		// Language Buttons Verification
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+			logPass("English Language Button is displayed and Verfied");
+		} else {
+			logFail("English Language Button is not displayed");
+		}
+
+		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
+			logPass("Español Language Button is displayed and Verfied");
+		} else {
+			logFail("Español Language Button is not displayed");
+		}
+
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+			logPass("Français Language Button is displayed and Verfied");
+		} else {
+			logFail("Français Language Button is not displayed");
+		}
+
+		// Close Menu
+		if (menu.isDisplayed()) {
+			DRIVER_LOCAL.get().navigate().back();
+			if (menu.getText().equalsIgnoreCase("Menú")) {
+				logPass("Menú is closed Successfully");
+			} else {
+				logFail("Menú is not closed Successfully");
+			}
+		}
+
+	}
+
+	public void MenuVerification_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			menu.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// WHAT_ARE
+		if (whatare.isDisplayed()) {
+			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed");
+			if (whatare.getText().trim()
+					.equalsIgnoreCase("Qu'est-ce que le travail des enfants et le travail forcé ?")) {
+				logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link Verified");
+			} else {
+				logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Verification Failed");
+			}
+		} else {
+			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? link is not displayed");
+		}
+
+		// WHY_DEVOLOP
+		if (whydevelop.isDisplayed()) {
+			logPass("Pourquoi élaborer un système de conformité sociale ? link is displayed");
+			if (whydevelop.getText().trim().equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+				logPass("Pourquoi élaborer un système de conformité sociale ? link Verified");
+			} else {
+				logFail("Pourquoi élaborer un système de conformité sociale ? Verification Failed");
+			}
+		} else {
+			logFail("Pourquoi élaborer un système de conformité sociale ? link is not displayed");
+		}
+
+		// BASICS
+		if (basics.isDisplayed()) {
+			logPass("Fondements d’un système de conformité sociale link is displayed");
+			if (basics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
+				logPass("Fondements d’un système de conformité sociale link Verified");
+			} else {
+				logFail("Fondements d’un système de conformité sociale Verification Failed");
+			}
+		} else {
+			logFail("Fondements d’un système de conformité sociale link is not displayed");
+		}
+
+		// Steps Drop Down
+		if (stepsdropdown.isDisplayed()) {
+			logPass("Étapes vers un système de conformité sociale is displayed");
+			if (stepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Étapes vers un système de conformité sociale")) {
+				logPass("Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark");
+			} else {
+				logFail("Étapes vers un système de conformité sociale Verification Failed");
+			}
+		} else {
+			logFail("Étapes vers un système de conformité sociale link is not displayed");
+		}
+
+		// Language Buttons Verification
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+			logPass("English Language Button is displayed and Verfied");
+		} else {
+			logFail("English Language Button is not displayed");
+		}
+
+		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
+			logPass("Español Language Button is displayed and Verfied");
+		} else {
+			logFail("Español Language Button is not displayed");
+		}
+
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+			logPass("Français Language Button is displayed and Verfied");
+		} else {
+			logFail("Français Language Button is not displayed");
+		}
+
+		// Close Menu
+		if (menu.isDisplayed()) {
+			DRIVER_LOCAL.get().navigate().back();
+			if (menu.getText().equalsIgnoreCase("Menu")) {
+				logPass("Menu is closed Successfully");
+			} else {
+				logFail("Menu is not closed Successfully");
+			}
+		}
+
+	}
+
+	public void StepsVerification_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			menu.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// WHAT_ARE
+		if (whatare.isDisplayed()) {
+			logPass("What are Child Labor and Forced Labor? link is displayed");
+			if (whatare.getText().trim().equalsIgnoreCase("What are Child Labor and Forced Labor?")) {
+				logPass("What are Child Labor and Forced Labor? link Verified");
+			} else {
+				logFail("What are Child Labor and Forced Labor? Verification Failed");
+			}
+		} else {
+			logFail("What are Child Labor and Forced Labor? link is not displayed");
+		}
+
+		// WHY_DEVOLOP
+		if (whydevelop.isDisplayed()) {
+			logPass("Why Develop a Social Compliance System? link is displayed");
+			if (whydevelop.getText().trim().equalsIgnoreCase("Why Develop a Social Compliance System?")) {
+				logPass("Why Develop a Social Compliance System? link Verified");
+			} else {
+				logFail("Why Develop a Social Compliance System? Verification Failed");
+			}
+		} else {
+			logFail("Why Develop a Social Compliance System? link is not displayed");
+		}
+
+		// BASICS
+		if (basics.isDisplayed()) {
+			logPass("Basics of a Social Compliance System link is displayed");
+			if (basics.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
+				logPass("Basics of a Social Compliance System link Verified");
+			} else {
+				logFail("Basics of a Social Compliance System Verification Failed");
+			}
+		} else {
+			logFail("Basics of a Social Compliance System link is not displayed");
+		}
+
+		// Steps Drop Down
+		if (stepsdropdown.isDisplayed()) {
+			logPass("Steps to a social compliance system is displayed");
+			if (stepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Steps to a social compliance system")) {
 				logPass("Steps to a social compliance system Verified with Expandable Arrow Mark");
 			} else {
 				logFail("Steps to a social compliance system Verification Failed");
@@ -926,6 +968,14 @@ public class AndroidPages extends BasePage {
 		// Initialize Elements
 		PageFactory.initElements(DRIVER_LOCAL.get(), this);
 
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
 			logPass("Comply Chain Logo is Displayed");
@@ -944,8 +994,6 @@ public class AndroidPages extends BasePage {
 		if (menu.isDisplayed()) {
 			logPass("Menú is Displayed");
 			menu.click();
-			sleep(1);
-			spanish.click();
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Cerrar")) {
 				logPass("Menú is opened Successfully");
@@ -995,7 +1043,8 @@ public class AndroidPages extends BasePage {
 		// Steps Drop Down
 		if (stepsdropdown.isDisplayed()) {
 			logPass("Pasos hacia un sistema de cumplimiento social is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
+			if (stepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
 				logPass("Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark");
 			} else {
 				logFail("Pasos hacia un sistema de cumplimiento social Verification Failed");
@@ -1130,6 +1179,13 @@ public class AndroidPages extends BasePage {
 		// Initialize Elements
 		PageFactory.initElements(DRIVER_LOCAL.get(), this);
 
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
 			logPass("Comply Chain Logo is Displayed");
@@ -1148,8 +1204,6 @@ public class AndroidPages extends BasePage {
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
 			menu.click();
-			sleep(1);
-			french.click();
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Fermer")) {
 				logPass("Menú is opened Successfully");
@@ -1200,7 +1254,8 @@ public class AndroidPages extends BasePage {
 		// Steps Drop Down
 		if (stepsdropdown.isDisplayed()) {
 			logPass("Étapes vers un système de conformité sociale is displayed");
-			if (stepsdropdown.getText().trim().equalsIgnoreCase("Étapes vers un système de conformité sociale")) {
+			if (stepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Étapes vers un système de conformité sociale")) {
 				logPass("Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark");
 			} else {
 				logFail("Étapes vers un système de conformité sociale Verification Failed");
