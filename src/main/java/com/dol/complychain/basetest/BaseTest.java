@@ -164,23 +164,7 @@ public class BaseTest {
 			options.addArguments("chrome.switches", "no-sandbox");
 			options.setExperimentalOption("useAutomationExtension", false);
 			WebDriverManager.chromedriver().version("73.0.3683.68").setup();
-			logfolder = Constants.LOG_DIR + "GCDriveLogs_" + new SimpleDateFormat("MMMMM_dd_yyyy").format(new Date());
-			File logsfolder = new File(logfolder);
-			if (!logsfolder.exists()) {
-				logsfolder.mkdir();
-			}
-			File logsFile = new File(logfolder + Constants.FILE_SEPARATOR + "ChromeDriver_"
-					+ new SimpleDateFormat("dd_HH_mm").format(new Date()) + "_Logs.log");
-			if (logsFile.exists()) {
-				logsFile.delete();
-			}
-			GCService = new ChromeDriverService.Builder().usingAnyFreePort().withLogFile(logsFile).build();
-			try {
-				GCService.start();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			driver = new ChromeDriver(GCService, options);
+			driver = new ChromeDriver(options);
 
 			DRIVER_LOCAL.set(driver);
 			DRIVER_LOCAL.get().manage().window().maximize();
