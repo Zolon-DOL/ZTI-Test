@@ -12,6 +12,7 @@ import com.dol.complychain.repo.Locator;
 
 public class AndroidPages extends BasePage {
 
+	
 	@FindBy(how = How.ID, using = Locator.COMPLYCHAIN_LOGO_IMG)
 	public WebElement ComplyChainLogo;
 
