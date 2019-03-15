@@ -480,7 +480,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			menu.click();
+			DRIVER_LOCAL.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("MENU is closed Successfully");
 			} else {
@@ -596,7 +596,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			menu.click();
+			DRIVER_LOCAL.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menú")) {
 				logPass("Menú is closed Successfully");
 			} else {
@@ -712,7 +712,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			menu.click();
+			DRIVER_LOCAL.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("Menu is closed Successfully");
 			} else {
@@ -757,8 +757,7 @@ public class AndroidPages extends BasePage {
 		// WHAT_ARE
 		if (whatare.isDisplayed()) {
 			logPass("What are Child Labor and Forced Labor? link is displayed");
-			if (whatare.getText().trim().equalsIgnoreCase("What are Child Labor and Forced Labor?")
-					&& whatare.getAttribute("href").trim().contains("/what-are")) {
+			if (whatare.getText().trim().equalsIgnoreCase("What are Child Labor and Forced Labor?")) {
 				logPass("What are Child Labor and Forced Labor? link Verified");
 			} else {
 				logFail("What are Child Labor and Forced Labor? Verification Failed");
@@ -770,8 +769,7 @@ public class AndroidPages extends BasePage {
 		// WHY_DEVOLOP
 		if (whydevelop.isDisplayed()) {
 			logPass("Why Develop a Social Compliance System? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("Why Develop a Social Compliance System?")
-					&& whydevelop.getAttribute("href").trim().contains("/why-develop")) {
+			if (whydevelop.getText().trim().equalsIgnoreCase("Why Develop a Social Compliance System?")) {
 				logPass("Why Develop a Social Compliance System? link Verified");
 			} else {
 				logFail("Why Develop a Social Compliance System? Verification Failed");
@@ -783,8 +781,7 @@ public class AndroidPages extends BasePage {
 		// BASICS
 		if (basics.isDisplayed()) {
 			logPass("Basics of a Social Compliance System link is displayed");
-			if (basics.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")
-					&& basics.getAttribute("href").trim().contains("/basics")) {
+			if (basics.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
 				logPass("Basics of a Social Compliance System link Verified");
 			} else {
 				logFail("Basics of a Social Compliance System Verification Failed");
@@ -814,8 +811,7 @@ public class AndroidPages extends BasePage {
 		// Step 1 Verification
 		if (step1.isDisplayed()) {
 			logPass("Step 1: Engage Stakeholders and Partners is displayed");
-			if (step1.getText().trim().equalsIgnoreCase("Step 1: Engage Stakeholders and Partners")
-					&& step1.getAttribute("href").trim().contains("/steps/1")) {
+			if (step1.getText().trim().equalsIgnoreCase("Step 1: Engage Stakeholders and Partners")) {
 				logPass("Step 1: Engage Stakeholders and Partners is Verified");
 			} else {
 				logFail("Step 1: Engage Stakeholders and Partners Verification Failed");
@@ -827,8 +823,7 @@ public class AndroidPages extends BasePage {
 		// Step 2 Verification
 		if (step2.isDisplayed()) {
 			logPass("Step 2: Assess Risks And Impacts is displayed");
-			if (step2.getText().trim().equalsIgnoreCase("Step 2: Assess Risks And Impacts")
-					&& step2.getAttribute("href").trim().contains("/steps/2")) {
+			if (step2.getText().trim().equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
 				logPass("Step 2: Assess Risks And Impacts is Verified");
 			} else {
 				logFail("Step 2: Assess Risks And Impacts Verification Failed");
@@ -840,8 +835,7 @@ public class AndroidPages extends BasePage {
 		// Step 3 Verification
 		if (step3.isDisplayed()) {
 			logPass("Step 3: Develop a Code of Conduct displayed");
-			if (step3.getText().trim().equalsIgnoreCase("Step 3: Develop a Code of Conduct")
-					&& step3.getAttribute("href").trim().contains("/steps/3")) {
+			if (step3.getText().trim().equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
 				logPass("Step 3: Develop a Code of Conduct Verified");
 			} else {
 				logFail("Step 3: Develop a Code of Conduct Verification Failed");
@@ -853,8 +847,7 @@ public class AndroidPages extends BasePage {
 		// Step 4 Verification
 		if (step4.isDisplayed()) {
 			logPass("Step 4: Communicate and Train across your Supply Chain displayed");
-			if (step4.getText().trim().equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")
-					&& step4.getAttribute("href").trim().contains("/steps/4")) {
+			if (step4.getText().trim().equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
 				logPass("Step 4: Communicate and Train across your Supply Chain Verified");
 			} else {
 				logFail("Step 4: Communicate and Train across your Supply Chain Verification Failed");
@@ -866,8 +859,7 @@ public class AndroidPages extends BasePage {
 		// Step 5 Verification
 		if (step5.isDisplayed()) {
 			logPass("Step 5: Monitor Compliance is displayed");
-			if (step5.getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")
-					&& step5.getAttribute("href").trim().contains("/steps/5")) {
+			if (step5.getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")) {
 				logPass("Step 5: Monitor Compliance Verified");
 			} else {
 				logFail("Step 5: Monitor Compliance Verification Failed");
@@ -879,8 +871,7 @@ public class AndroidPages extends BasePage {
 		// Step 6 Verification
 		if (step6.isDisplayed()) {
 			logPass("Step 6: Remediate Violations displayed");
-			if (step6.getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")
-					&& step6.getAttribute("href").trim().contains("/steps/6")) {
+			if (step6.getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")) {
 				logPass("Step 6: Remediate Violations Verified");
 			} else {
 				logFail("Step 6: Remediate Violations Verification Failed");
@@ -892,8 +883,7 @@ public class AndroidPages extends BasePage {
 		// Step 7 Verification
 		if (step7.isDisplayed()) {
 			logPass("Step 7: Independent Review displayed");
-			if (step7.getText().trim().equalsIgnoreCase("Step 7: Independent Review")
-					&& step7.getAttribute("href").trim().contains("/steps/7")) {
+			if (step7.getText().trim().equalsIgnoreCase("Step 7: Independent Review")) {
 				logPass("Step 7: Independent Review Verified");
 			} else {
 				logFail("Step 7: Independent Review Verification Failed");
@@ -905,8 +895,7 @@ public class AndroidPages extends BasePage {
 		// Step 8 Verification
 		if (step8.isDisplayed()) {
 			logPass("Step 8: Report Performance displayed");
-			if (step8.getText().trim().equalsIgnoreCase("Step 8: Report Performance")
-					&& step8.getAttribute("href").trim().contains("/steps/8")) {
+			if (step8.getText().trim().equalsIgnoreCase("Step 8: Report Performance")) {
 				logPass("Step 8: Report Performance Verified");
 			} else {
 				logFail("Step 8: Report Performance Verification Failed");
@@ -923,7 +912,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			menu.click();
+			DRIVER_LOCAL.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("MENU is closed Successfully");
 			} else {
@@ -969,8 +958,7 @@ public class AndroidPages extends BasePage {
 		// WHAT_ARE
 		if (whatare.isDisplayed()) {
 			logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link is displayed");
-			if (whatare.getText().trim().equalsIgnoreCase("¿Qué son el trabajo infantil y el trabajo forzoso?")
-					&& whatare.getAttribute("href").trim().contains("/what-are")) {
+			if (whatare.getText().trim().equalsIgnoreCase("¿Qué son el trabajo infantil y el trabajo forzoso?")) {
 				logPass("¿Qué son el trabajo infantil y el trabajo forzoso? link Verified");
 			} else {
 				logFail("¿Qué son el trabajo infantil y el trabajo forzoso?? Verification Failed");
@@ -982,8 +970,7 @@ public class AndroidPages extends BasePage {
 		// WHY_DEVOLOP
 		if (whydevelop.isDisplayed()) {
 			logPass("¿Por qué crear un sistema de cumplimiento social? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")
-					&& whydevelop.getAttribute("href").trim().contains("/why-develop")) {
+			if (whydevelop.getText().trim().equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
 				logPass("¿Por qué crear un sistema de cumplimiento social? link Verified");
 			} else {
 				logFail("¿Por qué crear un sistema de cumplimiento social? Verification Failed");
@@ -995,8 +982,7 @@ public class AndroidPages extends BasePage {
 		// BASICS
 		if (basics.isDisplayed()) {
 			logPass("Aspectos básicos de un sistema de cumplimiento social link is displayed");
-			if (basics.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")
-					&& basics.getAttribute("href").trim().contains("/basics")) {
+			if (basics.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
 				logPass("Aspectos básicos de un sistema de cumplimiento social link Verified");
 			} else {
 				logFail("Aspectos básicos de un sistema de cumplimiento social Verification Failed");
@@ -1027,8 +1013,7 @@ public class AndroidPages extends BasePage {
 		if (step1.isDisplayed()) {
 			logPass("Primer paso: Participación de las partes interesadas y los socios is displayed");
 			if (step1.getText().trim()
-					.equalsIgnoreCase("Primer paso: Participación de las partes interesadas y los socios")
-					&& step1.getAttribute("href").trim().contains("/steps/1")) {
+					.equalsIgnoreCase("Primer paso: Participación de las partes interesadas y los socios")) {
 				logPass("Primer paso: Participación de las partes interesadas y los socios is Verified");
 			} else {
 				logFail("Primer paso: Participación de las partes interesadas y los socios Verification Failed");
@@ -1040,8 +1025,7 @@ public class AndroidPages extends BasePage {
 		// Step 2 Verification
 		if (step2.isDisplayed()) {
 			logPass("Segundo paso: Evaluación de riesgos e impacto is displayed");
-			if (step2.getText().trim().equalsIgnoreCase("Segundo paso: Evaluación de riesgos e impacto")
-					&& step2.getAttribute("href").trim().contains("/steps/2")) {
+			if (step2.getText().trim().equalsIgnoreCase("Segundo paso: Evaluación de riesgos e impacto")) {
 				logPass("Segundo paso: Evaluación de riesgos e impacto is Verified");
 			} else {
 				logFail("Segundo paso: Evaluación de riesgos e impacto Verification Failed");
@@ -1053,8 +1037,7 @@ public class AndroidPages extends BasePage {
 		// Step 3 Verification
 		if (step3.isDisplayed()) {
 			logPass("Tercer paso: Formulación de un código de conducta is displayed");
-			if (step3.getText().trim().equalsIgnoreCase("Tercer paso: Formulación de un código de conducta")
-					&& step3.getAttribute("href").trim().contains("/steps/3")) {
+			if (step3.getText().trim().equalsIgnoreCase("Tercer paso: Formulación de un código de conducta")) {
 				logPass("Tercer paso: Formulación de un código de conducta Verified");
 			} else {
 				logFail("Tercer paso: Formulación de un código de conducta Verification Failed");
@@ -1067,8 +1050,7 @@ public class AndroidPages extends BasePage {
 		if (step4.isDisplayed()) {
 			logPass("Cuarto paso: Comunicación y capacitación en la cadena de suministro is displayed");
 			if (step4.getText().trim()
-					.equalsIgnoreCase("Cuarto paso: Comunicación y capacitación en la cadena de suministro")
-					&& step4.getAttribute("href").trim().contains("/steps/4")) {
+					.equalsIgnoreCase("Cuarto paso: Comunicación y capacitación en la cadena de suministro")) {
 				logPass("Cuarto paso: Comunicación y capacitación en la cadena de suministro Verified");
 			} else {
 				logFail("Cuarto paso: Comunicación y capacitación en la cadena de suministro Verification Failed");
@@ -1080,8 +1062,7 @@ public class AndroidPages extends BasePage {
 		// Step 5 Verification
 		if (step5.isDisplayed()) {
 			logPass("Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed");
-			if (step5.getText().trim().equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")
-					&& step5.getAttribute("href").trim().contains("/steps/5")) {
+			if (step5.getText().trim().equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
 				logPass("Quinto paso: Vigilancia y seguimiento del cumplimiento Verified");
 			} else {
 				logFail("Quinto paso: Vigilancia y seguimiento del cumplimiento Verification Failed");
@@ -1093,8 +1074,7 @@ public class AndroidPages extends BasePage {
 		// Step 6 Verification
 		if (step6.isDisplayed()) {
 			logPass("Sexto paso: Remediación de infracciones is displayed");
-			if (step6.getText().trim().equalsIgnoreCase("Sexto paso: Remediación de infracciones")
-					&& step6.getAttribute("href").trim().contains("/steps/6")) {
+			if (step6.getText().trim().equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
 				logPass("Sexto paso: Remediación de infracciones Verified");
 			} else {
 				logFail("Sexto paso: Remediación de infracciones Verification Failed");
@@ -1106,8 +1086,7 @@ public class AndroidPages extends BasePage {
 		// Step 7 Verification
 		if (step7.isDisplayed()) {
 			logPass("Séptimo paso: Examen independiente displayed");
-			if (step7.getText().trim().equalsIgnoreCase("Séptimo paso: Examen independiente")
-					&& step7.getAttribute("href").trim().contains("/steps/7")) {
+			if (step7.getText().trim().equalsIgnoreCase("Séptimo paso: Examen independiente")) {
 				logPass("Séptimo paso: Examen independiente Verified");
 			} else {
 				logFail("Séptimo paso: Examen independiente Verification Failed");
@@ -1119,8 +1098,7 @@ public class AndroidPages extends BasePage {
 		// Step 8 Verification
 		if (step8.isDisplayed()) {
 			logPass("Octavo paso: Notificación del desempeño is displayed");
-			if (step8.getText().trim().equalsIgnoreCase("Octavo paso: Notificación del desempeño")
-					&& step8.getAttribute("href").trim().contains("/steps/8")) {
+			if (step8.getText().trim().equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
 				logPass("Octavo paso: Notificación del desempeño Verified");
 			} else {
 				logFail("Octavo paso: Notificación del desempeño Verification Failed");
@@ -1137,7 +1115,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			menu.click();
+			DRIVER_LOCAL.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menú")) {
 				logPass("Menú is closed Successfully");
 			} else {
@@ -1184,8 +1162,8 @@ public class AndroidPages extends BasePage {
 		// WHAT_ARE
 		if (whatare.isDisplayed()) {
 			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed");
-			if (whatare.getText().trim().equalsIgnoreCase("Qu'est-ce que le travail des enfants et le travail forcé ?")
-					&& whatare.getAttribute("href").trim().contains("/what-are")) {
+			if (whatare.getText().trim()
+					.equalsIgnoreCase("Qu'est-ce que le travail des enfants et le travail forcé ?")) {
 				logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link Verified");
 			} else {
 				logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Verification Failed");
@@ -1197,8 +1175,7 @@ public class AndroidPages extends BasePage {
 		// WHY_DEVOLOP
 		if (whydevelop.isDisplayed()) {
 			logPass("Pourquoi élaborer un système de conformité sociale ? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")
-					&& whydevelop.getAttribute("href").trim().contains("/why-develop")) {
+			if (whydevelop.getText().trim().equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
 				logPass("Pourquoi élaborer un système de conformité sociale ? link Verified");
 			} else {
 				logFail("Pourquoi élaborer un système de conformité sociale ? Verification Failed");
@@ -1210,8 +1187,7 @@ public class AndroidPages extends BasePage {
 		// BASICS
 		if (basics.isDisplayed()) {
 			logPass("Fondements d’un système de conformité sociale link is displayed");
-			if (basics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")
-					&& basics.getAttribute("href").trim().contains("/basics")) {
+			if (basics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
 				logPass("Fondements d’un système de conformité sociale link Verified");
 			} else {
 				logFail("Fondements d’un système de conformité sociale Verification Failed");
@@ -1242,8 +1218,7 @@ public class AndroidPages extends BasePage {
 		if (step1.isDisplayed()) {
 			logPass("Première étape: faire participer les parties prenantes et les partenaires is displayed");
 			if (step1.getText().trim()
-					.equalsIgnoreCase("Première étape: faire participer les parties prenantes et les partenaires")
-					&& step1.getAttribute("href").trim().contains("/steps/1")) {
+					.equalsIgnoreCase("Première étape: faire participer les parties prenantes et les partenaires")) {
 				logPass("Première étape: faire participer les parties prenantes et les partenaires is Verified");
 			} else {
 				logFail("Première étape: faire participer les parties prenantes et les partenaires Verification Failed");
@@ -1255,8 +1230,7 @@ public class AndroidPages extends BasePage {
 		// Step 2 Verification
 		if (step2.isDisplayed()) {
 			logPass("Deuxième étape: Évaluer les risques et les incidences is displayed");
-			if (step2.getText().trim().equalsIgnoreCase("Deuxième étape: Évaluer les risques et les incidences")
-					&& step2.getAttribute("href").trim().contains("/steps/2")) {
+			if (step2.getText().trim().equalsIgnoreCase("Deuxième étape: Évaluer les risques et les incidences")) {
 				logPass("Deuxième étape: Évaluer les risques et les incidences is Verified");
 			} else {
 				logFail("Deuxième étape: Évaluer les risques et les incidences Verification Failed");
@@ -1268,8 +1242,7 @@ public class AndroidPages extends BasePage {
 		// Step 3 Verification
 		if (step3.isDisplayed()) {
 			logPass("Troisième étape: élaborer un code de conduite is displayed");
-			if (step3.getText().trim().equalsIgnoreCase("Troisième étape: élaborer un code de conduite")
-					&& step3.getAttribute("href").trim().contains("/steps/3")) {
+			if (step3.getText().trim().equalsIgnoreCase("Troisième étape: élaborer un code de conduite")) {
 				logPass("Troisième étape: élaborer un code de conduite Verified");
 			} else {
 				logFail("Troisième étape: élaborer un code de conduite Verification Failed");
@@ -1282,8 +1255,7 @@ public class AndroidPages extends BasePage {
 		if (step4.isDisplayed()) {
 			logPass("Step 4: Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement is displayed");
 			if (step4.getText().trim().equalsIgnoreCase(
-					"Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement")
-					&& step4.getAttribute("href").trim().contains("/steps/4")) {
+					"Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement")) {
 				logPass("Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement Verified");
 			} else {
 				logFail("Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement Verification Failed");
@@ -1295,8 +1267,7 @@ public class AndroidPages extends BasePage {
 		// Step 5 Verification
 		if (step5.isDisplayed()) {
 			logPass("Cinquième étape: Surveiller la conformité is displayed");
-			if (step5.getText().trim().equalsIgnoreCase("Cinquième étape: Surveiller la conformité")
-					&& step5.getAttribute("href").trim().contains("/steps/5")) {
+			if (step5.getText().trim().equalsIgnoreCase("Cinquième étape: Surveiller la conformité")) {
 				logPass("Cinquième étape:  Surveiller la conformité Verified");
 			} else {
 				logFail("Cinquième étape: Surveiller la conformité Verification Failed");
@@ -1308,8 +1279,7 @@ public class AndroidPages extends BasePage {
 		// Step 6 Verification
 		if (step6.isDisplayed()) {
 			logPass("Sixième étape: Réparer les infractions is displayed");
-			if (step6.getText().trim().equalsIgnoreCase("Sixième étape: Réparer les infractions")
-					&& step6.getAttribute("href").trim().contains("/steps/6")) {
+			if (step6.getText().trim().equalsIgnoreCase("Sixième étape: Réparer les infractions")) {
 				logPass("Sixième étape: Réparer les infractions");
 			} else {
 				logFail("Sixième étape: Réparer les infractions Verification Failed");
@@ -1321,8 +1291,7 @@ public class AndroidPages extends BasePage {
 		// Step 7 Verification
 		if (step7.isDisplayed()) {
 			logPass("Septième étape: Examen indépendant is displayed");
-			if (step7.getText().trim().equalsIgnoreCase("Septième étape: Examen indépendant")
-					&& step7.getAttribute("href").trim().contains("/steps/7")) {
+			if (step7.getText().trim().equalsIgnoreCase("Septième étape: Examen indépendant")) {
 				logPass("Septième étape: Examen indépendant Verified");
 			} else {
 				logFail("Septième étape: Examen indépendant Verification Failed");
@@ -1334,8 +1303,7 @@ public class AndroidPages extends BasePage {
 		// Step 8 Verification
 		if (step8.isDisplayed()) {
 			logPass("Huitième étape: Rendre compte des résultats is displayed");
-			if (step8.getText().trim().equalsIgnoreCase("Huitième étape: Rendre compte des résultats")
-					&& step8.getAttribute("href").trim().contains("/steps/8")) {
+			if (step8.getText().trim().equalsIgnoreCase("Huitième étape: Rendre compte des résultats")) {
 				logPass("Huitième étape: Rendre compte des résultats Verified");
 			} else {
 				logFail("Huitième étape: Rendre compte des résultats Verification Failed");
@@ -1352,14 +1320,13 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			menu.click();
+			DRIVER_LOCAL.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("Menu is closed Successfully");
 			} else {
 				logFail("Menu is not closed Successfully");
 			}
 		}
-
 	}
 
 }

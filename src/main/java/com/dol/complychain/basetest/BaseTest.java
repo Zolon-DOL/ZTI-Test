@@ -49,9 +49,6 @@ public class BaseTest {
 
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
-	public static InternetExplorerDriverService IEService;
-	public static GeckoDriverService FFService;
-	public static ChromeDriverService GCService;
 	public static String logfolder = null;
 	public static File configFile = PropUtils.getPropFile(Constants.CONFIG_DIR, Constants.CONFIG_FILE_NAME);
 	public static Properties configProp = PropUtils.getProps(configFile);
@@ -164,24 +161,7 @@ public class BaseTest {
 			options.addArguments("chrome.switches", "no-sandbox");
 			options.setExperimentalOption("useAutomationExtension", false);
 			WebDriverManager.chromedriver().setup();
-			logfolder = Constants.LOG_DIR + "GCDriveLogs_" + new SimpleDateFormat("MMMMM_dd_yyyy").format(new Date());
-			File logsfolder = new File(logfolder);
-			if (!logsfolder.exists()) {
-				logsfolder.mkdir();
-			}
-			File logsFile = new File(logfolder + Constants.FILE_SEPARATOR + "ChromeDriver_"
-					+ new SimpleDateFormat("dd_HH_mm").format(new Date()) + "_Logs.log");
-			if (logsFile.exists()) {
-				logsFile.delete();
-			}
-			GCService = new ChromeDriverService.Builder().usingAnyFreePort().withLogFile(logsFile).build();
-			try {
-				GCService.start();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			driver = new ChromeDriver(GCService, options);
-
+			driver = new ChromeDriver(options);
 			DRIVER_LOCAL.set(driver);
 			DRIVER_LOCAL.get().manage().window().maximize();
 			DRIVER_LOCAL.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
