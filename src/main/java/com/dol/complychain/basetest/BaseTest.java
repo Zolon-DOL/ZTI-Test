@@ -163,7 +163,7 @@ public class BaseTest {
 			options.addArguments("chrome.switches", "start-maximized");
 			options.addArguments("chrome.switches", "no-sandbox");
 			options.setExperimentalOption("useAutomationExtension", false);
-			WebDriverManager.chromedriver().version("73.0.3683.68").setup();
+			WebDriverManager.chromedriver().setup();
 			logfolder = Constants.LOG_DIR + "GCDriveLogs_" + new SimpleDateFormat("MMMMM_dd_yyyy").format(new Date());
 			File logsfolder = new File(logfolder);
 			if (!logsfolder.exists()) {
