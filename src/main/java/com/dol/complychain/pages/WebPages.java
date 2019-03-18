@@ -256,17 +256,17 @@ public class WebPages extends BasePage {
 			logFail("Menú is Not Displayed");
 		}
 
-		// Bottom Bar - Bookmarks
+		// Bottom Bar - Marcadores
 		if (bookmarks.isDisplayed()) {
-			logPass("Bookmarks link is displayed");
-			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
+			logPass("Marcadores link is displayed");
+			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Marcadores")
 					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
-				logPass("Bookmarks link Verified");
+				logPass("Marcadores link Verified");
 			} else {
-				logFail("Bookmarks Verification Failed");
+				logFail("Marcadores Verification Failed");
 			}
 		} else {
-			logFail("Bookmarks link is not displayed");
+			logFail("Marcadores link is not displayed");
 		}
 
 		// Bottom Bar - Buscar
@@ -281,29 +281,29 @@ public class WebPages extends BasePage {
 			logFail("Buscar link is not displayed");
 		}
 
-		// Bottom Bar - Share
+		// Bottom Bar - Compartir
 		if (share.isDisplayed()) {
-			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
-				logPass("Share link Verified");
+			logPass("Compartir link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Compartir")) {
+				logPass("Compartir link Verified");
 			} else {
-				logFail("Share Verification Failed");
+				logFail("Compartir Verification Failed");
 			}
 		} else {
-			logFail("Share link is not displayed");
+			logFail("Compartir link is not displayed");
 		}
 
-		// Bottom Bar - About
+		// Bottom Bar - Sobre
 		if (about.isDisplayed()) {
-			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
+			logPass("Sobre link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")
 					&& about.getAttribute("href").trim().contains("/about")) {
-				logPass("About link Verified");
+				logPass("Sobre link Verified");
 			} else {
-				logFail("About Verification Failed");
+				logFail("Sobre Verification Failed");
 			}
 		} else {
-			logFail("About link is not displayed");
+			logFail("Sobre link is not displayed");
 		}
 
 	}
@@ -355,17 +355,17 @@ public class WebPages extends BasePage {
 			logFail("Menú is Not Displayed");
 		}
 
-		// Bottom Bar - Bookmarks
+		// Bottom Bar - Signet
 		if (bookmarks.isDisplayed()) {
-			logPass("Bookmarks link is displayed");
-			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
+			logPass("Signet link is displayed");
+			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Signet")
 					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
-				logPass("Bookmarks link Verified");
+				logPass("Signet link Verified");
 			} else {
-				logFail("Bookmarks Verification Failed");
+				logFail("Signet Verification Failed");
 			}
 		} else {
-			logFail("Bookmarks link is not displayed");
+			logFail("Signet link is not displayed");
 		}
 
 		// Bottom Bar - Rechercher
@@ -381,29 +381,29 @@ public class WebPages extends BasePage {
 			logFail("Rechercher link is not displayed");
 		}
 
-		// Bottom Bar - Share
+		// Bottom Bar - Partager
 		if (share.isDisplayed()) {
-			logPass("Share link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
-				logPass("Share link Verified");
+			logPass("Partager link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Partager")) {
+				logPass("Partager link Verified");
 			} else {
-				logFail("Share Verification Failed");
+				logFail("Partager Verification Failed");
 			}
 		} else {
-			logFail("Share link is not displayed");
+			logFail("Partager link is not displayed");
 		}
 
-		// Bottom Bar - About
+		// Bottom Bar - Sur
 		if (about.isDisplayed()) {
-			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
+			logPass("Sur link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")
 					&& about.getAttribute("href").trim().contains("/about")) {
-				logPass("About link Verified");
+				logPass("Sur link Verified");
 			} else {
-				logFail("About Verification Failed");
+				logFail("Sur Verification Failed");
 			}
 		} else {
-			logFail("About link is not displayed");
+			logFail("Sur link is not displayed");
 		}
 
 	}
