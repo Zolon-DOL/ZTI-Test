@@ -40,6 +40,8 @@ public class Locator {
 	// Android Objects
 	public static final String A_SHARE = "//*[@id='share-link']//*[2]";
 	public static final String A_HOMEPAGE_HEADER = "//*[@id='container']/*";
+	public static final String A_SEARCHRESULTHEADER = "//*[@id='container']/*[1]";
+	public static final String A_SEARCHRESULTSLIST = "//*[@id='container']//*[@width='924' and @top='true']";
 
 	// IOS Objects
 	public static final String I_COMPLYCHAIN_LOGO_IMG = "//*[@text='Brand Strip Logo']";

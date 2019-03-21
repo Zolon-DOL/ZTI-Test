@@ -1,5 +1,7 @@
 package com.dol.complychain.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -84,6 +86,27 @@ public class AndroidPages extends BasePage {
 
 	@FindBy(how = How.ID, using = Locator.STEP8)
 	public WebElement step8;
+
+	@FindBy(how = How.ID, using = Locator.PREVIOUSSTEP)
+	public WebElement previosstep;
+
+	@FindBy(how = How.ID, using = Locator.NEXTSTEP)
+	public WebElement nextstep;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPHEADER)
+	public WebElement stepheader;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPACCORDIONS)
+	public List<WebElement> stepAccordions;
+
+	@FindBy(how = How.ID, using = Locator.SEARCHBAR)
+	public WebElement searchbar;
+
+	@FindBy(how = How.XPATH, using = Locator.A_SEARCHRESULTHEADER)
+	public WebElement searchresultheader;
+
+	@FindBy(how = How.XPATH, using = Locator.A_SEARCHRESULTSLIST)
+	public List<WebElement> searchresultslist;
 
 	public AndroidPages(WebDriver driver, ExtentTest test) {
 		super(DRIVER_LOCAL.get(), test);
@@ -1385,4 +1408,204 @@ public class AndroidPages extends BasePage {
 		}
 	}
 
+	public void Search_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Bottom Bar - Search
+		if (search.isDisplayed()) {
+			logPass("Search link is displayed");
+			if (search.getText().trim().equalsIgnoreCase("Search")) {
+				logPass("Search link Verified");
+				search.click();
+			} else {
+				logFail("Search Verification Failed");
+			}
+		} else {
+			logFail("Search link is not displayed");
+		}
+
+		// Search Bar
+		if (searchbar.isDisplayed()) {
+			logPass("Search Bar is displayed");
+			searchbar.clear();
+			searchbar.sendKeys("Child Labor");
+			logPass("Search Value 'Child Labor' is displayed");
+
+			sleep(2);
+		} else {
+			logFail("Search bar Verification Failed");
+		}
+
+		// search results validation
+		if (searchresultheader.isDisplayed()) {
+			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
+			System.out.println(resultsheadercount);
+
+			String resultscount = Integer.toString(searchresultslist.size()).trim();
+			System.out.println(resultscount);
+			if (resultsheadercount.trim().equals(resultscount)) {
+				logPass("Search Results for 'Child Labor' are Validated");
+			} else {
+				logFail("Search Results Validation Failed");
+			}
+		}
+	}
+
+	public void Search_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Bottom Bar - Buscar
+		if (search.isDisplayed()) {
+			logPass("Buscar link is displayed");
+			if (search.getText().trim().equalsIgnoreCase("Buscar")) {
+				logPass("Buscar link Verified");
+				search.click();
+			} else {
+				logFail("Buscar Verification Failed");
+			}
+		} else {
+			logFail("Buscar link is not displayed");
+		}
+
+		// Search Bar
+
+		if (searchbar.isDisplayed()) {
+			logPass("Search Bar is displayed");
+			searchbar.clear();
+			searchbar.sendKeys("trabajo infantil");
+			logPass("Search Value 'trabajo infantil' is Entered");
+			searchbar.submit();
+			sleep(2);
+		} else {
+			logFail("Search bar Verification Failed");
+		}
+
+		// search results validation
+		if (searchresultheader.isDisplayed()) {
+			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
+			System.out.println(resultsheadercount);
+
+			String resultscount = Integer.toString(searchresultslist.size()).trim();
+			System.out.println(resultscount);
+			if (resultsheadercount.trim().equals(resultscount)) {
+				logPass("Search Results for 'trabajo infantil' are Validated");
+			} else {
+				logFail("Search Results Validation Failed");
+			}
+		}
+
+	}
+
+	public void Search_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Bottom Bar - Buscar
+		if (search.isDisplayed()) {
+			logPass("Rechercher link is displayed");
+			if (search.getText().trim().equalsIgnoreCase("Rechercher")) {
+				logPass("Rechercher link Verified");
+				search.click();
+			} else {
+				logFail("Rechercher Verification Failed");
+			}
+		} else {
+			logFail("Rechercher link is not displayed");
+		}
+
+		// Search Bar
+
+		if (searchbar.isDisplayed()) {
+			logPass("Search Bar is displayed");
+			searchbar.clear();
+			searchbar.sendKeys("le travail des enfants");
+			logPass("Search Value 'le travail des enfants' is Entered");
+			searchbar.submit();
+			sleep(2);
+		} else {
+			logFail("Search bar Verification Failed");
+		}
+
+		// search results validation
+		if (searchresultheader.isDisplayed()) {
+			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
+			System.out.println(resultsheadercount);
+			String resultscount = Integer.toString(searchresultslist.size()).trim();
+			System.out.println(resultscount);
+			if (resultsheadercount.trim().equals(resultscount)) {
+				logPass("Search Results for 'le travail des enfants' are Validated");
+			} else {
+				logFail("Search Results Validation Failed");
+			}
+		}
+
+	}
 }
