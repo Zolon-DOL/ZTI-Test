@@ -47,7 +47,7 @@ public class Locator {
 	public static final String HOME_STEP6 = "home_step_6";
 	public static final String HOME_STEP7 = "home_step_7";
 	public static final String HOME_STEP8 = "home_step_8";
-	
+
 	// Android Objects
 	public static final String A_SHARE = "//*[@id='share-link']//*[2]";
 	public static final String A_HOMEPAGE_HEADER = "//*[@id='container']/*";
@@ -131,4 +131,36 @@ public class Locator {
 	public static final String I_SEARCHRESULTSLIST = "//*[@id='container']/div/div";
 	public static final String I_SEARCHBAR = "search-input";
 
+	public static final String I_EN_HOME_WHY_DEVOLOP = "//*[contains(@text,'Why Develop') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_BASICS = "//*[contains(@text,'Basics of a') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP1 = "//*[contains(@text,'Step 1') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP2 = "//*[contains(@text,'Step 2') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP3 = "//*[contains(@text,'Step 3') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP4 = "//*[contains(@text,'Step 4') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP5 = "//*[contains(@text,'Step 5') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP6 = "//*[contains(@text,'Step 6') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP7 = "//*[contains(@text,'Step 7') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_EN_HOME_STEP8 = "//*[contains(@text,'Step 8') and @class='UIAImage' and ./*[@class='UIAImage']]";
+
+	public static final String I_ES_HOME_WHY_DEVOLOP = "//*[contains(@text,'crear un sistema') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_BASICS = "//*[contains(@text,'Aspectos') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP1 = "//*[contains(@text,'Primer') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP2 = "//*[contains(@text,'Segundo') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP3 = "//*[contains(@text,'Tercer') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP4 = "//*[contains(@text,'Cuarto') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP5 = "//*[contains(@text,'Quinto') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP6 = "//*[contains(@text,'Sexto') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP7 = "//*[contains(@text,'ptimo') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_HOME_STEP8 = "//*[contains(@text,'Octavo') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	
+	public static final String I_FR_HOME_WHY_DEVOLOP = "//*[contains(@text,'Pourquoi') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_BASICS = "//*[contains(@text,'Fondements') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP1 = "//*[contains(@text,'Premi') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP2 = "//*[contains(@text,'Deuxi') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP3 = "//*[contains(@text,'Troisi') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP4 = "//*[contains(@text,'Quatri') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP5 = "//*[contains(@text,'Cinqui') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP6 = "//*[contains(@text,'Sixi') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP7 = "//*[contains(@text,'Septi') and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_HOME_STEP8 = "//*[contains(@text,'Huiti') and @class='UIAImage' and ./*[@class='UIAImage']]";
 }

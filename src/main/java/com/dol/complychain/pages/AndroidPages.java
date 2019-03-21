@@ -108,6 +108,36 @@ public class AndroidPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.A_SEARCHRESULTSLIST)
 	public List<WebElement> searchresultslist;
 
+	@FindBy(how = How.ID, using = Locator.HOME_WHY_DEVOLOP)
+	public WebElement homewhydevelop;
+
+	@FindBy(how = How.ID, using = Locator.HOME_BASICS)
+	public WebElement homebasics;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP1)
+	public WebElement homestep1;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP2)
+	public WebElement homestep2;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP3)
+	public WebElement homestep3;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP4)
+	public WebElement homestep4;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP5)
+	public WebElement homestep5;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP6)
+	public WebElement homestep6;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP7)
+	public WebElement homestep7;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP8)
+	public WebElement homestep8;
+
 	public AndroidPages(WebDriver driver, ExtentTest test) {
 		super(DRIVER_LOCAL.get(), test);
 	}
@@ -138,11 +168,125 @@ public class AndroidPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
+		// Home Page Content Validation
+
+		if (homewhydevelop.isDisplayed()) {
+			logPass("Home Page - Why Develop a Social Compliance System? is displayed");
+			if (homewhydevelop.getText().trim().equalsIgnoreCase("Why Develop a Social Compliance System?")) {
+				logPass("Home Page - Why Develop a Social Compliance System? link Verified");
+			} else {
+				logFail("Home Page - Why Develop a Social Compliance System? Verification Failed");
+			}
 		} else {
-			logFail("Home Page Header is Not Displayed");
+			logFail("Home Page - Why Develop a Social Compliance System? link is not displayed");
+
+		}
+
+		if (homebasics.isDisplayed()) {
+			logPass("Home Page - Basics of a Social Compliance System is displayed");
+			if (homebasics.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
+				logPass("Home Page - Basics of a Social Compliance System link Verified");
+			} else {
+				logFail("Home Page - Basics of a Social Compliance System Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Basics of a Social Compliance System link is not displayed");
+		}
+
+		if (homestep1.isDisplayed()) {
+			logPass("Home Page - Step 1: Engage Stakeholders and Partners is displayed");
+			if (homestep1.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Step 1: Engage Stakeholders and Partners")) {
+				logPass("Home Page - Step 1: Engage Stakeholders and Partners link Verified");
+			} else {
+				logFail("Home Page - Step 1: Engage Stakeholders and Partners Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 1: Engage Stakeholders and Partners link is not displayed");
+		}
+
+		if (homestep2.isDisplayed()) {
+			logPass("Home Page - Step 2: Assess Risks And Impacts is displayed");
+			if (homestep2.findElement(By.className("android.view.View")).getText().trim()
+							.equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
+				logPass("Home Page - Step 2: Assess Risks And Impacts link Verified");
+			} else {
+				logFail("Home Page - Step 2: Assess Risks And Impacts Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 2: Assess Risks And Impacts link is not displayed");
+		}
+
+		if (homestep3.isDisplayed()) {
+			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
+			if (homestep3.findElement(By.className("android.view.View")).getText().trim()
+							.equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
+				logPass("Home Page - Step 3: Develop a Code of Conduct link Verified");
+			} else {
+				logFail("Home Page - Step 3: Develop a Code of Conduct Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 3: Develop a Code of Conduct link is not displayed");
+		}
+
+		if (homestep4.isDisplayed()) {
+			logPass("Home Page - Step 4: Communicate and Train across your Supply Chain is displayed");
+			if (homestep4.findElement(By.className("android.view.View")).getText().trim()
+							.equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
+				logPass("Home Page - Step 4: Communicate and Train across your Supply Chain link Verified");
+			} else {
+				logFail("Home Page - Step 4: Communicate and Train across your Supply Chain Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 4: Communicate and Train across your Supply Chain link is not displayed");
+		}
+
+		if (homestep5.isDisplayed()) {
+			logPass("Home Page - Step 5: Monitor Compliance is displayed");
+			if (homestep5.findElement(By.className("android.view.View")).getText().trim()
+							.equalsIgnoreCase("Step 5: Monitor Compliance")) {
+				logPass("Home Page - Step 5: Monitor Compliance link Verified");
+			} else {
+				logFail("Home Page - Step 5: Monitor Compliance Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 5: Monitor Compliance link is not displayed");
+		}
+
+		if (homestep6.isDisplayed()) {
+			logPass("Home Page - Step 6: Remediate Violations is displayed");
+			if (homestep6.findElement(By.className("android.view.View")).getText().trim()
+							.equalsIgnoreCase("Step 6: Remediate Violations")) {
+				logPass("Home Page - Step 6: Remediate Violations Verified");
+			} else {
+				logFail("Home Page - Step 6: Remediate Violations Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 6: Remediate Violations link is not displayed");
+		}
+
+		if (homestep7.isDisplayed()) {
+			logPass("Home Page - Step 7: Independent Review is displayed");
+			if (homestep7.findElement(By.className("android.view.View")).getText().trim()
+							.equalsIgnoreCase("Step 7: Independent Review")) {
+				logPass("Home Page - Step 7: Independent Review Verified");
+			} else {
+				logFail("Home Page - Step 7: Independent Review Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 7: Independent Review link is not displayed");
+		}
+
+		if (homestep8.isDisplayed()) {
+			logPass("Home Page - Step 8: Report Performance is displayed");
+			if (homestep8.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Step 8: Report Performance")) {
+				logPass("Home Page - Step 8: Report Performance");
+			} else {
+				logFail("Home Page - Step 8: Report Performance Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Step 8: Report Performance link is not displayed");
 		}
 
 		// MENU opening and closing
