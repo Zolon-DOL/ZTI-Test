@@ -106,6 +106,36 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.SEARCHRESULTSLIST)
 	public List<WebElement> searchresultslist;
 
+	@FindBy(how = How.ID, using = Locator.HOME_WHY_DEVOLOP)
+	public WebElement homewhydevelop;
+
+	@FindBy(how = How.ID, using = Locator.HOME_BASICS)
+	public WebElement homebasics;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP1)
+	public WebElement homestep1;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP2)
+	public WebElement homestep2;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP3)
+	public WebElement homestep3;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP4)
+	public WebElement homestep4;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP5)
+	public WebElement homestep5;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP6)
+	public WebElement homestep6;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP7)
+	public WebElement homestep7;
+
+	@FindBy(how = How.ID, using = Locator.HOME_STEP8)
+	public WebElement homestep8;
+
 	JavascriptExecutor js = (JavascriptExecutor) DRIVER_LOCAL.get();
 
 	public WebPages(WebDriver driver, ExtentTest test) {

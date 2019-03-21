@@ -37,6 +37,17 @@ public class Locator {
 	public static final String SEARCHRESULTHEADER = "//*[@id='container']//h4";
 	public static final String SEARCHRESULTSLIST = "//*[@id='container']/div/div";
 
+	public static final String HOME_WHY_DEVOLOP = "home_whydeveloper";
+	public static final String HOME_BASICS = "home_basics";
+	public static final String HOME_STEP1 = "home_step_1";
+	public static final String HOME_STEP2 = "home_step_2";
+	public static final String HOME_STEP3 = "home_step_3";
+	public static final String HOME_STEP4 = "home_step_4";
+	public static final String HOME_STEP5 = "home_step_5";
+	public static final String HOME_STEP6 = "home_step_6";
+	public static final String HOME_STEP7 = "home_step_7";
+	public static final String HOME_STEP8 = "home_step_8";
+	
 	// Android Objects
 	public static final String A_SHARE = "//*[@id='share-link']//*[2]";
 	public static final String A_HOMEPAGE_HEADER = "//*[@id='container']/*";
