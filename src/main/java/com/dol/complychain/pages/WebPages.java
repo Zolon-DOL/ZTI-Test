@@ -407,103 +407,103 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep1.isDisplayed()) {
-			logPass("Home Page - Step 1: Engage Stakeholders and Partners is displayed");
+			logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios is displayed");
 			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
 					&& homestep1.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 1: Engage Stakeholders and Partners")) {
-				logPass("Home Page - Step 1: Engage Stakeholders and Partners link Verified");
+							.equalsIgnoreCase("Primer paso: Participación de las partes interesadas y los socios")) {
+				logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios link Verified");
 			} else {
-				logFail("Home Page - Step 1: Engage Stakeholders and Partners Verification Failed");
+				logFail("Home Page - Primer paso: Participación de las partes interesadas y los socios Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 1: Engage Stakeholders and Partners link is not displayed");
+			logFail("Home Page - Primer paso: Participación de las partes interesadas y los socios link is not displayed");
 		}
 
 		if (homestep2.isDisplayed()) {
-			logPass("Home Page - Step 2: Assess Risks And Impacts is displayed");
+			logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto is displayed");
 			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
 					&& homestep2.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
-				logPass("Home Page - Step 2: Assess Risks And Impacts link Verified");
+							.equalsIgnoreCase("Segundo paso: Evaluación de riesgos e impacto")) {
+				logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto link Verified");
 			} else {
-				logFail("Home Page - Step 2: Assess Risks And Impacts Verification Failed");
+				logFail("Home Page - Segundo paso: Evaluación de riesgos e impacto Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 2: Assess Risks And Impacts link is not displayed");
+			logFail("Home Page - Segundo paso: Evaluación de riesgos e impacto link is not displayed");
 		}
 
 		if (homestep3.isDisplayed()) {
-			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
+			logPass("Home Page - Tercer paso: Formulación de un código de conducta is displayed");
 			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
 					&& homestep3.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
-				logPass("Home Page - Step 3: Develop a Code of Conduct link Verified");
+							.equalsIgnoreCase("Tercer paso: Formulación de un código de conducta")) {
+				logPass("Home Page - Tercer paso: Formulación de un código de conducta link Verified");
 			} else {
-				logFail("Home Page - Step 3: Develop a Code of Conduct Verification Failed");
+				logFail("Home Page - Tercer paso: Formulación de un código de conducta Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 3: Develop a Code of Conduct link is not displayed");
+			logFail("Home Page - Tercer paso: Formulación de un código de conducta link is not displayed");
 		}
 
 		if (homestep4.isDisplayed()) {
-			logPass("Home Page - Step 4: Communicate and Train across your Supply Chain is displayed");
+			logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro is displayed");
 			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
 					&& homestep4.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
-				logPass("Home Page - Step 4: Communicate and Train across your Supply Chain link Verified");
+							.equalsIgnoreCase("Cuarto paso: Comunicación y capacitación en la cadena de suministro")) {
+				logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link Verified");
 			} else {
-				logFail("Home Page - Step 4: Communicate and Train across your Supply Chain Verification Failed");
+				logFail("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 4: Communicate and Train across your Supply Chain link is not displayed");
+			logFail("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link is not displayed");
 		}
 
 		if (homestep5.isDisplayed()) {
-			logPass("Home Page - Step 5: Monitor Compliance is displayed");
+			logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed");
 			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5") && homestep5
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")) {
-				logPass("Home Page - Step 5: Monitor Compliance link Verified");
+					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
+				logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link Verified");
 			} else {
-				logFail("Home Page - Step 5: Monitor Compliance Verification Failed");
+				logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 5: Monitor Compliance link is not displayed");
+			logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link is not displayed");
 		}
 
 		if (homestep6.isDisplayed()) {
-			logPass("Home Page - Step 6: Remediate Violations is displayed");
+			logPass("Home Page - Sexto paso: Remediación de infracciones is displayed");
 			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6") && homestep6
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")) {
-				logPass("Home Page - Step 6: Remediate Violations Verified");
+					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
+				logPass("Home Page - Sexto paso: Remediación de infracciones Verified");
 			} else {
-				logFail("Home Page - Step 6: Remediate Violations Verification Failed");
+				logFail("Home Page - Sexto paso: Remediación de infracciones Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 6: Remediate Violations link is not displayed");
+			logFail("Home Page - Sexto paso: Remediación de infracciones link is not displayed");
 		}
 
 		if (homestep7.isDisplayed()) {
-			logPass("Home Page - Step 7: Independent Review is displayed");
+			logPass("Home Page - Séptimo paso: Examen independiente is displayed");
 			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7") && homestep7
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 7: Independent Review")) {
-				logPass("Home Page - Step 7: Independent Review Verified");
+					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Séptimo paso: Examen independiente")) {
+				logPass("Home Séptimo paso: Examen independiente Verified");
 			} else {
-				logFail("Home Page - Step 7: Independent Review Verification Failed");
+				logFail("Home Page - Séptimo paso: Examen independiente Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 7: Independent Review link is not displayed");
+			logFail("Home Page - Séptimo paso: Examen independiente link is not displayed");
 		}
 
 		if (homestep8.isDisplayed()) {
-			logPass("Home Page - Step 8: Report Performance is displayed");
+			logPass("Home Page - Octavo paso: Notificación del desempeño is displayed");
 			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8") && homestep8
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 8: Report Performance")) {
-				logPass("Home Page - Step 8: Report Performance");
+					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
+				logPass("Home Page - Octavo paso: Notificación del desempeño");
 			} else {
-				logFail("Home Page - Step 8: Report Performance Verification Failed");
+				logFail("Home Page - Octavo paso: Notificación del desempeño Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Step 8: Report Performance link is not displayed");
+			logFail("Home Page - Octavo paso: Notificación del desempeño link is not displayed");
 		}
 
 		// MENU opening and closing
