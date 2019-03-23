@@ -13,7 +13,7 @@ public class DOL_CC_IOS_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in English",
 				"Verify Menu - Topics and Language Items in English");
 		EXTENT_LOCAL.set(test);
-		IosPages iosPage = new IosPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		iosPage.MenuVerification_EN();
 	}
 
@@ -22,7 +22,7 @@ public class DOL_CC_IOS_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in Español",
 				"Verify Menu - Topics and Language Items in Español");
 		EXTENT_LOCAL.set(test);
-		IosPages homePage = new IosPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		IosPages homePage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		homePage.MenuVerification_ES();
 	}
 
@@ -31,7 +31,7 @@ public class DOL_CC_IOS_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in Français",
 				"Verify Menu - Topics and Language Items in Français");
 		EXTENT_LOCAL.set(test);
-		IosPages homePage = new IosPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		IosPages homePage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		homePage.MenuVerification_FR();
 	}
 

@@ -17,10 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -32,6 +29,7 @@ import com.dol.complychain.util.Constants;
 import com.dol.complychain.util.PropUtils;
 import com.dol.complychain.util.ReportUtils;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -40,10 +38,9 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-
-	protected static ThreadLocal<WebDriver> DRIVER_LOCAL = new ThreadLocal<WebDriver>();
 	protected static ThreadLocal<ExtentTest> EXTENT_LOCAL = new ThreadLocal<ExtentTest>();
-
+	protected static ThreadLocal<AppiumDriver<MobileElement>> MOBILEDRIVER = new ThreadLocal<AppiumDriver<MobileElement>>();
+	protected static ThreadLocal<WebDriver> WEBDRIVER = new ThreadLocal<WebDriver>();
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static String logfolder = null;
@@ -111,6 +108,7 @@ public class BaseTest {
 	@BeforeMethod(alwaysRun = true)
 	public void initializeDriver() throws Exception {
 		String platform = PropUtils.getPropValue(configProp, "platform").toUpperCase().trim();
+		AppiumDriver<MobileElement> mobiledriver = null;
 		WebDriver driver = null;
 		DesiredCapabilities dc = new DesiredCapabilities();
 		switch (platform) {
@@ -122,15 +120,15 @@ public class BaseTest {
 			dc.setCapability(MobileCapabilityType.UDID, PropUtils.getPropValue(configProp, "AndroidUDID"));
 			dc.setCapability("accessKey", PropUtils.getPropValue(configProp, "accessKey"));
 			dc.setCapability("fullReset", false);
-			
+
 			// dc.setCapability("appPackage", "in.smartappcart.contactmanager");
 			// dc.setCapability("appActivity", "in.smartappcart.contactmanager.Sactivity");
 			dc.setCapability(MobileCapabilityType.APP,
 					"cloud:" + PropUtils.getPropValue(configProp, "AndroidBundleId"));
-			driver = new AndroidDriver<MobileElement>(new URL(PropUtils.getPropValue(configProp, "server")), dc);
-			DRIVER_LOCAL.set(driver);
-			DRIVER_LOCAL.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			DRIVER_LOCAL.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			mobiledriver = new AndroidDriver<MobileElement>(new URL(PropUtils.getPropValue(configProp, "server")), dc);
+			MOBILEDRIVER.set(mobiledriver);
+			MOBILEDRIVER.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			MOBILEDRIVER.get().manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 			break;
 		case "IOS":
 			System.out.println("Platform - " + platform);
@@ -143,11 +141,11 @@ public class BaseTest {
 			dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, PropUtils.getPropValue(configProp, "IOSBundleId"));
 			dc.setCapability("autoWebview", "false");
 			dc.setCapability("fullReset", true);
-			//dc.setCapability("nativeInstrumentsLib", true);
-			driver = new IOSDriver<MobileElement>(new URL(PropUtils.getPropValue(configProp, "server")), dc);
-			DRIVER_LOCAL.set(driver);
-			DRIVER_LOCAL.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			DRIVER_LOCAL.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			dc.setCapability("nativeInstrumentsLib", true);
+			mobiledriver = new IOSDriver<MobileElement>(new URL(PropUtils.getPropValue(configProp, "server")), dc);
+			MOBILEDRIVER.set(mobiledriver);
+			MOBILEDRIVER.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			MOBILEDRIVER.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			break;
 		case "WEB":
 			System.out.println("Platform - " + platform);
@@ -157,13 +155,14 @@ public class BaseTest {
 			options.addArguments("chrome.switches", "start-maximized");
 			options.addArguments("chrome.switches", "no-sandbox");
 			options.setExperimentalOption("useAutomationExtension", false);
-			WebDriverManager.chromedriver().setup();
+			// WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver",Constants.DRIVER_DIR + Constants.FILE_SEPARATOR + Constants.DRIVER_FILE_NAME);
 			driver = new ChromeDriver(options);
-			DRIVER_LOCAL.set(driver);
-			DRIVER_LOCAL.get().manage().window().maximize();
-			DRIVER_LOCAL.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			DRIVER_LOCAL.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-			DRIVER_LOCAL.get().get(PropUtils.getPropValue(configProp, "appURL"));
+			WEBDRIVER.set(driver);
+			WEBDRIVER.get().manage().window().maximize();
+			WEBDRIVER.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			WEBDRIVER.get().manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			WEBDRIVER.get().get(PropUtils.getPropValue(configProp, "appURL"));
 			break;
 		default:
 			System.out.println("Platform Mismatch - Only WEB, IOS and ANDROID are allowed");
@@ -188,7 +187,12 @@ public class BaseTest {
 					.skip(MarkupHelper.createLabel(result.getName() + " Test Case SKIPPED", ExtentColor.BLUE));
 			EXTENT_LOCAL.get().skip(result.getThrowable());
 		}
-		DRIVER_LOCAL.get().quit();
+		if (PropUtils.getPropValue(configProp, "platform").equalsIgnoreCase("WEB")) {
+			WEBDRIVER.get().quit();
+		} else {
+			MOBILEDRIVER.get().quit();
+		}
+
 	}
 
 	@AfterSuite(alwaysRun = true)
@@ -208,8 +212,12 @@ public class BaseTest {
 	 * Name: capture | Description: Take Screenshot
 	 ******************************************************************************************/
 	public String capture() throws IOException {
-
-		TakesScreenshot takesScreenshot = (TakesScreenshot) DRIVER_LOCAL.get();
+		TakesScreenshot takesScreenshot;
+		if (PropUtils.getPropValue(configProp, "platform").equalsIgnoreCase("WEB")) {
+			takesScreenshot = (TakesScreenshot) WEBDRIVER.get();
+		} else {
+			takesScreenshot = (TakesScreenshot) MOBILEDRIVER.get();
+		}
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String timestamp = getCurrentDateTime();
 		String dest = "./screenshots/" + timestamp + ".png";

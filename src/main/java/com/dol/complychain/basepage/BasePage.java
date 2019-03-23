@@ -3,10 +3,12 @@ package com.dol.complychain.basepage;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +23,11 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.dol.complychain.basetest.BaseTest;
+
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class BasePage extends BaseTest {
 
@@ -95,7 +102,7 @@ public class BasePage extends BaseTest {
 	}
 
 	public static void waitForElementClickable(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(DRIVER_LOCAL.get(), 10);
+		WebDriverWait wait = new WebDriverWait(WEBDRIVER.get(), 10);
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 		} catch (StaleElementReferenceException e) {
@@ -105,7 +112,7 @@ public class BasePage extends BaseTest {
 	}
 
 	public static void waitTillElementFound(WebElement ElementTobeFound, int seconds) {
-		WebDriverWait wait = new WebDriverWait(DRIVER_LOCAL.get(), seconds);
+		WebDriverWait wait = new WebDriverWait(MOBILEDRIVER.get(), seconds);
 		try {
 			wait.until(ExpectedConditions.visibilityOf(ElementTobeFound));
 		} catch (StaleElementReferenceException e) {
@@ -142,6 +149,19 @@ public class BasePage extends BaseTest {
 		String pastdate = new SimpleDateFormat(format).format(past);
 		// System.out.println(pastdate);
 		return pastdate;
+	}
+
+	public void scrolldown() {
+		Dimension size = MOBILEDRIVER.get().manage().window().getSize();
+		int x = size.getWidth() / 2;
+		int start = (int) (size.getHeight() * 0.60);
+		int end = (int) (size.getHeight() * 0.10);
+		// driver.swipe(x, start, x, end, 2000); - is deprecated
+
+		TouchAction touchAction = new TouchAction((PerformsTouchActions) MOBILEDRIVER.get());
+		touchAction.press(PointOption.point(x, start)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+				.moveTo(PointOption.point(x, end)).release().perform();
+
 	}
 
 }

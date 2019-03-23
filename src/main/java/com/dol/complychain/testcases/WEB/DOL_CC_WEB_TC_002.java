@@ -13,8 +13,8 @@ public class DOL_CC_WEB_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in English",
 				"Verify Menu - Topics and Language Items in English");
 		EXTENT_LOCAL.set(test);
-		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
-		homePage.MenuVerification_EN();
+		WebPages webPage = new WebPages(WEBDRIVER.get(), EXTENT_LOCAL.get());
+		webPage.MenuVerification_EN();
 	}
 
 	@Test
@@ -22,8 +22,8 @@ public class DOL_CC_WEB_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in Español",
 				"Verify Menu - Topics and Language Items in Español");
 		EXTENT_LOCAL.set(test);
-		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
-		homePage.MenuVerification_ES();
+		WebPages webPage = new WebPages(WEBDRIVER.get(), EXTENT_LOCAL.get());
+		webPage.MenuVerification_ES();
 	}
 
 	@Test
@@ -31,8 +31,8 @@ public class DOL_CC_WEB_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in Français",
 				"Verify Menu - Topics and Language Items in Français");
 		EXTENT_LOCAL.set(test);
-		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
-		homePage.MenuVerification_FR();
+		WebPages webPage = new WebPages(WEBDRIVER.get(), EXTENT_LOCAL.get());
+		webPage.MenuVerification_FR();
 	}
 
 }

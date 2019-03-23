@@ -13,7 +13,7 @@ public class DOL_CC_AND_TC_001 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Home Page in English",
 				"Verify Home Page - Logo, Header, Home Page, Menu, Bottom bar Items in English");
 		EXTENT_LOCAL.set(test);
-		AndroidPages androidPage = new AndroidPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		AndroidPages androidPage = new AndroidPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		androidPage.HomePageVerification_EN();
 	}
 
@@ -22,7 +22,7 @@ public class DOL_CC_AND_TC_001 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Home Page in Español",
 				"Verify Home Page - Logo, Header, Home Menu, Bottom bar Items in Español");
 		EXTENT_LOCAL.set(test);
-		AndroidPages androidPage = new AndroidPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		AndroidPages androidPage = new AndroidPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		androidPage.HomePageVerification_ES();
 	}
 
@@ -31,7 +31,7 @@ public class DOL_CC_AND_TC_001 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Home Page in Français",
 				"Verify Home Page - Logo, Header, Home Menu, Bottom bar Items in Français");
 		EXTENT_LOCAL.set(test);
-		AndroidPages androidPage = new AndroidPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		AndroidPages androidPage = new AndroidPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		androidPage.HomePageVerification_FR();
 	}
 

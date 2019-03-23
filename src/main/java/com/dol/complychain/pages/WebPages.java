@@ -1,11 +1,18 @@
 package com.dol.complychain.pages;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Locatable;
+import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -106,6 +113,21 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.SEARCHRESULTSLIST)
 	public List<WebElement> searchresultslist;
 
+	@FindBy(how = How.XPATH, using = Locator.SHARECOPYLINK)
+	public WebElement sharecopylink;
+
+	@FindBy(how = How.XPATH, using = Locator.SHAREEMAILLINK)
+	public WebElement shareemaillink;
+
+	@FindBy(how = How.XPATH, using = Locator.SHAREPOCKETLINK)
+	public WebElement sharepocketlink;
+
+	@FindBy(how = How.XPATH, using = Locator.ABOUTHEADER)
+	public WebElement aboutheader;
+
+	@FindBy(how = How.XPATH, using = Locator.ABOUTACCORDIONS)
+	public List<WebElement> aboutAccordions;
+
 	@FindBy(how = How.ID, using = Locator.HOME_WHY_DEVOLOP)
 	public WebElement homewhydevelop;
 
@@ -136,15 +158,15 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.HOME_STEP8)
 	public WebElement homestep8;
 
-	JavascriptExecutor js = (JavascriptExecutor) DRIVER_LOCAL.get();
+	JavascriptExecutor js = (JavascriptExecutor) WEBDRIVER.get();
 
 	public WebPages(WebDriver driver, ExtentTest test) {
-		super(DRIVER_LOCAL.get(), test);
+		super(WEBDRIVER.get(), test);
 	}
 
 	public void HomePageVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -362,7 +384,7 @@ public class WebPages extends BasePage {
 
 	public void HomePageVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -381,29 +403,28 @@ public class WebPages extends BasePage {
 		// Home Page Content Validation
 
 		if (homewhydevelop.isDisplayed()) {
-			logPass("Home Page - Why Develop a Social Compliance System? is displayed");
+			logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? is displayed");
 			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
 					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Why Develop a Social Compliance System?")) {
-				logPass("Home Page - Why Develop a Social Compliance System? link Verified");
+							.equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
+				logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? link Verified");
 			} else {
-				logFail("Home Page - Why Develop a Social Compliance System? Verification Failed");
+				logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Why Develop a Social Compliance System? link is not displayed");
-
+			logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? link is not displayed");
 		}
 
 		if (homebasics.isDisplayed()) {
-			logPass("Home Page - Basics of a Social Compliance System is displayed");
+			logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social is displayed");
 			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
-					.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
-				logPass("Home Page - Basics of a Social Compliance System link Verified");
+					.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
+				logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social link Verified");
 			} else {
-				logFail("Home Page - Basics of a Social Compliance System Verification Failed");
+				logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social Verification Failed");
 			}
 		} else {
-			logFail("Home Page - Basics of a Social Compliance System link is not displayed");
+			logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social link is not displayed");
 		}
 
 		if (homestep1.isDisplayed()) {
@@ -460,8 +481,9 @@ public class WebPages extends BasePage {
 
 		if (homestep5.isDisplayed()) {
 			logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed");
-			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5") && homestep5
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
+			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5")
+					&& homestep5.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
 				logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link Verified");
 			} else {
 				logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento Verification Failed");
@@ -472,8 +494,9 @@ public class WebPages extends BasePage {
 
 		if (homestep6.isDisplayed()) {
 			logPass("Home Page - Sexto paso: Remediación de infracciones is displayed");
-			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6") && homestep6
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
+			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6")
+					&& homestep6.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
 				logPass("Home Page - Sexto paso: Remediación de infracciones Verified");
 			} else {
 				logFail("Home Page - Sexto paso: Remediación de infracciones Verification Failed");
@@ -484,8 +507,9 @@ public class WebPages extends BasePage {
 
 		if (homestep7.isDisplayed()) {
 			logPass("Home Page - Séptimo paso: Examen independiente is displayed");
-			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7") && homestep7
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Séptimo paso: Examen independiente")) {
+			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7")
+					&& homestep7.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Séptimo paso: Examen independiente")) {
 				logPass("Home Séptimo paso: Examen independiente Verified");
 			} else {
 				logFail("Home Page - Séptimo paso: Examen independiente Verification Failed");
@@ -496,8 +520,9 @@ public class WebPages extends BasePage {
 
 		if (homestep8.isDisplayed()) {
 			logPass("Home Page - Octavo paso: Notificación del desempeño is displayed");
-			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8") && homestep8
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
+			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8")
+					&& homestep8.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
 				logPass("Home Page - Octavo paso: Notificación del desempeño");
 			} else {
 				logFail("Home Page - Octavo paso: Notificación del desempeño Verification Failed");
@@ -582,7 +607,7 @@ public class WebPages extends BasePage {
 
 	public void HomePageVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -803,7 +828,7 @@ public class WebPages extends BasePage {
 
 	public void MenuVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -916,7 +941,7 @@ public class WebPages extends BasePage {
 
 	public void MenuVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1033,7 +1058,7 @@ public class WebPages extends BasePage {
 
 	public void MenuVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1149,7 +1174,7 @@ public class WebPages extends BasePage {
 
 	public void StepsVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1359,7 +1384,7 @@ public class WebPages extends BasePage {
 
 	public void StepsVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1574,7 +1599,7 @@ public class WebPages extends BasePage {
 
 	public void StepsVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1789,7 +1814,7 @@ public class WebPages extends BasePage {
 
 	public void LanguageVerification() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1823,7 +1848,7 @@ public class WebPages extends BasePage {
 		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
 			logPass("English Language Button is displayed");
 			english.click();
-			if (DRIVER_LOCAL.get().getCurrentUrl().contains("lang=en")) {
+			if (WEBDRIVER.get().getCurrentUrl().contains("lang=en")) {
 				logPass("English Language is Selected and Validated from URL");
 			} else {
 				logFail("English Language Selection and Validation Failed");
@@ -1835,7 +1860,7 @@ public class WebPages extends BasePage {
 		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
 			logPass("Español Language Button is displayed");
 			spanish.click();
-			if (DRIVER_LOCAL.get().getCurrentUrl().contains("lang=es")) {
+			if (WEBDRIVER.get().getCurrentUrl().contains("lang=es")) {
 				logPass("Español Language is Selected and Validated from URL");
 			} else {
 				logFail("Español Language Selection and Validation Failed");
@@ -1847,7 +1872,7 @@ public class WebPages extends BasePage {
 		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
 			logPass("Français Language Button is displayed");
 			french.click();
-			if (DRIVER_LOCAL.get().getCurrentUrl().contains("lang=fr")) {
+			if (WEBDRIVER.get().getCurrentUrl().contains("lang=fr")) {
 				logPass("Français Language is Selected and Validated from URL");
 			} else {
 				logFail("Français Language Selection and Validation Failed");
@@ -1869,7 +1894,7 @@ public class WebPages extends BasePage {
 
 	public void Search_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -1940,6 +1965,7 @@ public class WebPages extends BasePage {
 
 		// search results validation
 		if (searchresultheader.isDisplayed()) {
+			logPass("Search Result Header - " + searchresultheader.getText() + " is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
 			System.out.println(resultsheadercount);
 
@@ -1948,8 +1974,7 @@ public class WebPages extends BasePage {
 			int SearchCount = 0;
 			int iCount = 0;
 			for (int i = 1; i <= searchresultslist.size(); i++) {
-				iCount = DRIVER_LOCAL.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark"))
-						.size();
+				iCount = WEBDRIVER.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark")).size();
 				if (iCount >= 1) {
 					SearchCount++;
 				}
@@ -1964,7 +1989,7 @@ public class WebPages extends BasePage {
 
 	public void Search_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -2038,6 +2063,7 @@ public class WebPages extends BasePage {
 
 		// search results validation
 		if (searchresultheader.isDisplayed()) {
+			logPass("Search Result Header - " + searchresultheader.getText() + " is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
 			System.out.println(resultsheadercount);
 
@@ -2046,8 +2072,7 @@ public class WebPages extends BasePage {
 			int SearchCount = 0;
 			int iCount = 0;
 			for (int i = 1; i <= searchresultslist.size(); i++) {
-				iCount = DRIVER_LOCAL.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark"))
-						.size();
+				iCount = WEBDRIVER.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark")).size();
 				if (iCount >= 1) {
 					SearchCount++;
 				}
@@ -2063,7 +2088,7 @@ public class WebPages extends BasePage {
 
 	public void Search_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -2136,6 +2161,7 @@ public class WebPages extends BasePage {
 
 		// search results validation
 		if (searchresultheader.isDisplayed()) {
+			logPass("Search Result Header - " + searchresultheader.getText() + " is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
 			System.out.println(resultsheadercount);
 
@@ -2144,8 +2170,7 @@ public class WebPages extends BasePage {
 			int SearchCount = 0;
 			int iCount = 0;
 			for (int i = 1; i <= searchresultslist.size(); i++) {
-				iCount = DRIVER_LOCAL.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark"))
-						.size();
+				iCount = WEBDRIVER.get().findElements(By.xpath("//*[@id='container']/div/div[" + i + "]//mark")).size();
 				if (iCount >= 1) {
 					SearchCount++;
 				}
@@ -2161,7 +2186,7 @@ public class WebPages extends BasePage {
 
 	public void StepsAccordion_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -2213,13 +2238,16 @@ public class WebPages extends BasePage {
 
 		// Validate Step Accordions
 		for (int j = 1; j <= 8; j++) {
+			String header = stepheader.getText().trim();
+			logInfo(header + " Accordion Validation");
 			for (int i = 1; i <= stepAccordions.size(); i++) {
-				DRIVER_LOCAL.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
+				WEBDRIVER.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
 				sleep(1);
+				logPass(WEBDRIVER.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]/div[1]"))
+						.getText().trim() + " Accordion step Validation Success");
 				js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 				sleep(1);
 			}
-			String header = stepheader.getText().trim();
 			logPass(header + " Accordions Validation Success");
 			if (j != 8) {
 				nextstep.click();
@@ -2231,7 +2259,7 @@ public class WebPages extends BasePage {
 
 	public void StepsAccordion_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -2285,13 +2313,16 @@ public class WebPages extends BasePage {
 
 		// Validate Step Accordions
 		for (int j = 1; j <= 8; j++) {
+			String header = stepheader.getText().trim();
+			logInfo(header + " Accordion Validation");
 			for (int i = 1; i <= stepAccordions.size(); i++) {
-				DRIVER_LOCAL.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
+				WEBDRIVER.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
 				sleep(1);
+				logPass(WEBDRIVER.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]/div[1]"))
+						.getText().trim() + " Accordion step Validation Success");
 				js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 				sleep(1);
 			}
-			String header = stepheader.getText().trim();
 			logPass(header + " Accordions Validation Success");
 			if (j != 8) {
 				nextstep.click();
@@ -2303,7 +2334,7 @@ public class WebPages extends BasePage {
 
 	public void StepsAccordion_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(WEBDRIVER.get(), this);
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
@@ -2357,18 +2388,631 @@ public class WebPages extends BasePage {
 
 		// Validate Step Accordions
 		for (int j = 1; j <= 8; j++) {
+			String header = stepheader.getText().trim();
+			logInfo(header + " Accordion Validation");
 			for (int i = 1; i <= stepAccordions.size(); i++) {
-				DRIVER_LOCAL.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
+				WEBDRIVER.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]")).click();
 				sleep(1);
+				logPass(WEBDRIVER.get().findElement(By.xpath("//*[@id='step-accordions']/div[" + i + "]/div[1]"))
+						.getText().trim() + " Accordion step Validation Success");
 				js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 				sleep(1);
 			}
-			String header = stepheader.getText().trim();
 			logPass(header + " Accordions Validation Success");
 			if (j != 8) {
 				nextstep.click();
 				sleep(1);
 			}
+		}
+
+	}
+
+	public void Share_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Home Page Header
+		if (homepageHeader.isDisplayed()) {
+			logPass("Home Page Header is displayed");
+		} else {
+			logFail("Home Page Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			menu.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Bottom Bar - Share
+		if (share.isDisplayed()) {
+			logPass("Share link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
+				logPass("Share link Verified");
+			} else {
+				logFail("Share Verification Failed");
+			}
+		} else {
+			logFail("Share link is not displayed");
+		}
+
+		// Share -Copy Link
+		share.click();
+		if (sharecopylink.isDisplayed()) {
+			logPass("Copy Link is displayed");
+			String CurrentLink = WEBDRIVER.get().getCurrentUrl();
+			System.out.println(CurrentLink);
+			sharecopylink.click();
+			Toolkit toolkit = Toolkit.getDefaultToolkit();
+			Clipboard clipboard = toolkit.getSystemClipboard();
+			String CopiedLink = (String) clipboard.getData(DataFlavor.stringFlavor);
+			System.out.println(CopiedLink);
+			if (CurrentLink.equals(CopiedLink)) {
+				logPass("Share - Copy Link functionality is Verified");
+			} else {
+				logFail("Share - Copy Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Copy Link Not displayed");
+		}
+
+		// Share -Email Link
+		share.click();
+		if (shareemaillink.isDisplayed()) {
+			logPass("Email Link is displayed");
+			share.click();
+		} else {
+			logFail("Share - Email Link not displayed");
+		}
+
+		// Share - Pocket Link
+		share.click();
+		if (sharepocketlink.isDisplayed()) {
+			logPass("Share - Pocket Link is displayed");
+			if (sharepocketlink.getAttribute("src").contains("https://widgets.getpocket.com")) {
+				String mainWindow = WEBDRIVER.get().getWindowHandle();
+				sharepocketlink.click();
+				sleep(2);
+				Set<String> set = WEBDRIVER.get().getWindowHandles();
+				// Using Iterator to iterate with in windows
+				Iterator<String> itr = set.iterator();
+				while (itr.hasNext()) {
+					String childWindow = itr.next();
+					// Compare whether the main windows is not equal to child window.
+					if (!mainWindow.equals(childWindow)) {
+						WEBDRIVER.get().switchTo().window(childWindow);
+						String pockettitle = WEBDRIVER.get().switchTo().window(childWindow).getTitle();
+						logPass("Share - Pocket Window title -" + pockettitle + " is displayed");
+					}
+				}
+				// This is to switch to the main window
+				WEBDRIVER.get().switchTo().window(mainWindow);
+				logPass("Share - Pocket Link functionality Verified");
+			} else {
+				logFail("Share - Pocket Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Pocket Link functionality Verification Failed");
+		}
+	}
+
+	public void Share_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Home Page Header
+		if (homepageHeader.isDisplayed()) {
+			logPass("Home Page Header is displayed");
+		} else {
+			logFail("Home Page Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			spanish.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Bottom Bar - Compartir
+		if (share.isDisplayed()) {
+			logPass("Compartir link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Compartir")) {
+				logPass("Compartir link Verified");
+			} else {
+				logFail("Compartir Verification Failed");
+			}
+		} else {
+			logFail("Compartir link is not displayed");
+		}
+
+		// Share -Copy Link
+		share.click();
+		if (sharecopylink.isDisplayed()) {
+			logPass("Copy Link is displayed");
+			String CurrentLink = WEBDRIVER.get().getCurrentUrl();
+			System.out.println(CurrentLink);
+			sharecopylink.click();
+			Toolkit toolkit = Toolkit.getDefaultToolkit();
+			Clipboard clipboard = toolkit.getSystemClipboard();
+			String CopiedLink = (String) clipboard.getData(DataFlavor.stringFlavor);
+			System.out.println(CopiedLink);
+			if (CurrentLink.equals(CopiedLink)) {
+				logPass("Share - Copy Link functionality is Verified");
+			} else {
+				logFail("Share - Copy Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Copy Link Not displayed");
+		}
+
+		// Share -Email Link
+		share.click();
+		if (shareemaillink.isDisplayed()) {
+			logPass("Email Link is displayed");
+			share.click();
+		} else {
+			logFail("Share - Email Link not displayed");
+		}
+
+		// Share - Pocket Link
+		share.click();
+		if (sharepocketlink.isDisplayed()) {
+			logPass("Share - Pocket Link is displayed");
+			if (sharepocketlink.getAttribute("src").contains("https://widgets.getpocket.com")) {
+				String mainWindow = WEBDRIVER.get().getWindowHandle();
+				sharepocketlink.click();
+				sleep(2);
+				Set<String> set = WEBDRIVER.get().getWindowHandles();
+				// Using Iterator to iterate with in windows
+				Iterator<String> itr = set.iterator();
+				while (itr.hasNext()) {
+					String childWindow = itr.next();
+					// Compare whether the main windows is not equal to child window.
+					if (!mainWindow.equals(childWindow)) {
+						WEBDRIVER.get().switchTo().window(childWindow);
+						String pockettitle = WEBDRIVER.get().switchTo().window(childWindow).getTitle();
+						logPass("Share - Pocket Window title -" + pockettitle + " is displayed");
+					}
+				}
+				// This is to switch to the main window
+				WEBDRIVER.get().switchTo().window(mainWindow);
+				logPass("Share - Pocket Link functionality Verified");
+			} else {
+				logFail("Share - Pocket Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Pocket Link functionality Verification Failed");
+		}
+	}
+
+	public void Share_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Home Page Header
+		if (homepageHeader.isDisplayed()) {
+			logPass("Home Page Header is displayed");
+		} else {
+			logFail("Home Page Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			menu.click();
+			sleep(1);
+			french.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Bottom Bar - Partager
+		if (share.isDisplayed()) {
+			logPass("Partager link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Partager")) {
+				logPass("Partager link Verified");
+			} else {
+				logFail("Partager Verification Failed");
+			}
+		} else {
+			logFail("Partager link is not displayed");
+		}
+
+		// Search Bar
+		// Share -Copy Link
+		share.click();
+		if (sharecopylink.isDisplayed()) {
+			logPass("Copy Link is displayed");
+			String CurrentLink = WEBDRIVER.get().getCurrentUrl();
+			System.out.println(CurrentLink);
+			sharecopylink.click();
+			Toolkit toolkit = Toolkit.getDefaultToolkit();
+			Clipboard clipboard = toolkit.getSystemClipboard();
+			String CopiedLink = (String) clipboard.getData(DataFlavor.stringFlavor);
+			System.out.println(CopiedLink);
+			if (CurrentLink.equals(CopiedLink)) {
+				logPass("Share - Copy Link functionality is Verified");
+			} else {
+				logFail("Share - Copy Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Copy Link Not displayed");
+		}
+
+		// Share -Email Link
+		share.click();
+		if (shareemaillink.isDisplayed()) {
+			logPass("Email Link is displayed");
+			share.click();
+		} else {
+			logFail("Share - Email Link not displayed");
+		}
+
+		// Share - Pocket Link
+		share.click();
+		if (sharepocketlink.isDisplayed()) {
+			logPass("Share - Pocket Link is displayed");
+			if (sharepocketlink.getAttribute("src").contains("https://widgets.getpocket.com")) {
+				String mainWindow = WEBDRIVER.get().getWindowHandle();
+				sharepocketlink.click();
+				sleep(2);
+				Set<String> set = WEBDRIVER.get().getWindowHandles();
+				// Using Iterator to iterate with in windows
+				Iterator<String> itr = set.iterator();
+				while (itr.hasNext()) {
+					String childWindow = itr.next();
+					// Compare whether the main windows is not equal to child window.
+					if (!mainWindow.equals(childWindow)) {
+						WEBDRIVER.get().switchTo().window(childWindow);
+						String pockettitle = WEBDRIVER.get().switchTo().window(childWindow).getTitle();
+						logPass("Share - Pocket Window title -" + pockettitle + " is displayed");
+					}
+				}
+				// This is to switch to the main window
+				WEBDRIVER.get().switchTo().window(mainWindow);
+				logPass("Share - Pocket Link functionality Verified");
+			} else {
+				logFail("Share - Pocket Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Pocket Link functionality Verification Failed");
+		}
+	}
+
+	public void About_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			menu.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Bottom Bar - About
+		if (about.isDisplayed()) {
+			logPass("About link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
+					&& about.getAttribute("href").trim().contains("/about")) {
+				logPass("About link Verified");
+				about.click();
+				sleep(2);
+			} else {
+				logFail("About Verification Failed");
+			}
+		} else {
+			logFail("About link is not displayed");
+		}
+
+		// Validate About Header
+		if (aboutheader.isDisplayed()) {
+			logPass("About Result Header - " + aboutheader.getText() + " is displayed");
+		} else {
+			logFail("About Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		js.executeScript("arguments[0].scrollIntoView(true);",
+				WEBDRIVER.get().findElement(By.xpath("//*[@id='container']/div/p[4]")));
+		for (int i = 1; i <= aboutAccordions.size(); i++) {
+			WebElement element = WEBDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//div/strong/..)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(WEBDRIVER.get().findElement(By.xpath("(//*[@id='container']//div/strong)[" + i + "]")).getText()
+					.trim() + " Accordion step Validation Success");
+			element.click();
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			sleep(1);
+			count++;
+		}
+		if (count == aboutAccordions.size()) {
+			logPass("About Page Accordions Validation Success");
+		} else {
+			logFail("About Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void About_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			spanish.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Bottom Bar - Sobre
+		if (about.isDisplayed()) {
+			logPass("Sobre link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")
+					&& about.getAttribute("href").trim().contains("/about")) {
+				logPass("Sobre link Verified");
+				about.click();
+			} else {
+				logFail("Sobre Verification Failed");
+			}
+		} else {
+			logFail("Sobre link is not displayed");
+		}
+
+		// Validate About Header
+		if (aboutheader.isDisplayed()) {
+			logPass("Sobre Result Header - " + aboutheader.getText() + " is displayed");
+		} else {
+			logFail("Sobre Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		js.executeScript("arguments[0].scrollIntoView(true);",
+				WEBDRIVER.get().findElement(By.xpath("//*[@id='container']/div/p[4]")));
+		for (int i = 1; i <= aboutAccordions.size(); i++) {
+			WebElement element = WEBDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//div/strong/..)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(WEBDRIVER.get().findElement(By.xpath("(//*[@id='container']//div/strong)[" + i + "]")).getText()
+					.trim() + " Accordion step Validation Success");
+			element.click();
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			sleep(1);
+			count++;
+		}
+		if (count == aboutAccordions.size()) {
+			logPass("Sobre Page Accordions Validation Success");
+		} else {
+			logFail("Sobre Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void About_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			menu.click();
+			sleep(1);
+			french.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Bottom Bar - Sur
+		if (about.isDisplayed()) {
+			logPass("Sur link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")
+					&& about.getAttribute("href").trim().contains("/about")) {
+				logPass("Sur link Verified");
+				about.click();
+			} else {
+				logFail("Sur Verification Failed");
+			}
+		} else {
+			logFail("Sur link is not displayed");
+		}
+
+		// Validate About Header
+		if (aboutheader.isDisplayed()) {
+			logPass("Sur Result Header - " + aboutheader.getText() + " is displayed");
+		} else {
+			logFail("Sur Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		js.executeScript("arguments[0].scrollIntoView(true);",
+				WEBDRIVER.get().findElement(By.xpath("//*[@id='container']/div/p[4]")));
+		for (int i = 1; i <= aboutAccordions.size(); i++) {
+			WebElement element = WEBDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//div/strong/..)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(WEBDRIVER.get().findElement(By.xpath("(//*[@id='container']//div/strong)[" + i + "]")).getText()
+					.trim() + " Accordion step Validation Success");
+			element.click();
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			sleep(1);
+			count++;
+		}
+		if (count == aboutAccordions.size()) {
+			logPass("Sur Page Accordions Validation Success");
+		} else {
+			logFail("Sur Page Accordions Validation Failed");
 		}
 
 	}

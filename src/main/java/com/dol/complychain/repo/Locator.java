@@ -36,7 +36,12 @@ public class Locator {
 	public static final String ABOUT = "about-link";
 	public static final String SEARCHRESULTHEADER = "//*[@id='container']//h4";
 	public static final String SEARCHRESULTSLIST = "//*[@id='container']/div/div";
-
+	public static final String SHARECOPYLINK = "//*[@id='share-link']/div[2]/div[3]";
+	public static final String SHAREEMAILLINK = "//*[@id='share-link']/div[2]/div[2]";
+	public static final String SHAREPOCKETLINK = "//*[@id='share-link']/div[2]/div[1]//iframe";
+	public static final String ABOUTHEADER = "//*[@id='container']//h1";
+	public static final String ABOUTACCORDIONS = "//*[@id='container']//div/strong";
+	
 	public static final String HOME_WHY_DEVOLOP = "home_whydeveloper";
 	public static final String HOME_BASICS = "home_basics";
 	public static final String HOME_STEP1 = "home_step_1";
@@ -113,23 +118,23 @@ public class Locator {
 	public static final String I_EN_SHARE = "//*[@text='Share' and @class='UIAStaticText']";
 	public static final String I_EN_ABOUT = "//*[@text='About' and @class='UIAImage' and ./*[@class='UIAImage']]";
 
-	public static final String I_ES_BOOKMARKS = "//*[@text='Bookmarks' and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_BOOKMARKS = "//*[@text='Marcadores' and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_ES_SEARCH = "//*[@text='Buscar' and @class='UIAImage' and ./*[@class='UIAImage']]";
-	public static final String I_ES_SHARE = "//*[@text='Share' and @class='UIAStaticText']";
-	public static final String I_ES_ABOUT = "//*[@text='About' and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_ES_SHARE = "//*[@text='Compartir' and @class='UIAStaticText']";
+	public static final String I_ES_ABOUT = "//*[@text='Sobre' and @class='UIAImage' and ./*[@class='UIAImage']]";
 
-	public static final String I_FR_BOOKMARKS = "//*[@text='Bookmarks' and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_BOOKMARKS = "//*[@text='Signet' and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_FR_SEARCH = "//*[@text='Rechercher' and @class='UIAImage' and ./*[@class='UIAImage']]";
-	public static final String I_FR_SHARE = "//*[@text='Share' and @class='UIAStaticText']";
-	public static final String I_FR_ABOUT = "//*[@text='About' and @class='UIAImage' and ./*[@class='UIAImage']]";
+	public static final String I_FR_SHARE = "//*[@text='Partager' and @class='UIAStaticText']";
+	public static final String I_FR_ABOUT = "//*[@text='Sur' and @class='UIAImage' and ./*[@class='UIAImage']]";
 
-	public static final String I_STEPACCORDIONS = "//*[@id='step-accordions']/div";
+	public static final String I_STEPACCORDIONS = "//*[@id='step-accordions']/DIV";
 	public static final String I_PREVIOUSSTEP = "prev-step";
 	public static final String I_NEXTSTEP = "next-step";
-	public static final String I_STEPHEADER = "//*[@id='container']//h3";
-	public static final String I_SEARCHRESULTHEADER = "//*[@id='container']//h4";
-	public static final String I_SEARCHRESULTSLIST = "//*[@id='container']/div/div";
-	public static final String I_SEARCHBAR = "search-input";
+	public static final String I_STEPHEADER = "//*[@id='container']//H3";
+	public static final String I_SEARCHRESULTHEADER = "//*[@id='container']//*[@nodeName='H4']";
+	public static final String I_SEARCHRESULTSLIST = "//*[@id='container']/DIV/DIV";
+	public static final String I_SEARCHBAR = "//*[@id='Search']//following-sibling::*";
 
 	public static final String I_EN_HOME_WHY_DEVOLOP = "//*[contains(@text,'Why Develop') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_EN_HOME_BASICS = "//*[contains(@text,'Basics of a') and @class='UIAImage' and ./*[@class='UIAImage']]";
@@ -152,7 +157,7 @@ public class Locator {
 	public static final String I_ES_HOME_STEP6 = "//*[contains(@text,'Sexto') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_ES_HOME_STEP7 = "//*[contains(@text,'ptimo') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_ES_HOME_STEP8 = "//*[contains(@text,'Octavo') and @class='UIAImage' and ./*[@class='UIAImage']]";
-	
+
 	public static final String I_FR_HOME_WHY_DEVOLOP = "//*[contains(@text,'Pourquoi') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_FR_HOME_BASICS = "//*[contains(@text,'Fondements') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_FR_HOME_STEP1 = "//*[contains(@text,'Premi') and @class='UIAImage' and ./*[@class='UIAImage']]";

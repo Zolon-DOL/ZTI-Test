@@ -13,7 +13,7 @@ public class DOL_CC_AND_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in English",
 				"Verify Menu - Topics and Language Items in English");
 		EXTENT_LOCAL.set(test);
-		AndroidPages androidPage = new AndroidPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		AndroidPages androidPage = new AndroidPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		androidPage.MenuVerification_EN();
 	}
 
@@ -22,7 +22,7 @@ public class DOL_CC_AND_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in Español",
 				"Verify Menu - Topics and Language Items in Español");
 		EXTENT_LOCAL.set(test);
-		AndroidPages androidPage = new AndroidPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		AndroidPages androidPage = new AndroidPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		androidPage.MenuVerification_ES();
 	}
 
@@ -31,7 +31,7 @@ public class DOL_CC_AND_TC_002 extends BaseTest {
 		ExtentTest test = extent.createTest("Verify Menu in Français",
 				"Verify Menu - Topics and Language Items in Français");
 		EXTENT_LOCAL.set(test);
-		AndroidPages androidPage = new AndroidPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		AndroidPages androidPage = new AndroidPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		androidPage.MenuVerification_FR();
 	}
 

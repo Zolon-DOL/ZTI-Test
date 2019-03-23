@@ -10,26 +10,29 @@ public class DOL_CC_WEB_TC_006 extends BaseTest {
 
 	@Test
 	public void StepsAccordion_English() throws Exception {
-		ExtentTest test = extent.createTest("Verify Steps Accordion in English", "Verify Steps Accordion Functionality in English");
+		ExtentTest test = extent.createTest("Verify Steps Accordion in English",
+				"Verify Steps Accordion Functionality in English");
 		EXTENT_LOCAL.set(test);
-		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
-		homePage.StepsAccordion_EN();
+		WebPages webPage = new WebPages(WEBDRIVER.get(), EXTENT_LOCAL.get());
+		webPage.StepsAccordion_EN();
 	}
 
 	@Test
 	public void StepsAccordion_Español() throws Exception {
-		ExtentTest test = extent.createTest("Verify Steps Accordion in Español", "Verify Steps Accordion Functionality in Español");
+		ExtentTest test = extent.createTest("Verify Steps Accordion in Español",
+				"Verify Steps Accordion Functionality in Español");
 		EXTENT_LOCAL.set(test);
-		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
-		homePage.StepsAccordion_ES();
+		WebPages webPage = new WebPages(WEBDRIVER.get(), EXTENT_LOCAL.get());
+		webPage.StepsAccordion_ES();
 	}
 
 	@Test
 	public void StepsAccordion_Français() throws Exception {
-		ExtentTest test = extent.createTest("Verify Steps Accordion in Français", "Verify Steps Accordion Functionality in Français");
+		ExtentTest test = extent.createTest("Verify Steps Accordion in Français",
+				"Verify Steps Accordion Functionality in Français");
 		EXTENT_LOCAL.set(test);
-		WebPages homePage = new WebPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
-		homePage.StepsAccordion_FR();
+		WebPages webPage = new WebPages(WEBDRIVER.get(), EXTENT_LOCAL.get());
+		webPage.StepsAccordion_FR();
 	}
 
 }

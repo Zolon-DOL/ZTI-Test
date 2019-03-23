@@ -1,6 +1,9 @@
 package com.dol.complychain.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +13,12 @@ import org.openqa.selenium.support.PageFactory;
 import com.aventstack.extentreports.ExtentTest;
 import com.dol.complychain.basepage.BasePage;
 import com.dol.complychain.repo.Locator;
+
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.ios.IOSDriver;
 
 public class IosPages extends BasePage {
 
@@ -193,6 +202,27 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.I_FR_STEP8)
 	public WebElement frstep8;
 
+	@FindBy(how = How.ID, using = Locator.PREVIOUSSTEP)
+	public WebElement previosstep;
+
+	@FindBy(how = How.ID, using = Locator.NEXTSTEP)
+	public WebElement nextstep;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPHEADER)
+	public WebElement stepheader;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPACCORDIONS)
+	public List<WebElement> stepAccordions;
+
+	@FindBy(how = How.XPATH, using = Locator.I_SEARCHBAR)
+	public WebElement searchbar;
+
+	@FindBy(how = How.XPATH, using = Locator.I_SEARCHRESULTHEADER)
+	public WebElement searchresultheader;
+
+	@FindBy(how = How.XPATH, using = Locator.I_SEARCHRESULTSLIST)
+	public List<WebElement> searchresultslist;
+
 	@FindBy(how = How.XPATH, using = Locator.I_EN_HOME_WHY_DEVOLOP)
 	public WebElement enhomewhydevelop;
 
@@ -284,12 +314,12 @@ public class IosPages extends BasePage {
 	public WebElement frhomestep8;
 
 	public IosPages(WebDriver driver, ExtentTest test) {
-		super(DRIVER_LOCAL.get(), test);
+		super(MOBILEDRIVER.get(), test);
 	}
 
 	public void HomePageVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -360,6 +390,8 @@ public class IosPages extends BasePage {
 			logFail("Home Page - Step 2: Assess Risks And Impacts link is not displayed");
 		}
 
+		scrolldown();
+
 		if (enhomestep3.isDisplayed()) {
 			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
 			if (enhomestep3.getText().trim().equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
@@ -404,6 +436,8 @@ public class IosPages extends BasePage {
 		} else {
 			logFail("Home Page - Step 6: Remediate Violations link is not displayed");
 		}
+
+		scrolldown();
 
 		if (enhomestep7.isDisplayed()) {
 			logPass("Home Page - Step 7: Independent Review is displayed");
@@ -498,7 +532,7 @@ public class IosPages extends BasePage {
 
 	public void HomePageVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -515,11 +549,124 @@ public class IosPages extends BasePage {
 			logFail("Comply Chain Logo is Not Displayed");
 		}
 
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
+		if (eshomewhydevelop.isDisplayed()) {
+			logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? is displayed");
+			if (eshomewhydevelop.getText().trim()
+					.equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
+				logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? link Verified");
+			} else {
+				logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? Verification Failed");
+			}
 		} else {
-			logFail("ILAB is Not Displayed");
+			logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? link is not displayed");
+
+		}
+
+		if (eshomebasics.isDisplayed()) {
+			logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social is displayed");
+			if (eshomebasics.getText().trim()
+					.equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
+				logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social link Verified");
+			} else {
+				logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social link is not displayed");
+		}
+
+		if (eshomestep1.isDisplayed()) {
+			logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios is displayed");
+			if (eshomestep1.getText().trim()
+					.equalsIgnoreCase("Primer paso: Participación de las partes interesadas y los socios")) {
+				logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios link Verified");
+			} else {
+				logFail("Home Page - Primer paso: Participación de las partes interesadas y los socios Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Primer paso: Participación de las partes interesadas y los socios link is not displayed");
+		}
+
+		if (eshomestep2.isDisplayed()) {
+			logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto is displayed");
+			if (eshomestep2.getText().trim().equalsIgnoreCase("Segundo paso: Evaluación de riesgos e impacto")) {
+				logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto link Verified");
+			} else {
+				logFail("Home Page - Segundo paso: Evaluación de riesgos e impacto Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Segundo paso: Evaluación de riesgos e impacto link is not displayed");
+		}
+
+		if (eshomestep3.isDisplayed()) {
+			logPass("Home Page - Tercer paso: Formulación de un código de conducta is displayed");
+			if (eshomestep3.getText().trim().equalsIgnoreCase("Tercer paso: Formulación de un código de conducta")) {
+				logPass("Home Page - Tercer paso: Formulación de un código de conducta link Verified");
+			} else {
+				logFail("Home Page - Tercer paso: Formulación de un código de conducta Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Tercer paso: Formulación de un código de conducta link is not displayed");
+		}
+
+		scrolldown();
+
+		if (eshomestep4.isDisplayed()) {
+			logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro is displayed");
+			if (eshomestep4.getText().trim()
+					.equalsIgnoreCase("Cuarto paso: Comunicación y capacitación en la cadena de suministro")) {
+				logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link Verified");
+			} else {
+				logFail("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link is not displayed");
+		}
+
+		if (eshomestep5.isDisplayed()) {
+			logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed");
+			if (eshomestep5.getText().trim()
+					.equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
+				logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link Verified");
+			} else {
+				logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link is not displayed");
+		}
+
+		if (eshomestep6.isDisplayed()) {
+			logPass("Home Page - Sexto paso: Remediación de infracciones is displayed");
+			if (eshomestep6.getText().trim().equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
+				logPass("Home Page - Sexto paso: Remediación de infracciones Verified");
+			} else {
+				logFail("Home Page - Sexto paso: Remediación de infracciones Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Sexto paso: Remediación de infracciones link is not displayed");
+		}
+
+		scrolldown();
+
+		if (eshomestep7.isDisplayed()) {
+			logPass("Home Page - Séptimo paso: Examen independiente is displayed");
+			if (eshomestep7.getText().trim().equalsIgnoreCase("Séptimo paso: Examen independiente")) {
+				logPass("Home Page - Séptimo paso: Examen independiente Verified");
+			} else {
+				logFail("Home Page - Séptimo paso: Examen independiente Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Séptimo paso: Examen independiente link is not displayed");
+		}
+
+		if (eshomestep8.isDisplayed()) {
+			logPass("Home Page - Octavo paso: Notificación del desempeño is displayed");
+			if (eshomestep8.getText().trim().equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
+				logPass("Home Page - Octavo paso: Notificación del desempeño");
+			} else {
+				logFail("Home Page - Octavo paso: Notificación del desempeño Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Octavo paso: Notificación del desempeño link is not displayed");
 		}
 
 		// MENU opening and closing
@@ -542,16 +689,16 @@ public class IosPages extends BasePage {
 			logFail("Menú is Not Displayed");
 		}
 
-		// Bottom Bar - Bookmarks
+		// Bottom Bar - Marcadores
 		if (esbookmarks.isDisplayed()) {
-			logPass("Bookmarks link is displayed");
-			if (esbookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
-				logPass("Bookmarks link Verified");
+			logPass("Marcadores link is displayed");
+			if (esbookmarks.getText().trim().equalsIgnoreCase("Marcadores")) {
+				logPass("Marcadores link Verified");
 			} else {
-				logFail("Bookmarks Verification Failed");
+				logFail("Marcadores Verification Failed");
 			}
 		} else {
-			logFail("Bookmarks link is not displayed");
+			logFail("Marcadores link is not displayed");
 		}
 
 		// Bottom Bar - Buscar
@@ -568,23 +715,23 @@ public class IosPages extends BasePage {
 
 		// Bottom Bar - Share
 		if (esshare.isDisplayed()) {
-			logPass("Share link is displayed");
-			if (esshare.getText().trim().equalsIgnoreCase("Share")) {
-				logPass("Share link Verified");
+			logPass("Compartir link is displayed");
+			if (esshare.getText().trim().equalsIgnoreCase("Compartir")) {
+				logPass("Compartir link Verified");
 			} else {
-				logFail("Share Verification Failed");
+				logFail("Compartir Verification Failed");
 			}
 		} else {
-			logFail("Share link is not displayed");
+			logFail("Compartir link is not displayed");
 		}
 
-		// Bottom Bar - About
+		// Bottom Bar - Sobre
 		if (esabout.isDisplayed()) {
-			logPass("About link is displayed");
-			if (esabout.getText().trim().equalsIgnoreCase("About")) {
-				logPass("About link Verified");
+			logPass("Sobre link is displayed");
+			if (esabout.getText().trim().equalsIgnoreCase("Sobre")) {
+				logPass("Sobre link Verified");
 			} else {
-				logFail("About Verification Failed");
+				logFail("Sobre Verification Failed");
 			}
 		} else {
 			logFail("About link is not displayed");
@@ -594,7 +741,7 @@ public class IosPages extends BasePage {
 
 	public void HomePageVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -611,11 +758,123 @@ public class IosPages extends BasePage {
 			logFail("Comply Chain Logo is Not Displayed");
 		}
 
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
+		if (frhomewhydevelop.isDisplayed()) {
+			logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? is displayed");
+			if (frhomewhydevelop.getText().trim()
+					.equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+				logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? link Verified");
+			} else {
+				logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? Verification Failed");
+			}
 		} else {
-			logFail("ILAB is Not Displayed");
+			logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? link is not displayed");
+
+		}
+
+		if (frhomebasics.isDisplayed()) {
+			logPass("Home Page - Fondements d’un système de conformité sociale is displayed");
+			if (frhomebasics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
+				logPass("Home Page - Fondements d’un système de conformité sociale link Verified");
+			} else {
+				logFail("Home Page - Fondements d’un système de conformité sociale Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Fondements d’un système de conformité sociale link is not displayed");
+		}
+
+		if (frhomestep1.isDisplayed()) {
+			logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires is displayed");
+			if (frhomestep1.getText().trim()
+					.equalsIgnoreCase("Première étape: faire participer les parties prenantes et les partenaires")) {
+				logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires link Verified");
+			} else {
+				logFail("Home Page - Première étape: faire participer les parties prenantes et les partenaires Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Première étape: faire participer les parties prenantes et les partenaires link is not displayed");
+		}
+
+		if (frhomestep2.isDisplayed()) {
+			logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences is displayed");
+			if (frhomestep2.getText().trim()
+					.equalsIgnoreCase("Deuxième étape: Évaluer les risques et les incidences")) {
+				logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences link Verified");
+			} else {
+				logFail("Home Page - Deuxième étape: Évaluer les risques et les incidences Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Deuxième étape: Évaluer les risques et les incidences link is not displayed");
+		}
+
+		if (frhomestep3.isDisplayed()) {
+			logPass("Home Page - Troisième étape: élaborer un code de conduite is displayed");
+			if (frhomestep3.getText().trim().equalsIgnoreCase("Troisième étape: élaborer un code de conduite")) {
+				logPass("Home Page - Troisième étape: élaborer un code de conduite link Verified");
+			} else {
+				logFail("Home Page - Troisième étape: élaborer un code de conduite Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Troisième étape: élaborer un code de conduite link is not displayed");
+		}
+
+		scrolldown();
+
+		if (frhomestep4.isDisplayed()) {
+			logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement is displayed");
+			if (frhomestep4.getText().trim().equalsIgnoreCase(
+					"Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement")) {
+				logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link Verified");
+			} else {
+				logFail("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link is not displayed");
+		}
+
+		if (frhomestep5.isDisplayed()) {
+			logPass("Home Page - Cinquième étape: Surveiller la conformité is displayed");
+			if (frhomestep5.getText().trim().equalsIgnoreCase("Cinquième étape: Surveiller la conformité")) {
+				logPass("Home Page - Cinquième étape: Surveiller la conformité link Verified");
+			} else {
+				logFail("Home Page - Cinquième étape: Surveiller la conformité Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Cinquième étape: Surveiller la conformité link is not displayed");
+		}
+
+		if (frhomestep6.isDisplayed()) {
+			logPass("Home Page - Sixième étape: Réparer les infractions is displayed");
+			if (frhomestep6.getText().trim().equalsIgnoreCase("Sixième étape: Réparer les infractions")) {
+				logPass("Home Page - Sixième étape: Réparer les infractions Verified");
+			} else {
+				logFail("Home Page - Sixième étape: Réparer les infractions Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Sixième étape: Réparer les infractions link is not displayed");
+		}
+
+		scrolldown();
+
+		if (frhomestep7.isDisplayed()) {
+			logPass("Home Page - Septième étape: Examen indépendant is displayed");
+			if (frhomestep7.getText().trim().equalsIgnoreCase("Septième étape: Examen indépendant")) {
+				logPass("Home Page - Septième étape: Examen indépendant Verified");
+			} else {
+				logFail("Home Page - Septième étape: Examen indépendant Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Septième étape: Examen indépendant link is not displayed");
+		}
+
+		if (frhomestep8.isDisplayed()) {
+			logPass("Home Page - Huitième étape: Rendre compte des résultats is displayed");
+			if (frhomestep8.getText().trim().equalsIgnoreCase("Huitième étape: Rendre compte des résultats")) {
+				logPass("Home Page - Huitième étape: Rendre compte des résultats");
+			} else {
+				logFail("Home Page - Huitième étape: Rendre compte des résultats Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Huitième étape: Rendre compte des résultats link is not displayed");
 		}
 
 		// MENU opening and closing
@@ -638,16 +897,16 @@ public class IosPages extends BasePage {
 			logFail("Menú is Not Displayed");
 		}
 
-		// Bottom Bar - Bookmarks
+		// Bottom Bar - Signet
 		if (frbookmarks.isDisplayed()) {
-			logPass("Bookmarks link is displayed");
-			if (frbookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
-				logPass("Bookmarks link Verified");
+			logPass("Signet link is displayed");
+			if (frbookmarks.getText().trim().equalsIgnoreCase("Signet")) {
+				logPass("Signet link Verified");
 			} else {
-				logFail("Bookmarks Verification Failed");
+				logFail("Signet Verification Failed");
 			}
 		} else {
-			logFail("Bookmarks link is not displayed");
+			logFail("Signet link is not displayed");
 		}
 
 		// Bottom Bar - Rechercher
@@ -662,34 +921,34 @@ public class IosPages extends BasePage {
 			logFail("Rechercher link is not displayed");
 		}
 
-		// Bottom Bar - Share
+		// Bottom Bar - Partager
 		if (frshare.isDisplayed()) {
-			logPass("Share link is displayed");
-			if (frshare.getText().trim().equalsIgnoreCase("Share")) {
-				logPass("Share link Verified");
+			logPass("Partager link is displayed");
+			if (frshare.getText().trim().equalsIgnoreCase("Partager")) {
+				logPass("Partager link Verified");
 			} else {
-				logFail("Share Verification Failed");
+				logFail("Partager Verification Failed");
 			}
 		} else {
-			logFail("Share link is not displayed");
+			logFail("Partager link is not displayed");
 		}
 
-		// Bottom Bar - About
+		// Bottom Bar - Sur
 		if (frabout.isDisplayed()) {
-			logPass("About link is displayed");
-			if (frabout.getText().trim().equalsIgnoreCase("About")) {
-				logPass("About link Verified");
+			logPass("Sur link is displayed");
+			if (frabout.getText().trim().equalsIgnoreCase("Sur")) {
+				logPass("Sur link Verified");
 			} else {
-				logFail("About Verification Failed");
+				logFail("Sur Verification Failed");
 			}
 		} else {
-			logFail("About link is not displayed");
+			logFail("Sur link is not displayed");
 		}
 	}
 
 	public void MenuVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -807,7 +1066,7 @@ public class IosPages extends BasePage {
 
 	public void MenuVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -926,7 +1185,7 @@ public class IosPages extends BasePage {
 
 	public void MenuVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -1047,7 +1306,7 @@ public class IosPages extends BasePage {
 
 	public void StepsVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -1254,7 +1513,7 @@ public class IosPages extends BasePage {
 
 	public void StepsVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -1466,7 +1725,7 @@ public class IosPages extends BasePage {
 
 	public void StepsVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -1676,4 +1935,197 @@ public class IosPages extends BasePage {
 
 	}
 
+	public void Search_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Bottom Bar - Search
+		if (ensearch.isDisplayed()) {
+			logPass("Search link is displayed");
+			if (ensearch.getText().trim().equalsIgnoreCase("Search")) {
+				logPass("Search link Verified");
+				ensearch.click();
+			} else {
+				logFail("Search Verification Failed");
+			}
+		} else {
+			logFail("Search link is not displayed");
+		}
+
+		// Search Bar
+		if (searchbar.isDisplayed()) {
+			logPass("Search Bar is displayed");
+			searchbar.clear();
+			searchbar.sendKeys("Child Labor");
+			sleep(1);
+			//searchbar.sendKeys(Keys.ENTER);
+			// ((IOSDriver<MobileElement>)
+			// MOBILEDRIVER.get().getKeyboard().sendKeys(Keys.ENTER);
+			// MOBILEDRIVER.get().getKeyboard();
+			// sleep(1);
+			MOBILEDRIVER.get().context("NATIVE_APP"); // switch to non-instrumented context
+			MOBILEDRIVER.get().findElement(By.xpath("//*[@class='UIAKeyboard']//*[@name='Search']")).click();
+			MOBILEDRIVER.get().context("NATIVE_APP_INSTRUMENTED");
+
+			sleep(2);
+			logPass("Search Value 'Child Labor' is displayed");
+		} else {
+			logFail("Search bar Verification Failed");
+		}
+
+		// search results validation
+		if (searchresultheader.isDisplayed()) {
+			logPass("Search results for 'Child Labor' is displayed");
+			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
+			System.out.println(resultsheadercount);
+			String resultscount = Integer.toString(searchresultslist.size()).trim();
+			System.out.println(resultscount);
+			if (resultsheadercount.trim().equals(resultscount)) {
+				logPass("Search Results for 'Child Labor' are Validated");
+			} else {
+				logFail("Search Results Validation Failed");
+			}
+		}
+	}
+
+	public void Search_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Bottom Bar - Buscar
+		if (essearch.isDisplayed()) {
+			logPass("Buscar link is displayed");
+			if (essearch.getText().trim().equalsIgnoreCase("Buscar")) {
+				logPass("Buscar link Verified");
+				essearch.click();
+			} else {
+				logFail("Buscar Verification Failed");
+			}
+		} else {
+			logFail("Buscar link is not displayed");
+		}
+
+		// Search Bar
+
+		if (searchbar.isDisplayed()) {
+			logPass("Search Bar is displayed");
+			searchbar.clear();
+			searchbar.sendKeys("trabajo infantil");
+			sleep(1);
+			searchbar.click();
+			((AndroidDriver<MobileElement>) MOBILEDRIVER.get()).pressKey(new KeyEvent(AndroidKey.ENTER));
+			sleep(2);
+			logPass("Search Value 'Child Labor' is displayed");
+		} else {
+			logFail("Search bar Verification Failed");
+		}
+
+		// search results validation
+		if (searchresultheader.isDisplayed()) {
+			logPass("Search results for 'Child Labor' is displayed");
+			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
+			// System.out.println(resultsheadercount);
+			String resultscount = Integer.toString(searchresultslist.size()).trim();
+			// System.out.println(resultscount);
+			if (resultsheadercount.trim().equals(resultscount)) {
+				logPass("Search Results for 'trabajo infantil' are Validated");
+			} else {
+				logFail("Search Results Validation Failed");
+			}
+		}
+
+	}
+
+	public void Search_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Bottom Bar - Rechercher
+		if (frsearch.isDisplayed()) {
+			logPass("Rechercher link is displayed");
+			if (frsearch.getText().trim().equalsIgnoreCase("Rechercher")) {
+				logPass("Rechercher link Verified");
+				frsearch.click();
+			} else {
+				logFail("Rechercher Verification Failed");
+			}
+		} else {
+			logFail("Rechercher link is not displayed");
+		}
+
+		// Search Bar
+
+		if (searchbar.isDisplayed()) {
+			logPass("Search Bar is displayed");
+			searchbar.clear();
+			searchbar.sendKeys("le travail des enfants");
+			sleep(1);
+			searchbar.click();
+			((AndroidDriver<MobileElement>) MOBILEDRIVER.get()).pressKey(new KeyEvent(AndroidKey.ENTER));
+			sleep(2);
+			logPass("Search Value 'le travail des enfants' is displayed");
+		} else {
+			logFail("Search bar Verification Failed");
+		}
+
+		// search results validation
+		if (searchresultheader.isDisplayed()) {
+			logPass("Search results for 'le travail des enfants' is displayed");
+			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
+			System.out.println(resultsheadercount);
+			String resultscount = Integer.toString(searchresultslist.size()).trim();
+			System.out.println(resultscount);
+			if (resultsheadercount.trim().equals(resultscount)) {
+				logPass("Search Results for 'le travail des enfants' are Validated");
+			} else {
+				logFail("Search Results Validation Failed");
+			}
+		}
+
+	}
 }

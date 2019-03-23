@@ -12,7 +12,7 @@ public class DOL_CC_IOS_TC_003 extends BaseTest {
 	public void MenuVerification_English() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in English", "Verify Step Items in English");
 		EXTENT_LOCAL.set(test);
-		IosPages iosPage = new IosPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		iosPage.StepsVerification_EN();
 	}
 
@@ -20,7 +20,7 @@ public class DOL_CC_IOS_TC_003 extends BaseTest {
 	public void MenuVerification_Español() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in Español", "Verify Step Items in Español");
 		EXTENT_LOCAL.set(test);
-		IosPages iosPage = new IosPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		iosPage.StepsVerification_ES();
 	}
 
@@ -28,7 +28,7 @@ public class DOL_CC_IOS_TC_003 extends BaseTest {
 	public void MenuVerification_Français() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in Français", "Verify Step Items in Français");
 		EXTENT_LOCAL.set(test);
-		IosPages iosPage = new IosPages(DRIVER_LOCAL.get(), EXTENT_LOCAL.get());
+		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
 		iosPage.StepsVerification_FR();
 	}
 

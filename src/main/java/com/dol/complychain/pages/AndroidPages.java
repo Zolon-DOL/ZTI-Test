@@ -13,6 +13,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.dol.complychain.basepage.BasePage;
 import com.dol.complychain.repo.Locator;
 
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
 public class AndroidPages extends BasePage {
 
 	@FindBy(how = How.ID, using = Locator.COMPLYCHAIN_LOGO_IMG)
@@ -139,12 +144,12 @@ public class AndroidPages extends BasePage {
 	public WebElement homestep8;
 
 	public AndroidPages(WebDriver driver, ExtentTest test) {
-		super(DRIVER_LOCAL.get(), test);
+		super(MOBILEDRIVER.get(), test);
 	}
 
 	public void HomePageVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -208,7 +213,7 @@ public class AndroidPages extends BasePage {
 		if (homestep2.isDisplayed()) {
 			logPass("Home Page - Step 2: Assess Risks And Impacts is displayed");
 			if (homestep2.findElement(By.className("android.view.View")).getText().trim()
-							.equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
+					.equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
 				logPass("Home Page - Step 2: Assess Risks And Impacts link Verified");
 			} else {
 				logFail("Home Page - Step 2: Assess Risks And Impacts Verification Failed");
@@ -220,7 +225,7 @@ public class AndroidPages extends BasePage {
 		if (homestep3.isDisplayed()) {
 			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
 			if (homestep3.findElement(By.className("android.view.View")).getText().trim()
-							.equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
+					.equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
 				logPass("Home Page - Step 3: Develop a Code of Conduct link Verified");
 			} else {
 				logFail("Home Page - Step 3: Develop a Code of Conduct Verification Failed");
@@ -232,7 +237,7 @@ public class AndroidPages extends BasePage {
 		if (homestep4.isDisplayed()) {
 			logPass("Home Page - Step 4: Communicate and Train across your Supply Chain is displayed");
 			if (homestep4.findElement(By.className("android.view.View")).getText().trim()
-							.equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
+					.equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
 				logPass("Home Page - Step 4: Communicate and Train across your Supply Chain link Verified");
 			} else {
 				logFail("Home Page - Step 4: Communicate and Train across your Supply Chain Verification Failed");
@@ -244,7 +249,7 @@ public class AndroidPages extends BasePage {
 		if (homestep5.isDisplayed()) {
 			logPass("Home Page - Step 5: Monitor Compliance is displayed");
 			if (homestep5.findElement(By.className("android.view.View")).getText().trim()
-							.equalsIgnoreCase("Step 5: Monitor Compliance")) {
+					.equalsIgnoreCase("Step 5: Monitor Compliance")) {
 				logPass("Home Page - Step 5: Monitor Compliance link Verified");
 			} else {
 				logFail("Home Page - Step 5: Monitor Compliance Verification Failed");
@@ -256,7 +261,7 @@ public class AndroidPages extends BasePage {
 		if (homestep6.isDisplayed()) {
 			logPass("Home Page - Step 6: Remediate Violations is displayed");
 			if (homestep6.findElement(By.className("android.view.View")).getText().trim()
-							.equalsIgnoreCase("Step 6: Remediate Violations")) {
+					.equalsIgnoreCase("Step 6: Remediate Violations")) {
 				logPass("Home Page - Step 6: Remediate Violations Verified");
 			} else {
 				logFail("Home Page - Step 6: Remediate Violations Verification Failed");
@@ -268,7 +273,7 @@ public class AndroidPages extends BasePage {
 		if (homestep7.isDisplayed()) {
 			logPass("Home Page - Step 7: Independent Review is displayed");
 			if (homestep7.findElement(By.className("android.view.View")).getText().trim()
-							.equalsIgnoreCase("Step 7: Independent Review")) {
+					.equalsIgnoreCase("Step 7: Independent Review")) {
 				logPass("Home Page - Step 7: Independent Review Verified");
 			} else {
 				logFail("Home Page - Step 7: Independent Review Verification Failed");
@@ -296,7 +301,7 @@ public class AndroidPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Close")) {
 				logPass("MENU is opened Successfully");
-				DRIVER_LOCAL.get().navigate().back();
+				MOBILEDRIVER.get().navigate().back();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("MENU is closed Successfully");
 				} else {
@@ -360,7 +365,7 @@ public class AndroidPages extends BasePage {
 
 	public void HomePageVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -384,11 +389,124 @@ public class AndroidPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
+		// Home Page Content Validation
+		if (homewhydevelop.isDisplayed()) {
+			logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? is displayed");
+			if (homewhydevelop.getText().trim().equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
+				logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? link Verified");
+			} else {
+				logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? Verification Failed");
+			}
 		} else {
-			logFail("Home Page Header is Not Displayed");
+			logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? link is not displayed");
+
+		}
+
+		if (homebasics.isDisplayed()) {
+			logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social is displayed");
+			if (homebasics.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
+				logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social link Verified");
+			} else {
+				logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social link is not displayed");
+		}
+
+		if (homestep1.isDisplayed()) {
+			logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios is displayed");
+			if (homestep1.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Primer paso: Participación de las partes interesadas y los socios")) {
+				logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios link Verified");
+			} else {
+				logFail("Home Page - Primer paso: Participación de las partes interesadas y los socios Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Primer paso: Participación de las partes interesadas y los socios link is not displayed");
+		}
+
+		if (homestep2.isDisplayed()) {
+			logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto is displayed");
+			if (homestep2.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Segundo paso: Evaluación de riesgos e impacto")) {
+				logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto link Verified");
+			} else {
+				logFail("Home Page - Segundo paso: Evaluación de riesgos e impacto Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Segundo paso: Evaluación de riesgos e impacto link is not displayed");
+		}
+
+		if (homestep3.isDisplayed()) {
+			logPass("Home Page - Tercer paso: Formulación de un código de conducta is displayed");
+			if (homestep3.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Tercer paso: Formulación de un código de conducta")) {
+				logPass("Home Page - Tercer paso: Formulación de un código de conducta link Verified");
+			} else {
+				logFail("Home Page - Tercer paso: Formulación de un código de conducta Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Tercer paso: Formulación de un código de conducta link is not displayed");
+		}
+
+		if (homestep4.isDisplayed()) {
+			logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro is displayed");
+			if (homestep4.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Cuarto paso: Comunicación y capacitación en la cadena de suministro")) {
+				logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link Verified");
+			} else {
+				logFail("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link is not displayed");
+		}
+
+		if (homestep5.isDisplayed()) {
+			logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed");
+			if (homestep5.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
+				logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link Verified");
+			} else {
+				logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link is not displayed");
+		}
+
+		if (homestep6.isDisplayed()) {
+			logPass("Home Page - Sexto paso: Remediación de infracciones is displayed");
+			if (homestep6.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
+				logPass("Home Page - Sexto paso: Remediación de infracciones Verified");
+			} else {
+				logFail("Home Page - Sexto paso: Remediación de infracciones Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Sexto paso: Remediación de infracciones link is not displayed");
+		}
+
+		if (homestep7.isDisplayed()) {
+			logPass("Home Page - Séptimo paso: Examen independiente is displayed");
+			if (homestep7.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Séptimo paso: Examen independiente")) {
+				logPass("Home Page - Séptimo paso: Examen independiente Verified");
+			} else {
+				logFail("Home Page - Séptimo paso: Examen independiente Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Séptimo paso: Examen independiente link is not displayed");
+		}
+
+		if (homestep8.isDisplayed()) {
+			logPass("Home Page - Octavo paso: Notificación del desempeño is displayed");
+			if (homestep8.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
+				logPass("Home Page - Octavo paso: Notificación del desempeño");
+			} else {
+				logFail("Home Page - Octavo paso: Notificación del desempeño Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Octavo paso: Notificación del desempeño link is not displayed");
 		}
 
 		// MENU opening and closing
@@ -398,7 +516,7 @@ public class AndroidPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Cerrar")) {
 				logPass("Menú is opened Successfully");
-				DRIVER_LOCAL.get().navigate().back();
+				MOBILEDRIVER.get().navigate().back();
 				if (menu.getText().equalsIgnoreCase("Menú")) {
 					logPass("Menú is closed Successfully");
 				} else {
@@ -411,16 +529,16 @@ public class AndroidPages extends BasePage {
 			logFail("Menú is Not Displayed");
 		}
 
-		// Bottom Bar - Bookmarks
+		// Bottom Bar - Marcadores
 		if (bookmarks.isDisplayed()) {
-			logPass("Bookmarks link is displayed");
-			if (bookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
-				logPass("Bookmarks link Verified");
+			logPass("Marcadores link is displayed");
+			if (bookmarks.getText().trim().equalsIgnoreCase("Marcadores")) {
+				logPass("Marcadores link Verified");
 			} else {
-				logFail("Bookmarks Verification Failed");
+				logFail("Marcadores Verification Failed");
 			}
 		} else {
-			logFail("Bookmarks link is not displayed");
+			logFail("Marcadores link is not displayed");
 		}
 
 		// Bottom Bar - Buscar
@@ -435,35 +553,35 @@ public class AndroidPages extends BasePage {
 			logFail("Buscar link is not displayed");
 		}
 
-		// Bottom Bar - Share
+		// Bottom Bar - Compartir
 		if (share.isDisplayed()) {
-			logPass("Share link is displayed");
-			if (androidshare.getText().trim().equalsIgnoreCase("Share")) {
-				logPass("Share link Verified");
+			logPass("Compartir link is displayed");
+			if (androidshare.getText().trim().equalsIgnoreCase("Compartir")) {
+				logPass("Compartir link Verified");
 			} else {
-				logFail("Share Verification Failed");
+				logFail("Compartir Verification Failed");
 			}
 		} else {
-			logFail("Share link is not displayed");
+			logFail("Compartir link is not displayed");
 		}
 
-		// Bottom Bar - About
+		// Bottom Bar - Sobre
 		if (about.isDisplayed()) {
-			logPass("About link is displayed");
-			if (about.getText().trim().equalsIgnoreCase("About")) {
-				logPass("About link Verified");
+			logPass("Sobre link is displayed");
+			if (about.getText().trim().equalsIgnoreCase("Sobre")) {
+				logPass("Sobre link Verified");
 			} else {
-				logFail("About Verification Failed");
+				logFail("Sobre Verification Failed");
 			}
 		} else {
-			logFail("About link is not displayed");
+			logFail("Sobre link is not displayed");
 		}
 
 	}
 
 	public void HomePageVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -486,11 +604,126 @@ public class AndroidPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
+		// Home Page Content Validation
+
+		if (homewhydevelop.isDisplayed()) {
+			logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? is displayed");
+			if (homewhydevelop.getText().trim()
+					.equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+				logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? link Verified");
+			} else {
+				logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? Verification Failed");
+			}
 		} else {
-			logFail("Home Page Header is Not Displayed");
+			logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? link is not displayed");
+
+		}
+
+		if (homebasics.isDisplayed()) {
+			logPass("Home Page - Fondements d’un système de conformité sociale is displayed");
+			if (homebasics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
+				logPass("Home Page - Fondements d’un système de conformité sociale link Verified");
+			} else {
+				logFail("Home Page - Fondements d’un système de conformité sociale Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Fondements d’un système de conformité sociale link is not displayed");
+		}
+
+		if (homestep1.isDisplayed()) {
+			logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires is displayed");
+			if (homestep1.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Première étape: faire participer les parties prenantes et les partenaires")) {
+				logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires link Verified");
+			} else {
+				logFail("Home Page - Première étape: faire participer les parties prenantes et les partenaires Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Première étape: faire participer les parties prenantes et les partenaires link is not displayed");
+		}
+
+		if (homestep2.isDisplayed()) {
+			logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences is displayed");
+			if (homestep2.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Deuxième étape: Évaluer les risques et les incidences")) {
+				logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences link Verified");
+			} else {
+				logFail("Home Page - Deuxième étape: Évaluer les risques et les incidences Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Deuxième étape: Évaluer les risques et les incidences link is not displayed");
+		}
+
+		if (homestep3.isDisplayed()) {
+			logPass("Home Page - Troisième étape: élaborer un code de conduite is displayed");
+			if (homestep3.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Troisième étape: élaborer un code de conduite")) {
+				logPass("Home Page - Troisième étape: élaborer un code de conduite link Verified");
+			} else {
+				logFail("Home Page - Troisième étape: élaborer un code de conduite Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Troisième étape: élaborer un code de conduite link is not displayed");
+		}
+
+		if (homestep4.isDisplayed()) {
+			logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement is displayed");
+			if (homestep4.findElement(By.className("android.view.View")).getText().trim().equalsIgnoreCase(
+					"Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement")) {
+				logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link Verified");
+			} else {
+				logFail("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link is not displayed");
+		}
+
+		if (homestep5.isDisplayed()) {
+			logPass("Home Page - Cinquième étape: Surveiller la conformité is displayed");
+			if (homestep5.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Cinquième étape: Surveiller la conformité")) {
+				logPass("Home Page - Cinquième étape: Surveiller la conformité link Verified");
+			} else {
+				logFail("Home Page - Cinquième étape: Surveiller la conformité Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Cinquième étape: Surveiller la conformité link is not displayed");
+		}
+
+		if (homestep6.isDisplayed()) {
+			logPass("Home Page - Sixième étape: Réparer les infractions is displayed");
+			if (homestep6.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Sixième étape: Réparer les infractions")) {
+				logPass("Home Page - Sixième étape: Réparer les infractions Verified");
+			} else {
+				logFail("Home Page - Sixième étape: Réparer les infractions Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Sixième étape: Réparer les infractions link is not displayed");
+		}
+
+		if (homestep7.isDisplayed()) {
+			logPass("Home Page - Septième étape: Examen indépendant is displayed");
+			if (homestep7.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Septième étape: Examen indépendant")) {
+				logPass("Home Page - Septième étape: Examen indépendant Verified");
+			} else {
+				logFail("Home Page - Septième étape: Examen indépendant Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Septième étape: Examen indépendant link is not displayed");
+		}
+
+		if (homestep8.isDisplayed()) {
+			logPass("Home Page - Huitième étape: Rendre compte des résultats is displayed");
+			if (homestep8.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Huitième étape: Rendre compte des résultats")) {
+				logPass("Home Page - Huitième étape: Rendre compte des résultats Verified");
+			} else {
+				logFail("Home Page - Huitième étape: Rendre compte des résultats Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Huitième étape: Rendre compte des résultats link is not displayed");
 		}
 
 		// MENU opening and closing
@@ -500,7 +733,7 @@ public class AndroidPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Fermer")) {
 				logPass("Menú is opened Successfully");
-				DRIVER_LOCAL.get().navigate().back();
+				MOBILEDRIVER.get().navigate().back();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("Menu is closed Successfully");
 				} else {
@@ -513,16 +746,16 @@ public class AndroidPages extends BasePage {
 			logFail("Menú is Not Displayed");
 		}
 
-		// Bottom Bar - Bookmarks
+		// Bottom Bar - Signet
 		if (bookmarks.isDisplayed()) {
-			logPass("Bookmarks link is displayed");
-			if (bookmarks.getText().trim().equalsIgnoreCase("Bookmarks")) {
-				logPass("Bookmarks link Verified");
+			logPass("Signet link is displayed");
+			if (bookmarks.getText().trim().equalsIgnoreCase("Signet")) {
+				logPass("Signet link Verified");
 			} else {
-				logFail("Bookmarks Verification Failed");
+				logFail("Signet Verification Failed");
 			}
 		} else {
-			logFail("Bookmarks link is not displayed");
+			logFail("Signet link is not displayed");
 		}
 
 		// Bottom Bar - Rechercher
@@ -537,35 +770,35 @@ public class AndroidPages extends BasePage {
 			logFail("Rechercher link is not displayed");
 		}
 
-		// Bottom Bar - Share
+		// Bottom Bar - Partager
 		if (share.isDisplayed()) {
-			logPass("Share link is displayed");
-			if (androidshare.getText().trim().equalsIgnoreCase("Share")) {
-				logPass("Share link Verified");
+			logPass("Partager link is displayed");
+			if (androidshare.getText().trim().equalsIgnoreCase("Partager")) {
+				logPass("Partager link Verified");
 			} else {
-				logFail("Share Verification Failed");
+				logFail("Partager Verification Failed");
 			}
 		} else {
-			logFail("Share link is not displayed");
+			logFail("Partager link is not displayed");
 		}
 
-		// Bottom Bar - About
+		// Bottom Bar - Sur
 		if (about.isDisplayed()) {
-			logPass("About link is displayed");
-			if (about.getText().trim().equalsIgnoreCase("About")) {
-				logPass("About link Verified");
+			logPass("Sur link is displayed");
+			if (about.getText().trim().equalsIgnoreCase("Sur")) {
+				logPass("Sur link Verified");
 			} else {
-				logFail("About Verification Failed");
+				logFail("Sur Verification Failed");
 			}
 		} else {
-			logFail("About link is not displayed");
+			logFail("Sur link is not displayed");
 		}
 
 	}
 
 	public void MenuVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -673,7 +906,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
+			MOBILEDRIVER.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("MENU is closed Successfully");
 			} else {
@@ -684,7 +917,7 @@ public class AndroidPages extends BasePage {
 
 	public void MenuVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -793,7 +1026,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
+			MOBILEDRIVER.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menú")) {
 				logPass("Menú is closed Successfully");
 			} else {
@@ -805,7 +1038,7 @@ public class AndroidPages extends BasePage {
 
 	public void MenuVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -913,7 +1146,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
+			MOBILEDRIVER.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("Menu is closed Successfully");
 			} else {
@@ -925,7 +1158,7 @@ public class AndroidPages extends BasePage {
 
 	public void StepsVerification_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -1122,7 +1355,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
+			MOBILEDRIVER.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("MENU is closed Successfully");
 			} else {
@@ -1133,7 +1366,7 @@ public class AndroidPages extends BasePage {
 
 	public void StepsVerification_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -1332,7 +1565,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
+			MOBILEDRIVER.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menú")) {
 				logPass("Menú is closed Successfully");
 			} else {
@@ -1344,7 +1577,7 @@ public class AndroidPages extends BasePage {
 
 	public void StepsVerification_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -1543,7 +1776,7 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			DRIVER_LOCAL.get().navigate().back();
+			MOBILEDRIVER.get().navigate().back();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("Menu is closed Successfully");
 			} else {
@@ -1554,7 +1787,7 @@ public class AndroidPages extends BasePage {
 
 	public void Search_EN() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (english.isDisplayed()) {
@@ -1569,13 +1802,6 @@ public class AndroidPages extends BasePage {
 			logPass("Comply Chain Logo is Displayed");
 		} else {
 			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
 		}
 
 		// Bottom Bar - Search
@@ -1596,18 +1822,20 @@ public class AndroidPages extends BasePage {
 			logPass("Search Bar is displayed");
 			searchbar.clear();
 			searchbar.sendKeys("Child Labor");
-			logPass("Search Value 'Child Labor' is displayed");
-
+			sleep(1);
+			searchbar.click();
+			((AndroidDriver<MobileElement>) MOBILEDRIVER.get()).pressKey(new KeyEvent(AndroidKey.ENTER));
 			sleep(2);
+			logPass("Search Value 'Child Labor' is displayed");
 		} else {
 			logFail("Search bar Verification Failed");
 		}
 
 		// search results validation
 		if (searchresultheader.isDisplayed()) {
+			logPass("Search results for 'Child Labor' is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
 			System.out.println(resultsheadercount);
-
 			String resultscount = Integer.toString(searchresultslist.size()).trim();
 			System.out.println(resultscount);
 			if (resultsheadercount.trim().equals(resultscount)) {
@@ -1620,7 +1848,7 @@ public class AndroidPages extends BasePage {
 
 	public void Search_ES() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (spanish.isDisplayed()) {
@@ -1635,13 +1863,6 @@ public class AndroidPages extends BasePage {
 			logPass("Comply Chain Logo is Displayed");
 		} else {
 			logFail("Comply Chain Logo is Not Displayed");
-		}
-
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
 		}
 
 		// Bottom Bar - Buscar
@@ -1663,20 +1884,22 @@ public class AndroidPages extends BasePage {
 			logPass("Search Bar is displayed");
 			searchbar.clear();
 			searchbar.sendKeys("trabajo infantil");
-			logPass("Search Value 'trabajo infantil' is Entered");
-			searchbar.submit();
+			sleep(1);
+			searchbar.click();
+			((AndroidDriver<MobileElement>) MOBILEDRIVER.get()).pressKey(new KeyEvent(AndroidKey.ENTER));
 			sleep(2);
+			logPass("Search Value 'Child Labor' is displayed");
 		} else {
 			logFail("Search bar Verification Failed");
 		}
 
 		// search results validation
 		if (searchresultheader.isDisplayed()) {
+			logPass("Search results for 'Child Labor' is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
-			System.out.println(resultsheadercount);
-
+			// System.out.println(resultsheadercount);
 			String resultscount = Integer.toString(searchresultslist.size()).trim();
-			System.out.println(resultscount);
+			// System.out.println(resultscount);
 			if (resultsheadercount.trim().equals(resultscount)) {
 				logPass("Search Results for 'trabajo infantil' are Validated");
 			} else {
@@ -1688,7 +1911,7 @@ public class AndroidPages extends BasePage {
 
 	public void Search_FR() throws Exception {
 		// Initialize Elements
-		PageFactory.initElements(DRIVER_LOCAL.get(), this);
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
 
 		// Landing Page
 		if (french.isDisplayed()) {
@@ -1705,14 +1928,7 @@ public class AndroidPages extends BasePage {
 			logFail("Comply Chain Logo is Not Displayed");
 		}
 
-		// Header ILAB
-		if (ILAB.isDisplayed()) {
-			logPass("ILAB is displayed");
-		} else {
-			logFail("ILAB is Not Displayed");
-		}
-
-		// Bottom Bar - Buscar
+		// Bottom Bar - Rechercher
 		if (search.isDisplayed()) {
 			logPass("Rechercher link is displayed");
 			if (search.getText().trim().equalsIgnoreCase("Rechercher")) {
@@ -1731,15 +1947,18 @@ public class AndroidPages extends BasePage {
 			logPass("Search Bar is displayed");
 			searchbar.clear();
 			searchbar.sendKeys("le travail des enfants");
-			logPass("Search Value 'le travail des enfants' is Entered");
-			searchbar.submit();
+			sleep(1);
+			searchbar.click();
+			((AndroidDriver<MobileElement>) MOBILEDRIVER.get()).pressKey(new KeyEvent(AndroidKey.ENTER));
 			sleep(2);
+			logPass("Search Value 'le travail des enfants' is displayed");
 		} else {
 			logFail("Search bar Verification Failed");
 		}
 
 		// search results validation
 		if (searchresultheader.isDisplayed()) {
+			logPass("Search results for 'le travail des enfants' is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
 			System.out.println(resultsheadercount);
 			String resultscount = Integer.toString(searchresultslist.size()).trim();
