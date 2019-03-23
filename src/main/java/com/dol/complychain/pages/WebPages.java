@@ -11,8 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Locatable;
-import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -400,6 +398,28 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			spanish.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menú")) {
+					logPass("Menú is closed Successfully");
+				} else {
+					logFail("Menú is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
 		// Home Page Content Validation
 
 		if (homewhydevelop.isDisplayed()) {
@@ -531,28 +551,6 @@ public class WebPages extends BasePage {
 			logFail("Home Page - Octavo paso: Notificación del desempeño link is not displayed");
 		}
 
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menú is Displayed");
-			menu.click();
-			sleep(1);
-			spanish.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Cerrar")) {
-				logPass("Menú is opened Successfully");
-				menu.click();
-				if (menu.getText().equalsIgnoreCase("Menú")) {
-					logPass("Menú is closed Successfully");
-				} else {
-					logFail("Menú is not closed Successfully");
-				}
-			} else {
-				logFail("Menú is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
 		// Bottom Bar - Marcadores
 		if (bookmarks.isDisplayed()) {
 			logPass("Marcadores link is displayed");
@@ -623,134 +621,6 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Content Validation
-
-		if (homewhydevelop.isDisplayed()) {
-			logPass("Home Page - Why Develop a Social Compliance System? is displayed");
-			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
-					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Why Develop a Social Compliance System?")) {
-				logPass("Home Page - Why Develop a Social Compliance System? link Verified");
-			} else {
-				logFail("Home Page - Why Develop a Social Compliance System? Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Why Develop a Social Compliance System? link is not displayed");
-
-		}
-
-		if (homebasics.isDisplayed()) {
-			logPass("Home Page - Basics of a Social Compliance System is displayed");
-			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
-					.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
-				logPass("Home Page - Basics of a Social Compliance System link Verified");
-			} else {
-				logFail("Home Page - Basics of a Social Compliance System Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Basics of a Social Compliance System link is not displayed");
-		}
-
-		if (homestep1.isDisplayed()) {
-			logPass("Home Page - Step 1: Engage Stakeholders and Partners is displayed");
-			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
-					&& homestep1.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 1: Engage Stakeholders and Partners")) {
-				logPass("Home Page - Step 1: Engage Stakeholders and Partners link Verified");
-			} else {
-				logFail("Home Page - Step 1: Engage Stakeholders and Partners Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 1: Engage Stakeholders and Partners link is not displayed");
-		}
-
-		if (homestep2.isDisplayed()) {
-			logPass("Home Page - Step 2: Assess Risks And Impacts is displayed");
-			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
-					&& homestep2.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
-				logPass("Home Page - Step 2: Assess Risks And Impacts link Verified");
-			} else {
-				logFail("Home Page - Step 2: Assess Risks And Impacts Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 2: Assess Risks And Impacts link is not displayed");
-		}
-
-		if (homestep3.isDisplayed()) {
-			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
-			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
-					&& homestep3.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
-				logPass("Home Page - Step 3: Develop a Code of Conduct link Verified");
-			} else {
-				logFail("Home Page - Step 3: Develop a Code of Conduct Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 3: Develop a Code of Conduct link is not displayed");
-		}
-
-		if (homestep4.isDisplayed()) {
-			logPass("Home Page - Step 4: Communicate and Train across your Supply Chain is displayed");
-			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
-					&& homestep4.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
-				logPass("Home Page - Step 4: Communicate and Train across your Supply Chain link Verified");
-			} else {
-				logFail("Home Page - Step 4: Communicate and Train across your Supply Chain Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 4: Communicate and Train across your Supply Chain link is not displayed");
-		}
-
-		if (homestep5.isDisplayed()) {
-			logPass("Home Page - Step 5: Monitor Compliance is displayed");
-			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5") && homestep5
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")) {
-				logPass("Home Page - Step 5: Monitor Compliance link Verified");
-			} else {
-				logFail("Home Page - Step 5: Monitor Compliance Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 5: Monitor Compliance link is not displayed");
-		}
-
-		if (homestep6.isDisplayed()) {
-			logPass("Home Page - Step 6: Remediate Violations is displayed");
-			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6") && homestep6
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")) {
-				logPass("Home Page - Step 6: Remediate Violations Verified");
-			} else {
-				logFail("Home Page - Step 6: Remediate Violations Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 6: Remediate Violations link is not displayed");
-		}
-
-		if (homestep7.isDisplayed()) {
-			logPass("Home Page - Step 7: Independent Review is displayed");
-			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7") && homestep7
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 7: Independent Review")) {
-				logPass("Home Page - Step 7: Independent Review Verified");
-			} else {
-				logFail("Home Page - Step 7: Independent Review Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 7: Independent Review link is not displayed");
-		}
-
-		if (homestep8.isDisplayed()) {
-			logPass("Home Page - Step 8: Report Performance is displayed");
-			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8") && homestep8
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 8: Report Performance")) {
-				logPass("Home Page - Step 8: Report Performance");
-			} else {
-				logFail("Home Page - Step 8: Report Performance Verification Failed");
-			}
-		} else {
-			logFail("Home Page - Step 8: Report Performance link is not displayed");
-		}
-
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -771,6 +641,138 @@ public class WebPages extends BasePage {
 			}
 		} else {
 			logFail("Menú is Not Displayed");
+		}
+
+		// Home Page Content Validation
+
+		if (homewhydevelop.isDisplayed()) {
+			logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? is displayed");
+			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
+					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+				logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? link Verified");
+			} else {
+				logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? link is not displayed");
+
+		}
+
+		if (homebasics.isDisplayed()) {
+			logPass("Home Page - Fondements d’un système de conformité sociale is displayed");
+			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
+					.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
+				logPass("Home Page - Fondements d’un système de conformité sociale link Verified");
+			} else {
+				logFail("Home Page - Fondements d’un système de conformité sociale Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Fondements d’un système de conformité sociale link is not displayed");
+		}
+
+		if (homestep1.isDisplayed()) {
+			logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires is displayed");
+			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
+					&& homestep1.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase(
+							"Première étape: faire participer les parties prenantes et les partenaires")) {
+				logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires link Verified");
+			} else {
+				logFail("Home Page - Première étape: faire participer les parties prenantes et les partenaires Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Première étape: faire participer les parties prenantes et les partenaires link is not displayed");
+		}
+
+		if (homestep2.isDisplayed()) {
+			logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences is displayed");
+			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
+					&& homestep2.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Deuxième étape: Évaluer les risques et les incidences")) {
+				logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences link Verified");
+			} else {
+				logFail("Home Page - Deuxième étape: Évaluer les risques et les incidences Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Deuxième étape: Évaluer les risques et les incidences link is not displayed");
+		}
+
+		if (homestep3.isDisplayed()) {
+			logPass("Home Page - Troisième étape: élaborer un code de conduite is displayed");
+			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
+					&& homestep3.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Troisième étape: élaborer un code de conduite")) {
+				logPass("Home Page - Troisième étape: élaborer un code de conduite link Verified");
+			} else {
+				logFail("Home Page - Troisième étape: élaborer un code de conduite Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Troisième étape: élaborer un code de conduite link is not displayed");
+		}
+
+		if (homestep4.isDisplayed()) {
+			logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement is displayed");
+			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
+					&& homestep4.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase(
+							"Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement")) {
+				logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link Verified");
+			} else {
+				logFail("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link is not displayed");
+		}
+
+		if (homestep5.isDisplayed()) {
+			logPass("Home Page - Cinquième étape: Surveiller la conformité is displayed");
+			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5")
+					&& homestep5.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Cinquième étape: Surveiller la conformité")) {
+				logPass("Home Page - Cinquième étape: Surveiller la conformité link Verified");
+			} else {
+				logFail("Home Page - Cinquième étape: Surveiller la conformité Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Cinquième étape: Surveiller la conformité link is not displayed");
+		}
+
+		if (homestep6.isDisplayed()) {
+			logPass("Home Page - Sixième étape: Réparer les infractions is displayed");
+			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6")
+					&& homestep6.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Sixième étape: Réparer les infractions")) {
+				logPass("Home Page - Sixième étape: Réparer les infractions Verified");
+			} else {
+				logFail("Home Page - Sixième étape: Réparer les infractions Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Sixième étape: Réparer les infractions link is not displayed");
+		}
+
+		if (homestep7.isDisplayed()) {
+			logPass("Home Page - Septième étape: Examen indépendant is displayed");
+			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7")
+					&& homestep7.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Septième étape: Examen indépendant")) {
+				logPass("Home Page - Septième étape: Examen indépendant Verified");
+			} else {
+				logFail("Home Page - Septième étape: Examen indépendant Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Septième étape: Examen indépendant link is not displayed");
+		}
+
+		if (homestep8.isDisplayed()) {
+			logPass("Home Page - Huitième étape: Rendre compte des résultats is displayed");
+			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8")
+					&& homestep8.findElement(By.tagName("h3")).getText().trim()
+							.equalsIgnoreCase("Huitième étape: Rendre compte des résultats")) {
+				logPass("Home Page - Huitième étape: Rendre compte des résultats");
+			} else {
+				logFail("Home Page - Huitième étape: Rendre compte des résultats Verification Failed");
+			}
+		} else {
+			logFail("Home Page - Huitième étape: Rendre compte des résultats link is not displayed");
 		}
 
 		// Bottom Bar - Signet
@@ -2470,7 +2472,9 @@ public class WebPages extends BasePage {
 			logPass("Copy Link is displayed");
 			String CurrentLink = WEBDRIVER.get().getCurrentUrl();
 			System.out.println(CurrentLink);
+			sleep(1);
 			sharecopylink.click();
+			sleep(1);
 			Toolkit toolkit = Toolkit.getDefaultToolkit();
 			Clipboard clipboard = toolkit.getSystemClipboard();
 			String CopiedLink = (String) clipboard.getData(DataFlavor.stringFlavor);
@@ -2542,13 +2546,6 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
-		}
-
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menú is Displayed");
@@ -2589,7 +2586,9 @@ public class WebPages extends BasePage {
 			logPass("Copy Link is displayed");
 			String CurrentLink = WEBDRIVER.get().getCurrentUrl();
 			System.out.println(CurrentLink);
+			sleep(1);
 			sharecopylink.click();
+			sleep(1);
 			Toolkit toolkit = Toolkit.getDefaultToolkit();
 			Clipboard clipboard = toolkit.getSystemClipboard();
 			String CopiedLink = (String) clipboard.getData(DataFlavor.stringFlavor);
@@ -2661,13 +2660,6 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
-		}
-
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -2709,7 +2701,9 @@ public class WebPages extends BasePage {
 			logPass("Copy Link is displayed");
 			String CurrentLink = WEBDRIVER.get().getCurrentUrl();
 			System.out.println(CurrentLink);
+			sleep(1);
 			sharecopylink.click();
+			sleep(1);
 			Toolkit toolkit = Toolkit.getDefaultToolkit();
 			Clipboard clipboard = toolkit.getSystemClipboard();
 			String CopiedLink = (String) clipboard.getData(DataFlavor.stringFlavor);
