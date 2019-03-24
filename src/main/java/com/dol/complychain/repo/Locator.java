@@ -132,9 +132,9 @@ public class Locator {
 	public static final String I_PREVIOUSSTEP = "prev-step";
 	public static final String I_NEXTSTEP = "next-step";
 	public static final String I_STEPHEADER = "//*[@id='container']//H3";
-	public static final String I_SEARCHRESULTHEADER = "//*[@id='container']//*[@nodeName='H4']";
-	public static final String I_SEARCHRESULTSLIST = "//*[@id='container']/DIV/DIV";
-	public static final String I_SEARCHBAR = "//*[@id='Search']//following-sibling::*";
+	public static final String I_SEARCHRESULTHEADER = "(//*[@class='UIAView'])[17]";
+	public static final String I_SEARCHRESULTSLIST = "(//*[@class='UIAView'])[17]//following-sibling::UIAImage";
+	public static final String I_SEARCHBAR = "//*[@placeholder='Search' and @class='UIATextField']";
 
 	public static final String I_EN_HOME_WHY_DEVOLOP = "//*[contains(@text,'Why Develop') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_EN_HOME_BASICS = "//*[contains(@text,'Basics of a') and @class='UIAImage' and ./*[@class='UIAImage']]";

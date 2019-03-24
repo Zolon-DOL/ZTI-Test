@@ -1970,19 +1970,20 @@ public class IosPages extends BasePage {
 		// Search Bar
 		if (searchbar.isDisplayed()) {
 			logPass("Search Bar is displayed");
-			searchbar.clear();
+			searchbar.click();
+			sleep(5);
 			searchbar.sendKeys("Child Labor");
-			sleep(1);
+			sleep(5);
 			//searchbar.sendKeys(Keys.ENTER);
 			// ((IOSDriver<MobileElement>)
 			// MOBILEDRIVER.get().getKeyboard().sendKeys(Keys.ENTER);
 			// MOBILEDRIVER.get().getKeyboard();
 			// sleep(1);
-			MOBILEDRIVER.get().context("NATIVE_APP"); // switch to non-instrumented context
+			//MOBILEDRIVER.get().context("NATIVE_APP"); // switch to non-instrumented context
 			MOBILEDRIVER.get().findElement(By.xpath("//*[@class='UIAKeyboard']//*[@name='Search']")).click();
-			MOBILEDRIVER.get().context("NATIVE_APP_INSTRUMENTED");
+			//MOBILEDRIVER.get().context("NATIVE_APP_INSTRUMENTED");
 
-			sleep(2);
+			sleep(5);
 			logPass("Search Value 'Child Labor' is displayed");
 		} else {
 			logFail("Search bar Verification Failed");
@@ -1993,6 +1994,7 @@ public class IosPages extends BasePage {
 			logPass("Search results for 'Child Labor' is displayed");
 			String resultsheadercount = searchresultheader.getText().trim().replaceAll("(\\d+).+", "$1");
 			System.out.println(resultsheadercount);
+			//scrolldown();
 			String resultscount = Integer.toString(searchresultslist.size()).trim();
 			System.out.println(resultscount);
 			if (resultsheadercount.trim().equals(resultscount)) {
