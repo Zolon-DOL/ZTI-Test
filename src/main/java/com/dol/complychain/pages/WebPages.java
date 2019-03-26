@@ -126,6 +126,12 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.ABOUTACCORDIONS)
 	public List<WebElement> aboutAccordions;
 
+	@FindBy(how = How.XPATH, using = Locator.WHATAREHEADER)
+	public WebElement whatareheader;
+
+	@FindBy(how = How.XPATH, using = Locator.WHATAREACCORDIONS)
+	public List<WebElement> whatareAccordions;
+
 	@FindBy(how = How.ID, using = Locator.HOME_WHY_DEVOLOP)
 	public WebElement homewhydevelop;
 
@@ -3025,6 +3031,205 @@ public class WebPages extends BasePage {
 			logPass("Sur Page Accordions Validation Success");
 		} else {
 			logFail("Sur Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Childforcedlabor_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			menu.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+				whatare.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Validate Child and Forced Labor
+		if (whatareheader.isDisplayed()) {
+			logPass(whatareheader.getText() + " is displayed");
+		} else {
+			logFail("What are Child Labor and Forced Labor? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		for (int i = 1; i <= whatareAccordions.size(); i++) {
+			WebElement element = WEBDRIVER.get()
+					.findElement(By.xpath("//*[@id='container']/div/div/div[" + i + "]/div[1]"));
+			element.click();
+			sleep(1);
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			logPass(WEBDRIVER.get().findElement(By.xpath("//*[@id='container']/div/div/div[" + i + "]/div[1]"))
+					.getText().trim() + " Accordion step Validation Success");
+			count++;
+		}
+		if (count == whatareAccordions.size()) {
+			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
+		} else {
+			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Childforcedlabor_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			spanish.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				whatare.click();
+				if (menu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate Child and Forced Labor
+		if (whatareheader.isDisplayed()) {
+			logPass(whatareheader.getText() + " is displayed");
+		} else {
+			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		for (int i = 1; i <= whatareAccordions.size(); i++) {
+			WebElement element = WEBDRIVER.get()
+					.findElement(By.xpath("//*[@id='container']/div/div/div[" + i + "]/div[1]"));
+			element.click();
+			sleep(1);
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			logPass(WEBDRIVER.get().findElement(By.xpath("//*[@id='container']/div/div/div[" + i + "]/div[1]"))
+					.getText().trim() + " Accordion step Validation Success");
+			count++;
+		}
+		if (count == whatareAccordions.size()) {
+			logPass("¿Qué son el trabajo infantil y el trabajo forzoso? Page Accordions Validation Success");
+		} else {
+			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Childforcedlabor_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			menu.click();
+			sleep(1);
+			french.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				whatare.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate Child and Forced Labor
+		if (whatareheader.isDisplayed()) {
+			logPass(whatareheader.getText() + " is displayed");
+		} else {
+			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		for (int i = 1; i <= whatareAccordions.size(); i++) {
+			WebElement element = WEBDRIVER.get()
+					.findElement(By.xpath("//*[@id='container']/div/div/div[" + i + "]/div[1]"));
+			element.click();
+			sleep(1);
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			logPass(WEBDRIVER.get().findElement(By.xpath("//*[@id='container']/div/div/div[" + i + "]/div[1]"))
+					.getText().trim() + " Accordion step Validation Success");
+			count++;
+		}
+		if (count == whatareAccordions.size()) {
+			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? Page Accordions Validation Success");
+		} else {
+			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Page Accordions Validation Failed");
 		}
 
 	}
