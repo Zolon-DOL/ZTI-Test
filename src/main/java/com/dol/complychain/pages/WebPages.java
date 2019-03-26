@@ -168,6 +168,7 @@ public class WebPages extends BasePage {
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
+			highlight(ComplyChainLogo);
 			logPass("Comply Chain Logo is Displayed");
 		} else {
 			logFail("Comply Chain Logo is Not Displayed");
@@ -175,6 +176,7 @@ public class WebPages extends BasePage {
 
 		// Header ILAB
 		if (ILAB.isDisplayed()) {
+			highlight(ILAB);
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
@@ -183,6 +185,7 @@ public class WebPages extends BasePage {
 		// Home Page Content Validation
 
 		if (homewhydevelop.isDisplayed()) {
+			highlight(homewhydevelop);
 			logPass("Home Page - Why Develop a Social Compliance System? is displayed");
 			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
 					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
@@ -197,6 +200,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homebasics.isDisplayed()) {
+			highlight(homebasics);
 			logPass("Home Page - Basics of a Social Compliance System is displayed");
 			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
 					.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
@@ -209,6 +213,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep1.isDisplayed()) {
+			highlight(homestep1);
 			logPass("Home Page - Step 1: Engage Stakeholders and Partners is displayed");
 			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
 					&& homestep1.findElement(By.tagName("h3")).getText().trim()
@@ -222,6 +227,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep2.isDisplayed()) {
+			highlight(homestep2);
 			logPass("Home Page - Step 2: Assess Risks And Impacts is displayed");
 			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
 					&& homestep2.findElement(By.tagName("h3")).getText().trim()
@@ -235,6 +241,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep3.isDisplayed()) {
+			highlight(homestep3);
 			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
 			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
 					&& homestep3.findElement(By.tagName("h3")).getText().trim()
@@ -248,6 +255,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep4.isDisplayed()) {
+			highlight(homestep4);
 			logPass("Home Page - Step 4: Communicate and Train across your Supply Chain is displayed");
 			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
 					&& homestep4.findElement(By.tagName("h3")).getText().trim()
@@ -261,6 +269,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep5.isDisplayed()) {
+			highlight(homestep5);
 			logPass("Home Page - Step 5: Monitor Compliance is displayed");
 			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5") && homestep5
 					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")) {
@@ -273,6 +282,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep6.isDisplayed()) {
+			highlight(homestep6);
 			logPass("Home Page - Step 6: Remediate Violations is displayed");
 			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6") && homestep6
 					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")) {
@@ -285,6 +295,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep7.isDisplayed()) {
+			highlight(homestep7);
 			logPass("Home Page - Step 7: Independent Review is displayed");
 			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7") && homestep7
 					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 7: Independent Review")) {
@@ -297,6 +308,7 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep8.isDisplayed()) {
+			highlight(homestep8);
 			logPass("Home Page - Step 8: Report Performance is displayed");
 			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8") && homestep8
 					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 8: Report Performance")) {
@@ -310,11 +322,13 @@ public class WebPages extends BasePage {
 
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
+			highlight(menu);
 			logPass("MENU is Displayed");
 			menu.click();
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Close")) {
 				logPass("MENU is opened Successfully");
+				highlight(menu);
 				menu.click();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("MENU is closed Successfully");
@@ -330,6 +344,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - Bookmarks
 		if (bookmarks.isDisplayed()) {
+			highlight(bookmarks);
 			logPass("Bookmarks link is displayed");
 			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
 					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
@@ -343,6 +358,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - Search
 		if (search.isDisplayed()) {
+			highlight(search);
 			logPass("Search link is displayed");
 			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Search")
 					&& search.getAttribute("href").trim().contains("/search")) {
@@ -356,6 +372,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
+			highlight(share);
 			logPass("Share link is displayed");
 			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
@@ -368,6 +385,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - About
 		if (about.isDisplayed()) {
+			highlight(about);
 			logPass("About link is displayed");
 			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
 					&& about.getAttribute("href").trim().contains("/about")) {

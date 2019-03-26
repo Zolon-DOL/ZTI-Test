@@ -9,6 +9,7 @@ import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.dol.complychain.basetest.BaseTest;
+import com.dol.complychain.util.PropUtils;
 
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -164,4 +166,22 @@ public class BasePage extends BaseTest {
 
 	}
 
+	public static void highlight(WebElement element) {
+		JavascriptExecutor js;
+		if (PropUtils.getPropValue(configProp, "platform").equalsIgnoreCase("WEB")) {
+			js = (JavascriptExecutor) WEBDRIVER.get();
+		} else {
+			js = (JavascriptExecutor) MOBILEDRIVER.get();
+		}
+
+		try {
+			js.executeScript("arguments[0].setAttribute('style','border: 2px solid red;');", element);
+			Thread.sleep(1000);
+			js.executeScript("arguments[0].style.border=''", element, "");
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
