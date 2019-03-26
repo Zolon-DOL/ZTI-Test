@@ -43,6 +43,10 @@ public class Locator {
 	public static final String ABOUTACCORDIONS = "//*[@id='container']//div/strong";
 	public static final String WHATAREHEADER = "//*[@id='container']//h1//strong";
 	public static final String WHATAREACCORDIONS = "//*[@id='container']/div/div/div/div[1]";
+	public static final String WHYDEVELOPHEADER = "//*[@id='container']//h1";
+	public static final String WHYDEVELOPACCORDIONS = "//*[@id='container']//div/strong";
+	public static final String BASICSHEADER = "//*[@id='container']//h1//strong";
+	public static final String BASICSACCORDIONS = "//*[@id='container']/div/div/div/div[1]";
 	
 	public static final String HOME_WHY_DEVOLOP = "home_whydeveloper";
 	public static final String HOME_BASICS = "home_basics";
