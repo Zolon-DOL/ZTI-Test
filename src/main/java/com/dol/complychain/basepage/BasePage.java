@@ -89,7 +89,7 @@ public class BasePage extends BaseTest {
 	public void logPass(String msg) throws Exception {
 		EXTENT_LOCAL.get().pass(MarkupHelper.createLabel(msg, ExtentColor.GREEN));
 		if (PropUtils.getPropValue(configProp, "takeScreenshot").equalsIgnoreCase("true")) {
-			WEBDRIVER.get().quit();EXTENT_LOCAL.get().info("", MediaEntityBuilder.createScreenCaptureFromPath(capture()).build());
+			EXTENT_LOCAL.get().info("", MediaEntityBuilder.createScreenCaptureFromPath(capture()).build());
 		} 
 	}
 

@@ -51,9 +51,6 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.STEPS_DROPDOWN)
 	public WebElement stepsdropdown;
 
-	@FindBy(how = How.XPATH, using = Locator.HOMEPAGE_HEADER)
-	public WebElement homepageHeader;
-
 	@FindBy(how = How.ID, using = Locator.BOOKMARKS)
 	public WebElement bookmarks;
 
@@ -91,13 +88,28 @@ public class WebPages extends BasePage {
 	public WebElement step8;
 
 	@FindBy(how = How.ID, using = Locator.PREVIOUSSTEP)
-	public WebElement previosstep;
+	public WebElement previousstep;
 
 	@FindBy(how = How.ID, using = Locator.NEXTSTEP)
 	public WebElement nextstep;
 
 	@FindBy(how = How.XPATH, using = Locator.STEPHEADER)
 	public WebElement stepheader;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPTOPICHEADER)
+	public WebElement steptopicheader;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPTOPICS)
+	public WebElement steptopics;
+
+	@FindBy(how = How.XPATH, using = Locator.STEPTOPICSLIST)
+	public List<WebElement> steptopiclist;
+
+	@FindBy(how = How.ID, using = Locator.PREVIOUSTOPIC)
+	public WebElement previoustopic;
+
+	@FindBy(how = How.ID, using = Locator.NEXTTOPIC)
+	public WebElement nexttopic;
 
 	@FindBy(how = How.XPATH, using = Locator.STEPACCORDIONS)
 	public List<WebElement> stepAccordions;
@@ -173,6 +185,9 @@ public class WebPages extends BasePage {
 
 	@FindBy(how = How.ID, using = Locator.HOME_STEP8)
 	public WebElement homestep8;
+
+	@FindBy(how = How.XPATH, using = Locator.HOMEPAGE_LINK)
+	public WebElement homepageLink;
 
 	JavascriptExecutor js = (JavascriptExecutor) WEBDRIVER.get();
 
@@ -1948,13 +1963,6 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
-		}
-
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -2041,13 +2049,6 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
-		}
-
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2140,13 +2141,6 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
-		}
-
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2461,13 +2455,6 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
-		}
-
-		// Home Page Header
-		if (homepageHeader.isDisplayed()) {
-			logPass("Home Page Header is displayed");
-		} else {
-			logFail("Home Page Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -3658,6 +3645,331 @@ public class WebPages extends BasePage {
 		} else {
 			logFail("Notions fondamentales d’un système de conformité sociale Page Accordions Validation Failed");
 		}
+	}
+
+	public void ProgressBar_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// GO to Step 1
+		if (homestep1.isDisplayed()) {
+			logPass(homestep1.getText() + " is displayed");
+			homestep1.click();
+			sleep(1);
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners is not displayed");
+		}
+
+		// Validate Step 1 header
+		if (stepheader.isDisplayed()) {
+			logPass(stepheader.getText() + " is displayed");
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners Header is not displayed");
+		}
+
+		// Expand Topics
+		if (steptopics.isDisplayed()) {
+			logPass(steptopics.getText() + " is displayed");
+			steptopics.click();
+			sleep(1);
+		} else {
+			logFail("Topics is not displayed");
+		}
+
+		// Validate Topic
+		int topicslist = steptopiclist.size();
+		WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[1]/a")).click();
+		sleep(1);
+		logPass(steptopicheader.getText().trim() + " topic is displayed");
+		for (int i = 1; i < topicslist; i++) {
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			nexttopic.click();
+			sleep(1);
+			logPass(steptopicheader.getText().trim() + " topic is displayed");
+		}
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		nextstep.click();
+
+		// Validating progress bar status
+		String color = WEBDRIVER.get().findElement(By.xpath("//*[@id='step_progess_bar']/div/div[1]/div"))
+				.getCssValue("background-color");
+		if (color.equals("rgba(0, 113, 188, 1)")) {
+			logPass("Progress bar status is changed to completed for step 1");
+		} else {
+			logFail("Progress bar status is not changed to completed for Step 1");
+		}
+
+		// Verify all topics are read and having check mark
+		if (homepageLink.isDisplayed()) {
+			homepageLink.click();
+			sleep(1);
+			homestep1.click();
+			sleep(1);
+			steptopics.click();
+			sleep(1);
+			js.executeScript("arguments[0].scrollIntoView(true);", steptopics);
+			sleep(1);
+			int count = 0;
+			for (int i = 1; i <= topicslist; i++) {
+				String content = WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
+						.getAttribute("class");
+				if (content.contains("fmCqoz")) {
+					count++;
+				}
+			}
+			if (count == topicslist) {
+				logPass("All topics are Read and Check mark is displayed");
+			} else {
+				logFail("All topics are Not Read and Check mark is not displayed");
+			}
+
+		}
+
+	}
+
+	public void ProgressBar_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			spanish.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// GO to Step 1
+		if (homestep1.isDisplayed()) {
+			logPass(homestep1.getText() + " is displayed");
+			homestep1.click();
+			sleep(1);
+		} else {
+			logFail("Primer paso: Participación de las partes interesadas y los socios is not displayed");
+		}
+
+		// Validate Step 1 header
+		if (stepheader.isDisplayed()) {
+			logPass(stepheader.getText() + " is displayed");
+		} else {
+			logFail("Primer paso: Participación de las partes interesadas y los socios Header is not displayed");
+		}
+
+		// Expand Topics
+		if (steptopics.isDisplayed()) {
+			logPass(steptopics.getText() + " is displayed");
+			steptopics.click();
+			sleep(1);
+		} else {
+			logFail("Topics is not displayed");
+		}
+
+		// Validate Topic
+		int topicslist = steptopiclist.size();
+		WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[1]/a")).click();
+		sleep(1);
+		logPass(steptopicheader.getText().trim() + " topic is displayed");
+		for (int i = 1; i < topicslist; i++) {
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			nexttopic.click();
+			sleep(1);
+			logPass(steptopicheader.getText().trim() + " topic is displayed");
+		}
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		nextstep.click();
+
+		// Validating progress bar status
+		String color = WEBDRIVER.get().findElement(By.xpath("//*[@id='step_progess_bar']/div/div[1]/div"))
+				.getCssValue("background-color");
+		if (color.equals("rgba(0, 113, 188, 1)")) {
+			logPass("Progress bar status is changed to completed for Step 1");
+		} else {
+			logFail("Progress bar status is not changed to completed for Step 1");
+		}
+
+		// Verify all topics are read and having check mark
+		if (homepageLink.isDisplayed()) {
+			homepageLink.click();
+			sleep(1);
+			homestep1.click();
+			sleep(1);
+			steptopics.click();
+			sleep(1);
+			js.executeScript("arguments[0].scrollIntoView(true);", steptopics);
+			sleep(1);
+			int count = 0;
+			for (int i = 1; i <= topicslist; i++) {
+				String content = WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
+						.getAttribute("class");
+				if (content.contains("fmCqoz")) {
+					count++;
+				}
+			}
+			if (count == topicslist) {
+				logPass("All topics are Read and Check mark is displayed");
+			} else {
+				logFail("All topics are Not Read and Check mark is not displayed");
+			}
+		}
+
+	}
+
+	public void ProgressBar_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(WEBDRIVER.get(), this);
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			menu.click();
+			sleep(1);
+			french.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// GO to Step 1
+		if (homestep1.isDisplayed()) {
+			logPass(homestep1.getText() + " is displayed");
+			homestep1.click();
+			sleep(1);
+		} else {
+			logFail("Première étape: faire participer les parties prenantes et les partenaires is not displayed");
+		}
+
+		// Validate Step 1 header
+		if (stepheader.isDisplayed()) {
+			logPass(stepheader.getText() + " is displayed");
+		} else {
+			logFail("Première étape: faire participer les parties prenantes et les partenaires Header is not displayed");
+		}
+
+		// Expand Topics
+		if (steptopics.isDisplayed()) {
+			logPass(steptopics.getText() + " is displayed");
+			steptopics.click();
+			sleep(1);
+		} else {
+			logFail("Topics is not displayed");
+		}
+
+		// Validate Topic
+		int topicslist = steptopiclist.size();
+		WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[1]/a")).click();
+		sleep(1);
+		logPass(steptopicheader.getText().trim() + " topic is displayed");
+		for (int i = 1; i < topicslist; i++) {
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			nexttopic.click();
+			sleep(1);
+			logPass(steptopicheader.getText().trim() + " topic is displayed");
+		}
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		nextstep.click();
+
+		// Validating progress bar status
+		String color = WEBDRIVER.get().findElement(By.xpath("//*[@id='step_progess_bar']/div/div[1]/div"))
+				.getCssValue("background-color");
+		if (color.equals("rgba(0, 113, 188, 1)")) {
+			logPass("Progress bar status is changed to completed for step 1");
+		} else {
+			logFail("Progress bar status is not changed to completed for Step 1");
+		}
+
+		// Verify all topics are read and having check mark
+		if (homepageLink.isDisplayed()) {
+			homepageLink.click();
+			sleep(1);
+			homestep1.click();
+			sleep(1);
+			steptopics.click();
+			sleep(1);
+			js.executeScript("arguments[0].scrollIntoView(true);", steptopics);
+			sleep(1);
+			int count = 0;
+			for (int i = 1; i <= topicslist; i++) {
+				String content = WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
+						.getAttribute("class");
+				if (content.contains("fmCqoz")) {
+					count++;
+				}
+			}
+			if (count == topicslist) {
+				logPass("All topics are Read and Check mark is displayed");
+			} else {
+				logFail("All topics are Not Read and Check mark is not displayed");
+			}
+
+		}
+
 	}
 
 }
