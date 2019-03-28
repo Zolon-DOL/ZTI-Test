@@ -14,7 +14,7 @@ public class Locator {
 	public static final String WHY_DEVOLOP = "why-develop-link";
 	public static final String BASICS = "basics-link";
 	public static final String STEPS_DROPDOWN = "steps-dropdown";
-	public static final String HOMEPAGE_HEADER = "//div[@id='container']/div";
+	public static final String HOMEPAGE_LINK = "//span[@id='breadcrumbs']//a";
 
 	public static final String STEP1 = "step-1-link";
 	public static final String STEP2 = "step-2-link";
@@ -28,7 +28,11 @@ public class Locator {
 	public static final String PREVIOUSSTEP = "prev-step";
 	public static final String NEXTSTEP = "next-step";
 	public static final String STEPHEADER = "//*[@id='container']//h3";
-
+	public static final String STEPTOPICS = "//*[@id='topics']/div[1]";
+	public static final String STEPTOPICSLIST = "//*[@id='topics']/div[2]//li";
+	public static final String STEPTOPICHEADER = "//*[@id='container']//h1";
+	public static final String PREVIOUSTOPIC = "prev-topic";
+	public static final String NEXTTOPIC = "next-topic";
 	public static final String BOOKMARKS = "bookmarks-link";
 	public static final String SEARCH = "search-link";
 	public static final String SEARCHBAR = "search-input";
@@ -64,7 +68,8 @@ public class Locator {
 	public static final String A_HOMEPAGE_HEADER = "//*[@id='container']/*";
 	public static final String A_SEARCHRESULTHEADER = "//*[@id='container']/*[1]";
 	public static final String A_SEARCHRESULTSLIST = "//*[@id='container']//*[@width='924' and @top='true']";
-
+	public static final String A_ABOUTHEADER = "//*[@id='container']/*[1]";
+	public static final String A_ABOUTACCORDIONS = "//*[@id='container']//*[@text='+']//preceding-sibling::*";
 	// IOS Objects
 	public static final String I_COMPLYCHAIN_LOGO_IMG = "//*[@text='Brand Strip Logo']";
 	public static final String I_ILAB = "//*[@class='UIAView' and ./*[@text='ILAB']]";
