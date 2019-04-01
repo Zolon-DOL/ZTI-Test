@@ -3686,32 +3686,11 @@ public class AndroidPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menú is Displayed");
-			menu.click();
-			sleep(1);
-			spanish.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Cerrar")) {
-				logPass("Menú is opened Successfully");
-				menu.click();
-				if (menu.getText().equalsIgnoreCase("Menú")) {
-					logPass("MENU is closed Successfully");
-				} else {
-					logFail("MENU is not closed Successfully");
-				}
-			} else {
-				logFail("Menú is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
 
 		// Bottom Bar - Compartir
 		if (share.isDisplayed()) {
 			logPass("Compartir link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Compartir")) {
+			if (androidshare.getText().trim().equalsIgnoreCase("Compartir")) {
 				logPass("Compartir link Verified");
 			} else {
 				logFail("Compartir Verification Failed");
@@ -3797,32 +3776,10 @@ public class AndroidPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
-		// MENU opening and closing
-		if (menu.isDisplayed()) {
-			logPass("Menu is Displayed");
-			menu.click();
-			sleep(1);
-			french.click();
-			sleep(1);
-			if (menu.getText().equalsIgnoreCase("Fermer")) {
-				logPass("Menú is opened Successfully");
-				menu.click();
-				if (menu.getText().equalsIgnoreCase("Menu")) {
-					logPass("MENU is closed Successfully");
-				} else {
-					logFail("MENU is not closed Successfully");
-				}
-			} else {
-				logFail("Menu is not opened Successfully");
-			}
-		} else {
-			logFail("Menú is Not Displayed");
-		}
-
 		// Bottom Bar - Partager
 		if (share.isDisplayed()) {
 			logPass("Partager link is displayed");
-			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Partager")) {
+			if (androidshare.getText().trim().equalsIgnoreCase("Partager")) {
 				logPass("Partager link Verified");
 			} else {
 				logFail("Partager Verification Failed");
