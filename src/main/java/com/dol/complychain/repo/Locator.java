@@ -81,6 +81,12 @@ public class Locator {
 	public static final String A_STEPTOPICHEADER = "//*[@id='container']/*[2]";
 	public static final String A_STEPTOPICS = "//*[@id='topics']//*[@text='+']//preceding-sibling::*";
 	public static final String A_STEPTOPICSLIST = "//*[@id='topics']//android.widget.ListView/*";
+	public static final String A_COPYLINK = "//*[@id='select_dialog_listview']//*[2]";
+	public static final String A_CREATEPDF = "//*[@id='select_dialog_listview']//*[3]";
+	public static final String A_SHARETO = "//*[@id='select_dialog_listview']//*[1]";
+	public static final String A_COPIEDTOCLIPBOARD = "//*[@text='Copied to clipboard.']";
+	public static final String A_MESSAGES = "//*[@text='Messages']";
+	public static final String A_DISCARD = "//*[@text='DISCARD']";
 	
 	// IOS Objects
 	public static final String I_COMPLYCHAIN_LOGO_IMG = "//*[@text='Brand Strip Logo']";

@@ -188,6 +188,24 @@ public class AndroidPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.HOMEPAGE_LINK)
 	public WebElement homepageLink;
 
+	@FindBy(how = How.XPATH, using = Locator.A_COPIEDTOCLIPBOARD)
+	public WebElement copyclipboard;
+
+	@FindBy(how = How.XPATH, using = Locator.A_SHARETO)
+	public WebElement sharetolink;
+
+	@FindBy(how = How.XPATH, using = Locator.A_COPYLINK)
+	public WebElement copylink;
+
+	@FindBy(how = How.XPATH, using = Locator.A_CREATEPDF)
+	public WebElement createpdf;
+
+	@FindBy(how = How.XPATH, using = Locator.A_MESSAGES)
+	public WebElement messages;
+
+	@FindBy(how = How.XPATH, using = Locator.A_DISCARD)
+	public WebElement discard;
+
 	public AndroidPages(WebDriver driver, ExtentTest test) {
 		super(MOBILEDRIVER.get(), test);
 	}
@@ -3279,68 +3297,74 @@ public class AndroidPages extends BasePage {
 
 		// Validate Topic
 		int topicslist = steptopiclist.size();
-		MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='topics']//android.widget.ListView/*/android.view.View)[2]")).click();
+		MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='topics']//android.widget.ListView/*/android.view.View)[2]"))
+				.click();
 		sleep(1);
 		logPass(steptopicheader.getText().trim() + " topic is displayed");
 		for (int i = 1; i < topicslist; i++) {
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
-			scrolldown();scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
 			nexttopic.click();
 			sleep(1);
 			logPass(steptopicheader.getText().trim() + " topic is displayed");
 		}
-		scrolldown();scrolldown();
-		scrolldown();scrolldown();
-		scrolldown();scrolldown();
-		scrolldown();scrolldown();
-		scrolldown();scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
 		nextstep.click();
 
-/*		// Validating progress bar status
-		String color = MOBILEDRIVER.get().findElement(By.xpath("//*[@id='step_progess_bar']//*[@text='1']"))
-				.getCssValue("background-color");
-		if (color.equals("rgba(0, 113, 188, 1)")) {
-			logPass("Progress bar status is changed to completed for step 1");
-		} else {
-			logFail("Progress bar status is not changed to completed for Step 1");
-		}
-
-		// Verify all topics are read and having check mark
-		if (homepageLink.isDisplayed()) {
-			homepageLink.click();
-			sleep(1);
-			homestep1.click();
-			sleep(1);
-			steptopics.click();
-			sleep(1);
-			scrolldown();scrolldown();
-			sleep(1);
-			int count = 0;
-			for (int i = 1; i <= topicslist; i++) {
-				String content = MOBILEDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
-						.getAttribute("class");
-				if (content.contains("fmCqoz")) {
-					count++;
-				}
-			}
-			if (count == topicslist) {
-				logPass("All topics are Read and Check mark is displayed");
-			} else {
-				logFail("All topics are Not Read and Check mark is not displayed");
-			}
-
-		}*/
+		/*
+		 * // Validating progress bar status String color =
+		 * MOBILEDRIVER.get().findElement(By.xpath(
+		 * "//*[@id='step_progess_bar']//*[@text='1']"))
+		 * .getCssValue("background-color"); if (color.equals("rgba(0, 113, 188, 1)")) {
+		 * logPass("Progress bar status is changed to completed for step 1"); } else {
+		 * logFail("Progress bar status is not changed to completed for Step 1"); }
+		 * 
+		 * // Verify all topics are read and having check mark if
+		 * (homepageLink.isDisplayed()) { homepageLink.click(); sleep(1);
+		 * homestep1.click(); sleep(1); steptopics.click(); sleep(1);
+		 * scrolldown();scrolldown(); sleep(1); int count = 0; for (int i = 1; i <=
+		 * topicslist; i++) { String content =
+		 * MOBILEDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i +
+		 * "]")) .getAttribute("class"); if (content.contains("fmCqoz")) { count++; } }
+		 * if (count == topicslist) {
+		 * logPass("All topics are Read and Check mark is displayed"); } else {
+		 * logFail("All topics are Not Read and Check mark is not displayed"); }
+		 * 
+		 * }
+		 */
 
 	}
 
@@ -3545,6 +3569,317 @@ public class AndroidPages extends BasePage {
 
 		}
 
+	}
+
+	public void Share_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Bottom Bar - Share
+		if (share.isDisplayed()) {
+			logPass("Share link is displayed");
+			if (androidshare.getText().trim().equalsIgnoreCase("Share")) {
+				logPass("Share link Verified");
+			} else {
+				logFail("Share Verification Failed");
+			}
+		} else {
+			logFail("Share link is not displayed");
+		}
+
+		// Share -Copy Link
+		share.click();
+		if (copylink.isDisplayed()) {
+			logPass("Copy Link is displayed");
+			copylink.click();
+			if (copyclipboard.isDisplayed()) {
+				logPass("Share - Copy Link functionality is Verified");
+			} else {
+				logFail("Share - Copy Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Copy Link Not displayed");
+		}
+
+		// Share -Share to
+		share.click();
+		if (sharetolink.isDisplayed()) {
+			logPass("Share to Link is displayed");
+			sharetolink.click();
+			if (messages.isDisplayed()) {
+				logPass("Messages is Displayed in the list");
+				messages.click();
+				sleep(1);
+				logPass("Messages is Displayed with comply chain links");
+				MOBILEDRIVER.get().navigate().back();
+				sleep(1);
+				MOBILEDRIVER.get().navigate().back();
+				sleep(1);
+				discard.click();
+				sleep(1);
+				logPass("Share - Share to Link functionality is Verified");
+			} else {
+				logFail("Share - Share to Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Share to Link not displayed");
+		}
+
+		// Share - Create PDF
+		share.click();
+		if (createpdf.isDisplayed()) {
+			logPass("Share - Crete PDF Link is displayed");
+			createpdf.click();
+			sleep(2);
+			logPass("Share - Create PDF link Functionality is verified");
+			MOBILEDRIVER.get().navigate().back();
+		} else {
+			logFail("Share - Pocket Link functionality Verification Failed");
+		}
+	}
+
+	public void Share_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			menu.click();
+			sleep(1);
+			spanish.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Bottom Bar - Compartir
+		if (share.isDisplayed()) {
+			logPass("Compartir link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Compartir")) {
+				logPass("Compartir link Verified");
+			} else {
+				logFail("Compartir Verification Failed");
+			}
+		} else {
+			logFail("Compartir link is not displayed");
+		}
+
+		// Share -Copy Link
+		share.click();
+		if (copylink.isDisplayed()) {
+			logPass("Copy Link is displayed");
+			copylink.click();
+			if (copyclipboard.isDisplayed()) {
+				logPass("Share - Copy Link functionality is Verified");
+			} else {
+				logFail("Share - Copy Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Copy Link Not displayed");
+		}
+
+		// Share -Share to
+		share.click();
+		if (sharetolink.isDisplayed()) {
+			logPass("Share to Link is displayed");
+			sharetolink.click();
+			if (messages.isDisplayed()) {
+				logPass("Messages is Displayed in the list");
+				messages.click();
+				sleep(1);
+				logPass("Messages is Displayed with comply chain links");
+				MOBILEDRIVER.get().navigate().back();
+				sleep(1);
+				MOBILEDRIVER.get().navigate().back();
+				sleep(1);
+				discard.click();
+				sleep(1);
+				logPass("Share - Share to Link functionality is Verified");
+			} else {
+				logFail("Share - Share to Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Share to Link not displayed");
+		}
+
+		// Share - Create PDF
+		share.click();
+		if (createpdf.isDisplayed()) {
+			logPass("Share - Crete PDF Link is displayed");
+			createpdf.click();
+			sleep(2);
+			logPass("Share - Create PDF link Functionality is verified");
+			MOBILEDRIVER.get().navigate().back();
+		} else {
+			logFail("Share - Pocket Link functionality Verification Failed");
+		}
+	}
+
+	public void Share_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (menu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			menu.click();
+			sleep(1);
+			french.click();
+			sleep(1);
+			if (menu.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				menu.click();
+				if (menu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Bottom Bar - Partager
+		if (share.isDisplayed()) {
+			logPass("Partager link is displayed");
+			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Partager")) {
+				logPass("Partager link Verified");
+			} else {
+				logFail("Partager Verification Failed");
+			}
+		} else {
+			logFail("Partager link is not displayed");
+		}
+
+		// Share -Copy Link
+		share.click();
+		if (copylink.isDisplayed()) {
+			logPass("Copy Link is displayed");
+			copylink.click();
+			if (copyclipboard.isDisplayed()) {
+				logPass("Share - Copy Link functionality is Verified");
+			} else {
+				logFail("Share - Copy Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Copy Link Not displayed");
+		}
+
+		// Share -Share to
+		share.click();
+		if (sharetolink.isDisplayed()) {
+			logPass("Share to Link is displayed");
+			sharetolink.click();
+			if (messages.isDisplayed()) {
+				logPass("Messages is Displayed in the list");
+				messages.click();
+				sleep(1);
+				logPass("Messages is Displayed with comply chain links");
+				MOBILEDRIVER.get().navigate().back();
+				sleep(1);
+				MOBILEDRIVER.get().navigate().back();
+				sleep(1);
+				discard.click();
+				sleep(1);
+				logPass("Share - Share to Link functionality is Verified");
+			} else {
+				logFail("Share - Share to Link functionality Verification Failed");
+			}
+		} else {
+			logFail("Share - Share to Link not displayed");
+		}
+
+		// Share - Create PDF
+		share.click();
+		if (createpdf.isDisplayed()) {
+			logPass("Share - Crete PDF Link is displayed");
+			createpdf.click();
+			sleep(2);
+			logPass("Share - Create PDF link Functionality is verified");
+			MOBILEDRIVER.get().navigate().back();
+		} else {
+			logFail("Share - Pocket Link functionality Verification Failed");
+		}
 	}
 
 }
