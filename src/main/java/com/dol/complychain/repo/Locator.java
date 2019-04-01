@@ -70,6 +70,18 @@ public class Locator {
 	public static final String A_SEARCHRESULTSLIST = "//*[@id='container']//*[@width='924' and @top='true']";
 	public static final String A_ABOUTHEADER = "//*[@id='container']/*[1]";
 	public static final String A_ABOUTACCORDIONS = "//*[@id='container']//*[@text='+']//preceding-sibling::*";
+	public static final String A_WHATAREHEADER = "//*[@id='container']/*[1]";
+	public static final String A_WHATAREACCORDIONS = "//*[@id='container']//*[@text='+']//preceding-sibling::*";
+	public static final String A_WHYDEVELOPHEADER = "//*[@id='container']/*[1]";
+	public static final String A_WHYDEVELOPACCORDIONS = "//*[@id='container']//*[@text='+']//preceding-sibling::*";
+	public static final String A_BASICSHEADER = "//*[@id='container']/*[1]";
+	public static final String A_BASICSACCORDIONS = "//*[@id='container']//*[@text='+']//preceding-sibling::*";
+	public static final String A_STEPHEADER = "//*[@id='container']/android.view.View[1]";
+	public static final String A_STEPACCORDIONS = "//*[@id='container']//*[@text='+']//preceding-sibling::*";
+	public static final String A_STEPTOPICHEADER = "//*[@id='container']/*[2]";
+	public static final String A_STEPTOPICS = "//*[@id='topics']//*[@text='+']//preceding-sibling::*";
+	public static final String A_STEPTOPICSLIST = "//*[@id='topics']//android.widget.ListView/*";
+	
 	// IOS Objects
 	public static final String I_COMPLYCHAIN_LOGO_IMG = "//*[@text='Brand Strip Logo']";
 	public static final String I_ILAB = "//*[@class='UIAView' and ./*[@text='ILAB']]";

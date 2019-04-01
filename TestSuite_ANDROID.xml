@@ -8,7 +8,12 @@
 			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_002" />
 			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_003" />
 			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_005" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_006" />
 			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_008" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_009" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_010" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_011" />
+			<class name="com.dol.complychain.testcases.ANDROID.DOL_CC_AND_TC_012" />
 		</classes>
 	</test>
 </suite> 
