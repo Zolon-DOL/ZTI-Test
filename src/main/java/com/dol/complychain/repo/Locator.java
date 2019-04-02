@@ -197,4 +197,13 @@ public class Locator {
 	public static final String I_FR_HOME_STEP6 = "//*[contains(@text,'Sixi') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_FR_HOME_STEP7 = "//*[contains(@text,'Septi') and @class='UIAImage' and ./*[@class='UIAImage']]";
 	public static final String I_FR_HOME_STEP8 = "//*[contains(@text,'Huiti') and @class='UIAImage' and ./*[@class='UIAImage']]";
+
+	public static final String I_COPYLINK = "//*[@id='Copy Link']";
+	public static final String I_CREATEPDF = "//*[@id='Create PDF']";
+	public static final String I_SHARETO = "//*[@id='Share to...']";
+	public static final String I_COPIEDTOCLIPBOARD = "//*[@text='Copied to clipboard.']";
+	public static final String I_MESSAGES = "//*[@text='Message']";
+	public static final String I_CANCEL = "//*[@text='Cancel']";
+	
+
 }
