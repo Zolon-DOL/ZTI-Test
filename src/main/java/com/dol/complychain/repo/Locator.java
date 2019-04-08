@@ -6,6 +6,7 @@ public class Locator {
 
 	public static final String COMPLYCHAIN_LOGO_IMG = "brand-logo";
 	public static final String ILAB = "brand-name";
+	public static final String COMPLYCHAINHEADER = "//*[@id='breadcrumbs']/a";
 	public static final String MENU = "menu-btn";
 	public static final String ENGLISH_BUTTON = "en-btn";
 	public static final String SPANISH_BUTTON = "es-btn";
@@ -65,6 +66,7 @@ public class Locator {
 
 	// Android Objects
 	public static final String A_SHARE = "//*[@id='share-link']//*[2]";
+	public static final String A_COMPLYCHAINHEADER = "//*[@id='breadcrumbs']/*";
 	public static final String A_HOMEPAGE_HEADER = "//*[@id='container']/*";
 	public static final String A_SEARCHRESULTHEADER = "//*[@id='container']/*[1]";
 	public static final String A_SEARCHRESULTSLIST = "//*[@id='container']//*[@width='924' and @top='true']";
@@ -91,6 +93,7 @@ public class Locator {
 	// IOS Objects
 	public static final String I_COMPLYCHAIN_LOGO_IMG = "//*[@text='Brand Strip Logo']";
 	public static final String I_ILAB = "//*[@class='UIAView' and ./*[@text='ILAB']]";
+	public static final String I_COMPLYCHAINHEADER = "//*[@text='Comply Chain' and @class='UIAImage']";
 	public static final String I_EN_MENU = "//*[@text='Menu' and @class='UIAButton']";
 	public static final String I_ES_MENU = "//*[contains(@text,'Men') and @class='UIAButton']";
 	public static final String I_FR_MENU = "//*[@text='Menu' and @class='UIAButton']";
@@ -157,10 +160,9 @@ public class Locator {
 	public static final String I_FR_SHARE = "//*[@text='Partager' and @class='UIAStaticText']";
 	public static final String I_FR_ABOUT = "//*[@text='Sur' and @class='UIAImage' and ./*[@class='UIAImage']]";
 
-	public static final String I_STEPACCORDIONS = "//*[@id='step-accordions']/DIV";
-	public static final String I_PREVIOUSSTEP = "prev-step";
-	public static final String I_NEXTSTEP = "next-step";
-	public static final String I_STEPHEADER = "//*[@id='container']//H3";
+	public static final String I_PREVIOUSSTEP = "Previous Step";
+	public static final String I_NEXTSTEP = "Next Step";
+	public static final String I_STEPHEADER = "(//*[@text='Bookmark']/../following-sibling::UIAView/UIAStaticText)[1]";
 	public static final String I_SEARCHRESULTHEADER = "(//*[@class='UIAView'])[17]";
 	public static final String I_SEARCHRESULTSLIST = "(//*[@class='UIAView'])[17]//following-sibling::UIAImage";
 	public static final String I_SEARCHBAR = "//*[@placeholder='Search' and @class='UIATextField']";
@@ -204,6 +206,15 @@ public class Locator {
 	public static final String I_COPIEDTOCLIPBOARD = "//*[@text='Copied to clipboard.']";
 	public static final String I_MESSAGES = "//*[@text='Message']";
 	public static final String I_CANCEL = "//*[@text='Cancel']";
+	
+	public static final String I_STEPTOPICHEADER = "(//*[@text='Bookmark']/../following-sibling::UIAView/UIAStaticText)[1]";
+	public static final String I_STEPTOPICS = "//*[@id='Topics']//following-sibling::*/*[@text='+']";
+	public static final String I_STEPTOPICSLIST = "//*[@text='Topics']/../following-sibling::UIAView/UIAView/UIAView/following-sibling::UIAImage";
+	
+	public static final String I_PREVIOUSTOPIC = "Prev Topic";
+	public static final String I_NEXTTOPIC = "Next Topic";
+	
+	public static final String I_STEPACCORDIONS = "//*[@id='step-accordions']/DIV";
 	
 
 }

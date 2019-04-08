@@ -26,6 +26,9 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.I_ILAB)
 	public WebElement ILAB;
 
+	@FindBy(how = How.ID, using = Locator.I_COMPLYCHAINHEADER)
+	public WebElement complychainheader;
+
 	@FindBy(how = How.XPATH, using = Locator.I_EN_MENU)
 	public WebElement enmenu;
 
@@ -200,13 +203,13 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.I_FR_STEP8)
 	public WebElement frstep8;
 
-	@FindBy(how = How.ID, using = Locator.PREVIOUSSTEP)
+	@FindBy(how = How.ID, using = Locator.I_PREVIOUSSTEP)
 	public WebElement previosstep;
 
-	@FindBy(how = How.ID, using = Locator.NEXTSTEP)
+	@FindBy(how = How.ID, using = Locator.I_NEXTSTEP)
 	public WebElement nextstep;
 
-	@FindBy(how = How.XPATH, using = Locator.STEPHEADER)
+	@FindBy(how = How.XPATH, using = Locator.I_STEPHEADER)
 	public WebElement stepheader;
 
 	@FindBy(how = How.XPATH, using = Locator.STEPACCORDIONS)
@@ -329,6 +332,24 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.I_CANCEL)
 	public WebElement cancel;
 
+	@FindBy(how = How.XPATH, using = Locator.I_STEPTOPICHEADER)
+	public WebElement steptopicheader;
+
+	@FindBy(how = How.XPATH, using = Locator.I_STEPTOPICSLIST)
+	public List<WebElement> steptopiclist;
+
+	@FindBy(how = How.ID, using = Locator.I_PREVIOUSTOPIC)
+	public WebElement previoustopic;
+
+	@FindBy(how = How.ID, using = Locator.I_NEXTTOPIC)
+	public WebElement nexttopic;
+
+	@FindBy(how = How.XPATH, using = Locator.HOMEPAGE_LINK)
+	public WebElement homepageLink;
+
+	@FindBy(how = How.XPATH, using = Locator.I_STEPTOPICS)
+	public WebElement steptopics;
+
 	public IosPages(WebDriver driver, ExtentTest test) {
 		super(MOBILEDRIVER.get(), test);
 	}
@@ -357,6 +378,14 @@ public class IosPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// Home Page Content Validation
@@ -988,6 +1017,14 @@ public class IosPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (enmenu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -1106,6 +1143,14 @@ public class IosPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (esmenu.isDisplayed()) {
 			logPass("Menú is Displayed");
@@ -1169,7 +1214,7 @@ public class IosPages extends BasePage {
 		}
 
 		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("Inglés")) {
 			logPass("English Language Button is displayed and Verfied");
 		} else {
 			logFail("English Language Button is not displayed");
@@ -1181,7 +1226,7 @@ public class IosPages extends BasePage {
 			logFail("Español Language Button is not displayed");
 		}
 
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Francés")) {
 			logPass("Français Language Button is displayed and Verfied");
 		} else {
 			logFail("Français Language Button is not displayed");
@@ -1196,7 +1241,6 @@ public class IosPages extends BasePage {
 				logFail("Menú is not closed Successfully");
 			}
 		}
-
 	}
 
 	public void MenuVerification_FR() throws Exception {
@@ -1223,6 +1267,14 @@ public class IosPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -1290,13 +1342,13 @@ public class IosPages extends BasePage {
 		}
 
 		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("Anglais")) {
 			logPass("English Language Button is displayed and Verfied");
 		} else {
 			logFail("English Language Button is not displayed");
 		}
 
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
+		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Espagnol")) {
 			logPass("Español Language Button is displayed and Verfied");
 		} else {
 			logFail("Español Language Button is not displayed");
@@ -1344,6 +1396,14 @@ public class IosPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -1551,6 +1611,14 @@ public class IosPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -1763,6 +1831,14 @@ public class IosPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2174,6 +2250,14 @@ public class IosPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// Bottom Bar - Share
 		if (enshare.isDisplayed()) {
 			logPass("Share link is displayed");
@@ -2261,6 +2345,14 @@ public class IosPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// Bottom Bar - Compartir
@@ -2352,6 +2444,14 @@ public class IosPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// Bottom Bar - Partager
 		if (frshare.isDisplayed()) {
 			logPass("Partager link is displayed");
@@ -2413,6 +2513,408 @@ public class IosPages extends BasePage {
 		} else {
 			logFail("Partager - Pocket Link functionality Verification Failed");
 		}
+	}
+
+	public void ProgressBar_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// GO to Step 1
+		if (enhomestep1.isDisplayed()) {
+			logPass("Step 1: Engage Stakeholders and Partners is displayed");
+			enhomestep1.click();
+			sleep(1);
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners is not displayed");
+		}
+
+		// Validate Step 1 header
+		if (stepheader.isDisplayed()) {
+			logPass(stepheader.getText() + " is displayed");
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners Header is not displayed");
+		}
+
+		// Expand Topics
+		if (steptopics.isDisplayed()) {
+			logPass(steptopics.getText() + " is displayed");
+			steptopics.click();
+			sleep(1);
+			scrolldown();
+		} else {
+			logFail("Topics is not displayed");
+		}
+
+		// Validate Topic
+		int topicslist = steptopiclist.size();
+		MOBILEDRIVER.get().findElement(By.xpath(
+				"(//*[@text='Topics']/../following-sibling::UIAView/UIAView/UIAView/following-sibling::UIAImage)[1]"))
+				.click();
+		sleep(1);
+		logPass(steptopicheader.getText().trim() + " topic is displayed");
+		for (int i = 1; i < topicslist; i++) {
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			nexttopic.click();
+			sleep(1);
+			logPass(steptopicheader.getText().trim() + " topic is displayed");
+		}
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		nextstep.click();
+
+		/*
+		 * // Validating progress bar status String color =
+		 * MOBILEDRIVER.get().findElement(By.xpath(
+		 * "//*[@id='step_progess_bar']//*[@text='1']"))
+		 * .getCssValue("background-color"); if (color.equals("rgba(0, 113, 188, 1)")) {
+		 * logPass("Progress bar status is changed to completed for step 1"); } else {
+		 * logFail("Progress bar status is not changed to completed for Step 1"); }
+		 * 
+		 * // Verify all topics are read and having check mark if
+		 * (homepageLink.isDisplayed()) { homepageLink.click(); sleep(1);
+		 * homestep1.click(); sleep(1); steptopics.click(); sleep(1);
+		 * scrolldown();scrolldown(); sleep(1); int count = 0; for (int i = 1; i <=
+		 * topicslist; i++) { String content =
+		 * MOBILEDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i +
+		 * "]")) .getAttribute("class"); if (content.contains("fmCqoz")) { count++; } }
+		 * if (count == topicslist) {
+		 * logPass("All topics are Read and Check mark is displayed"); } else {
+		 * logFail("All topics are Not Read and Check mark is not displayed"); }
+		 * 
+		 * }
+		 */
+
+	}
+
+	public void ProgressBar_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// GO to Step 1
+		if (enhomestep1.isDisplayed()) {
+			logPass("Step 1: Engage Stakeholders and Partners is displayed");
+			enhomestep1.click();
+			sleep(1);
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners is not displayed");
+		}
+
+		// Validate Step 1 header
+		if (stepheader.isDisplayed()) {
+			logPass(stepheader.getText() + " is displayed");
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners Header is not displayed");
+		}
+
+		// Expand Topics
+		if (steptopics.isDisplayed()) {
+			logPass(steptopics.getText() + " is displayed");
+			steptopics.click();
+			sleep(1);
+			scrolldown();
+		} else {
+			logFail("Topics is not displayed");
+		}
+
+		// Validate Topic
+		int topicslist = steptopiclist.size();
+		MOBILEDRIVER.get().findElement(By.xpath(
+				"(//*[@text='Topics']/../following-sibling::UIAView/UIAView/UIAView/following-sibling::UIAImage)[1]"))
+				.click();
+		sleep(1);
+		logPass(steptopicheader.getText().trim() + " topic is displayed");
+		for (int i = 1; i < topicslist; i++) {
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			nexttopic.click();
+			sleep(1);
+			logPass(steptopicheader.getText().trim() + " topic is displayed");
+		}
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		nextstep.click();
+
+		/*
+		 * // Validating progress bar status String color =
+		 * MOBILEDRIVER.get().findElement(By.xpath(
+		 * "//*[@id='step_progess_bar']//*[@text='1']"))
+		 * .getCssValue("background-color"); if (color.equals("rgba(0, 113, 188, 1)")) {
+		 * logPass("Progress bar status is changed to completed for step 1"); } else {
+		 * logFail("Progress bar status is not changed to completed for Step 1"); }
+		 * 
+		 * // Verify all topics are read and having check mark if
+		 * (homepageLink.isDisplayed()) { homepageLink.click(); sleep(1);
+		 * homestep1.click(); sleep(1); steptopics.click(); sleep(1);
+		 * scrolldown();scrolldown(); sleep(1); int count = 0; for (int i = 1; i <=
+		 * topicslist; i++) { String content =
+		 * MOBILEDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i +
+		 * "]")) .getAttribute("class"); if (content.contains("fmCqoz")) { count++; } }
+		 * if (count == topicslist) {
+		 * logPass("All topics are Read and Check mark is displayed"); } else {
+		 * logFail("All topics are Not Read and Check mark is not displayed"); }
+		 * 
+		 * }
+		 */
+
+	}
+
+	public void ProgressBar_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// GO to Step 1
+		if (enhomestep1.isDisplayed()) {
+			logPass("Step 1: Engage Stakeholders and Partners is displayed");
+			enhomestep1.click();
+			sleep(1);
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners is not displayed");
+		}
+
+		// Validate Step 1 header
+		if (stepheader.isDisplayed()) {
+			logPass(stepheader.getText() + " is displayed");
+		} else {
+			logFail("Step 1: Engage Stakeholders and Partners Header is not displayed");
+		}
+
+		// Expand Topics
+		if (steptopics.isDisplayed()) {
+			logPass(steptopics.getText() + " is displayed");
+			steptopics.click();
+			sleep(1);
+			scrolldown();
+		} else {
+			logFail("Topics is not displayed");
+		}
+
+		// Validate Topic
+		int topicslist = steptopiclist.size();
+		MOBILEDRIVER.get().findElement(By.xpath(
+				"(//*[@text='Topics']/../following-sibling::UIAView/UIAView/UIAView/following-sibling::UIAImage)[1]"))
+				.click();
+		sleep(1);
+		logPass(steptopicheader.getText().trim() + " topic is displayed");
+		for (int i = 1; i < topicslist; i++) {
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			scrolldown();
+			nexttopic.click();
+			sleep(1);
+			logPass(steptopicheader.getText().trim() + " topic is displayed");
+		}
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		scrolldown();
+		nextstep.click();
+
+		/*
+		 * // Validating progress bar status String color =
+		 * MOBILEDRIVER.get().findElement(By.xpath(
+		 * "//*[@id='step_progess_bar']//*[@text='1']"))
+		 * .getCssValue("background-color"); if (color.equals("rgba(0, 113, 188, 1)")) {
+		 * logPass("Progress bar status is changed to completed for step 1"); } else {
+		 * logFail("Progress bar status is not changed to completed for Step 1"); }
+		 * 
+		 * // Verify all topics are read and having check mark if
+		 * (homepageLink.isDisplayed()) { homepageLink.click(); sleep(1);
+		 * homestep1.click(); sleep(1); steptopics.click(); sleep(1);
+		 * scrolldown();scrolldown(); sleep(1); int count = 0; for (int i = 1; i <=
+		 * topicslist; i++) { String content =
+		 * MOBILEDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i +
+		 * "]")) .getAttribute("class"); if (content.contains("fmCqoz")) { count++; } }
+		 * if (count == topicslist) {
+		 * logPass("All topics are Read and Check mark is displayed"); } else {
+		 * logFail("All topics are Not Read and Check mark is not displayed"); }
+		 * 
+		 * }
+		 */
+
 	}
 
 }

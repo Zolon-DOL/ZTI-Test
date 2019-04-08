@@ -27,6 +27,9 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.ILAB)
 	public WebElement ILAB;
 
+	@FindBy(how = How.XPATH, using = Locator.COMPLYCHAINHEADER)
+	public WebElement complychainheader;
+
 	@FindBy(how = How.ID, using = Locator.MENU)
 	public WebElement menu;
 
@@ -201,7 +204,7 @@ public class WebPages extends BasePage {
 
 		// Comply Chain Logo
 		if (ComplyChainLogo.isDisplayed()) {
-			highlight(ComplyChainLogo);
+			// highlight(ComplyChainLogo);
 			logPass("Comply Chain Logo is Displayed");
 		} else {
 			logFail("Comply Chain Logo is Not Displayed");
@@ -209,16 +212,24 @@ public class WebPages extends BasePage {
 
 		// Header ILAB
 		if (ILAB.isDisplayed()) {
-			highlight(ILAB);
+			// highlight(ILAB);
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// Home Page Content Validation
 
 		if (homewhydevelop.isDisplayed()) {
-			highlight(homewhydevelop);
+			// highlight(homewhydevelop);
 			logPass("Home Page - Why Develop a Social Compliance System? is displayed");
 			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
 					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
@@ -449,6 +460,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menú is Displayed");
@@ -670,6 +689,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -897,6 +924,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -1010,6 +1045,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menú is Displayed");
@@ -1079,7 +1122,7 @@ public class WebPages extends BasePage {
 
 		// Language Buttons Verification
 		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("Inglés")) {
 			logPass("English Language Button is displayed and Verfied");
 		} else {
 			logFail("English Language Button is not displayed");
@@ -1091,7 +1134,7 @@ public class WebPages extends BasePage {
 			logFail("Español Language Button is not displayed");
 		}
 
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Francés")) {
 			logPass("Français Language Button is displayed and Verfied");
 		} else {
 			logFail("Français Language Button is not displayed");
@@ -1125,6 +1168,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -1195,13 +1246,13 @@ public class WebPages extends BasePage {
 		}
 
 		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("Anglais")) {
 			logPass("English Language Button is displayed and Verfied");
 		} else {
 			logFail("English Language Button is not displayed");
 		}
 
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
+		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Espagnol")) {
 			logPass("Español Language Button is displayed and Verfied");
 		} else {
 			logFail("Español Language Button is not displayed");
@@ -1241,6 +1292,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -1451,6 +1510,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -1668,6 +1735,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -1883,6 +1958,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -1961,6 +2044,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2049,6 +2140,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2143,6 +2242,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -2234,6 +2341,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -2305,6 +2420,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2382,6 +2505,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -2455,6 +2586,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2569,6 +2708,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menú is Displayed");
@@ -2681,6 +2828,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2798,6 +2953,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -2880,6 +3043,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -2967,6 +3138,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -3052,6 +3231,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -3115,6 +3302,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -3184,6 +3379,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -3249,6 +3452,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -3320,6 +3531,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -3395,6 +3614,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -3468,6 +3695,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("MENU is Displayed");
@@ -3531,6 +3766,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -3599,6 +3842,14 @@ public class WebPages extends BasePage {
 			logFail("ILAB is Not Displayed");
 		}
 
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
 			logPass("Menu is Displayed");
@@ -3663,6 +3914,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// GO to Step 1
@@ -3757,6 +4016,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
@@ -3872,6 +4139,14 @@ public class WebPages extends BasePage {
 			logPass("ILAB is displayed");
 		} else {
 			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
 		}
 
 		// MENU opening and closing
