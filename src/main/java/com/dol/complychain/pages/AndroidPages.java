@@ -364,7 +364,8 @@ public class AndroidPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Close")) {
 				logPass("MENU is opened Successfully");
-				MOBILEDRIVER.get().navigate().back();
+				// MOBILEDRIVER.get().navigate().back();
+				menu.click();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("MENU is closed Successfully");
 				} else {
@@ -579,7 +580,8 @@ public class AndroidPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Cerrar")) {
 				logPass("Menú is opened Successfully");
-				MOBILEDRIVER.get().navigate().back();
+				// MOBILEDRIVER.get().navigate().back();
+				menu.click();
 				if (menu.getText().equalsIgnoreCase("Menú")) {
 					logPass("Menú is closed Successfully");
 				} else {
@@ -796,7 +798,8 @@ public class AndroidPages extends BasePage {
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Fermer")) {
 				logPass("Menú is opened Successfully");
-				MOBILEDRIVER.get().navigate().back();
+				// MOBILEDRIVER.get().navigate().back();
+				menu.click();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("Menu is closed Successfully");
 				} else {
@@ -969,7 +972,8 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			MOBILEDRIVER.get().navigate().back();
+			//MOBILEDRIVER.get().navigate().back();
+			menu.click();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("MENU is closed Successfully");
 			} else {
@@ -1068,8 +1072,7 @@ public class AndroidPages extends BasePage {
 		}
 
 		// Language Buttons Verification
-		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("Inglés")) {
 			logPass("English Language Button is displayed and Verfied");
 		} else {
 			logFail("English Language Button is not displayed");
@@ -1081,7 +1084,7 @@ public class AndroidPages extends BasePage {
 			logFail("Español Language Button is not displayed");
 		}
 
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Francés")) {
 			logPass("Français Language Button is displayed and Verfied");
 		} else {
 			logFail("Français Language Button is not displayed");
@@ -1089,7 +1092,8 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			MOBILEDRIVER.get().navigate().back();
+			//MOBILEDRIVER.get().navigate().back();
+			menu.click();
 			if (menu.getText().equalsIgnoreCase("Menú")) {
 				logPass("Menú is closed Successfully");
 			} else {
@@ -1189,13 +1193,13 @@ public class AndroidPages extends BasePage {
 		}
 
 		// Language Buttons Verification
-		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("English")) {
+		if (english.isDisplayed() && english.getText().trim().equalsIgnoreCase("Anglais")) {
 			logPass("English Language Button is displayed and Verfied");
 		} else {
 			logFail("English Language Button is not displayed");
 		}
 
-		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Español")) {
+		if (spanish.isDisplayed() && spanish.getText().trim().equalsIgnoreCase("Espagnol")) {
 			logPass("Español Language Button is displayed and Verfied");
 		} else {
 			logFail("Español Language Button is not displayed");
@@ -1209,7 +1213,8 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			MOBILEDRIVER.get().navigate().back();
+			//MOBILEDRIVER.get().navigate().back();
+			menu.click();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("Menu is closed Successfully");
 			} else {
@@ -1418,7 +1423,8 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			MOBILEDRIVER.get().navigate().back();
+			//MOBILEDRIVER.get().navigate().back();
+			menu.click();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("MENU is closed Successfully");
 			} else {
@@ -1628,7 +1634,8 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			MOBILEDRIVER.get().navigate().back();
+			//MOBILEDRIVER.get().navigate().back();
+			menu.click();
 			if (menu.getText().equalsIgnoreCase("Menú")) {
 				logPass("Menú is closed Successfully");
 			} else {
@@ -1681,7 +1688,7 @@ public class AndroidPages extends BasePage {
 		if (whatare.isDisplayed()) {
 			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed");
 			if (whatare.getText().trim()
-					.equalsIgnoreCase("Qu'est-ce que le travail des enfants et le travail forcé ?")) {
+					.contains("Qu'est-ce que le travail des enfants et le travail forcé")) {
 				logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link Verified");
 			} else {
 				logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Verification Failed");
@@ -1693,7 +1700,7 @@ public class AndroidPages extends BasePage {
 		// WHY_DEVOLOP
 		if (whydevelop.isDisplayed()) {
 			logPass("Pourquoi élaborer un système de conformité sociale ? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+			if (whydevelop.getText().trim().contains("Pourquoi élaborer un système de conformité sociale")) {
 				logPass("Pourquoi élaborer un système de conformité sociale ? link Verified");
 			} else {
 				logFail("Pourquoi élaborer un système de conformité sociale ? Verification Failed");
@@ -1839,7 +1846,8 @@ public class AndroidPages extends BasePage {
 
 		// Close Menu
 		if (menu.isDisplayed()) {
-			MOBILEDRIVER.get().navigate().back();
+			//MOBILEDRIVER.get().navigate().back();
+			menu.click();
 			if (menu.getText().equalsIgnoreCase("Menu")) {
 				logPass("Menu is closed Successfully");
 			} else {
@@ -3685,7 +3693,6 @@ public class AndroidPages extends BasePage {
 		} else {
 			logFail("ILAB is Not Displayed");
 		}
-
 
 		// Bottom Bar - Compartir
 		if (share.isDisplayed()) {

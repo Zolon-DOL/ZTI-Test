@@ -3727,7 +3727,7 @@ public class WebPages extends BasePage {
 			for (int i = 1; i <= topicslist; i++) {
 				String content = WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
 						.getAttribute("class");
-				if (content.contains("fmCqoz")) {
+				if (content.contains("topicList checked")) {
 					count++;
 				}
 			}
@@ -3843,7 +3843,7 @@ public class WebPages extends BasePage {
 			for (int i = 1; i <= topicslist; i++) {
 				String content = WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
 						.getAttribute("class");
-				if (content.contains("fmCqoz")) {
+				if (content.contains("topicList checked")) {
 					count++;
 				}
 			}
@@ -3958,7 +3958,7 @@ public class WebPages extends BasePage {
 			for (int i = 1; i <= topicslist; i++) {
 				String content = WEBDRIVER.get().findElement(By.xpath("//*[@id='topics']/div[2]//li[" + i + "]"))
 						.getAttribute("class");
-				if (content.contains("fmCqoz")) {
+				if (content.contains("topicList checked")) {
 					count++;
 				}
 			}

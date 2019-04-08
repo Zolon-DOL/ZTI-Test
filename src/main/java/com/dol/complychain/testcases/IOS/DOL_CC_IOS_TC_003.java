@@ -9,7 +9,7 @@ import com.dol.complychain.pages.*;
 public class DOL_CC_IOS_TC_003 extends BaseTest {
 
 	@Test
-	public void MenuVerification_English() throws Exception {
+	public void StepsVerification_English() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in English", "Verify Step Items in English");
 		EXTENT_LOCAL.set(test);
 		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
@@ -17,7 +17,7 @@ public class DOL_CC_IOS_TC_003 extends BaseTest {
 	}
 
 	@Test
-	public void MenuVerification_Español() throws Exception {
+	public void StepsVerification_Español() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in Español", "Verify Step Items in Español");
 		EXTENT_LOCAL.set(test);
 		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
@@ -25,7 +25,7 @@ public class DOL_CC_IOS_TC_003 extends BaseTest {
 	}
 
 	@Test
-	public void MenuVerification_Français() throws Exception {
+	public void StepsVerification_Français() throws Exception {
 		ExtentTest test = extent.createTest("Verify Steps in Français", "Verify Step Items in Français");
 		EXTENT_LOCAL.set(test);
 		IosPages iosPage = new IosPages(MOBILEDRIVER.get(), EXTENT_LOCAL.get());
