@@ -2005,7 +2005,7 @@ public class WebPages extends BasePage {
 			logFail("Español Language Button is not displayed");
 		}
 
-		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Français")) {
+		if (french.isDisplayed() && french.getText().trim().equalsIgnoreCase("Francés")) {
 			logPass("Français Language Button is displayed");
 			french.click();
 			if (WEBDRIVER.get().getCurrentUrl().contains("lang=fr")) {

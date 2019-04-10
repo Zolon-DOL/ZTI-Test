@@ -26,7 +26,7 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.I_ILAB)
 	public WebElement ILAB;
 
-	@FindBy(how = How.ID, using = Locator.I_COMPLYCHAINHEADER)
+	@FindBy(how = How.XPATH, using = Locator.I_COMPLYCHAINHEADER)
 	public WebElement complychainheader;
 
 	@FindBy(how = How.XPATH, using = Locator.I_EN_MENU)
@@ -209,10 +209,22 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.I_NEXTSTEP)
 	public WebElement nextstep;
 
+	@FindBy(how = How.XPATH, using = Locator.I_EN_ABOUTHEADER)
+	public WebElement enaboutheader;
+
+	@FindBy(how = How.XPATH, using = Locator.I_ES_ABOUTHEADER)
+	public WebElement esaboutheader;
+
+	@FindBy(how = How.XPATH, using = Locator.I_FR_ABOUTHEADER)
+	public WebElement fraboutheader;
+
+	@FindBy(how = How.XPATH, using = Locator.I_ABOUTACCORDIONS)
+	public List<WebElement> aboutAccordions;
+
 	@FindBy(how = How.XPATH, using = Locator.I_STEPHEADER)
 	public WebElement stepheader;
 
-	@FindBy(how = How.XPATH, using = Locator.STEPACCORDIONS)
+	@FindBy(how = How.XPATH, using = Locator.I_STEPACCORDIONS)
 	public List<WebElement> stepAccordions;
 
 	@FindBy(how = How.XPATH, using = Locator.I_SEARCHBAR)
@@ -2914,6 +2926,541 @@ public class IosPages extends BasePage {
 		 * 
 		 * }
 		 */
+
+	}
+
+	public void StepsAccordion_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (enmenu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			enmenu.click();
+			sleep(1);
+			if (enmenuclose.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Steps Drop Down
+		if (enstepsdropdown.isDisplayed()) {
+			logPass("Steps to a social compliance system is displayed");
+			if (enstepsdropdown.getText().trim().equalsIgnoreCase("Steps to a social compliance system")) {
+				logPass("Steps to a social compliance system Verified with Expandable Arrow Mark");
+			} else {
+				logFail("Steps to a social compliance system Verification Failed");
+			}
+		} else {
+			logFail("Steps to a social compliance system link is not displayed");
+		}
+
+		// Steps Expanded
+		if (enstepsdropdown.isDisplayed()) {
+			enstepsdropdown.click();
+			sleep(1);
+			logPass("Steps to a social compliance system Expanded");
+			enstep1.click();
+			sleep(1);
+		}
+
+		// Validate Step Accordions
+		for (int j = 1; j <= 8; j++) {
+			// String header = stepheader.getText().trim();
+			// logInfo(header + " Accordion Validation");
+			logInfo("Step " + j + " Accordion Validation");
+			for (int i = 1; i <= stepAccordions.size(); i++) {
+				WebElement element = MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='+']/../../*[1])[" + i + "]"));
+				String text = MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='+']/../../*[1])[" + i + "]"))
+						.getText().trim();
+				element.click();
+				sleep(2);
+				logPass(text + " Accordion step Validation Success");
+				MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='-']/../../*[1])[1]")).click();
+				sleep(1);
+				if (i == 2) {
+					scrolldown();
+				}
+			}
+			logPass("Step " + j + " Accordions Validation Success");
+			// logPass(header + " Accordions Validation Success");
+			if (j != 8) {
+				nextstep.click();
+				sleep(1);
+			}
+		}
+
+	}
+
+	public void StepsAccordion_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (esmenu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			esmenu.click();
+			sleep(1);
+			if (esmenuclose.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Steps Drop Down
+		if (esstepsdropdown.isDisplayed()) {
+			logPass("Pasos hacia un sistema de cumplimiento social is displayed");
+			if (esstepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Pasos hacia un sistema de cumplimiento social")) {
+				logPass("Pasos hacia un sistema de cumplimiento social Verified with Expandable Arrow Mark");
+			} else {
+				logFail("Pasos hacia un sistema de cumplimiento social Verification Failed");
+			}
+		} else {
+			logFail("Pasos hacia un sistema de cumplimiento social link is not displayed");
+		}
+
+		// Steps Expanded
+		if (esstepsdropdown.isDisplayed()) {
+			esstepsdropdown.click();
+			sleep(1);
+			logPass("Pasos hacia un sistema de cumplimiento social Expanded");
+			esstep1.click();
+		}
+
+		// Validate Step Accordions
+		for (int j = 1; j <= 8; j++) {
+			// String header = stepheader.getText().trim();
+			// logInfo(header + " Accordion Validation");
+			logInfo("Step " + j + " Accordion Validation");
+			for (int i = 1; i <= stepAccordions.size(); i++) {
+				WebElement element = MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='+']/../../*[1])[" + i + "]"));
+				String text = MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='+']/../../*[1])[" + i + "]"))
+						.getText().trim();
+				element.click();
+				sleep(2);
+				logPass(text + " Accordion step Validation Success");
+				MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='-']/../../*[1])[1]")).click();
+				sleep(1);
+				if (i == 2) {
+					scrolldown();
+				}
+			}
+			logPass("Step " + j + " Accordions Validation Success");
+			// logPass(header + " Accordions Validation Success");
+			if (j != 8) {
+				nextstep.click();
+				sleep(1);
+			}
+		}
+	}
+
+	public void StepsAccordion_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (frmenu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			frmenu.click();
+			sleep(1);
+			if (frmenuclose.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Steps Drop Down
+		if (frstepsdropdown.isDisplayed()) {
+			logPass("Étapes vers un système de conformité sociale is displayed");
+			if (frstepsdropdown.findElement(By.className("android.view.View")).getText().trim()
+					.equalsIgnoreCase("Étapes vers un système de conformité sociale")) {
+				logPass("Étapes vers un système de conformité sociale Verified with Expandable Arrow Mark");
+			} else {
+				logFail("Étapes vers un système de conformité sociale Verification Failed");
+			}
+		} else {
+			logFail("Étapes vers un système de conformité sociale link is not displayed");
+		}
+
+		// Steps Expanded
+		if (frstepsdropdown.isDisplayed()) {
+			frstepsdropdown.click();
+			sleep(1);
+			logPass("Étapes vers un système de conformité sociale Expanded");
+			frstep1.click();
+		}
+
+		// Validate Step Accordions
+		for (int j = 1; j <= 8; j++) {
+			// String header = stepheader.getText().trim();
+			// logInfo(header + " Accordion Validation");
+			logInfo("Step " + j + " Accordion Validation");
+			for (int i = 1; i <= stepAccordions.size(); i++) {
+				WebElement element = MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='+']/../../*[1])[" + i + "]"));
+				String text = MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='+']/../../*[1])[" + i + "]"))
+						.getText().trim();
+				element.click();
+				sleep(2);
+				logPass(text + " Accordion step Validation Success");
+				MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='-']/../../*[1])[1]")).click();
+				sleep(1);
+				if (i == 2) {
+					scrolldown();
+				}
+			}
+			logPass("Step " + j + " Accordions Validation Success");
+			// logPass(header + " Accordions Validation Success");
+			if (j != 8) {
+				nextstep.click();
+				sleep(1);
+			}
+		}
+	}
+
+	public void About_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// Bottom Bar - About
+		if (enabout.isDisplayed()) {
+			logPass("About link is displayed");
+			if (enabout.getText().trim().equalsIgnoreCase("About")) {
+				logPass("About link Verified");
+				enabout.click();
+			} else {
+				logFail("About Verification Failed");
+			}
+		} else {
+			logFail("About link is not displayed");
+		}
+
+		// Validate About Header
+		if (enaboutheader.isDisplayed()) {
+			logPass("About Result Header - " + enaboutheader.getText() + " is displayed");
+		} else {
+			logFail("About Result Header is not displayed");
+		}
+
+		// Validate About Accordions
+		int count = 0;
+		scrolldown();
+		scrolldown();
+		sleep(1);
+		for (int i = 1; i <= aboutAccordions.size(); i++) {
+			sleep(1);
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@text='+']/../preceding-sibling::*)[" + i + "]"));
+			String text = element.getText().trim();
+			element.click();
+			sleep(2);
+			logPass(text + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='-']/../preceding-sibling::*)[1]")).click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+		}
+		if (count == aboutAccordions.size()) {
+			logPass("About Page Accordions Validation Success");
+		} else {
+			logFail("About Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void About_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// Bottom Bar - Sobre
+		if (esabout.isDisplayed()) {
+			logPass("Sobre link is displayed");
+			if (esabout.getText().trim().equalsIgnoreCase("Sobre")) {
+				logPass("Sobre link Verified");
+				esabout.click();
+			} else {
+				logFail("Sobre Verification Failed");
+			}
+		} else {
+			logFail("Sobre link is not displayed");
+		}
+
+		// Validate About Header
+		if (esaboutheader.isDisplayed()) {
+			logPass("Sobre Result Header - " + esaboutheader.getText() + " is displayed");
+		} else {
+			logFail("Sobre Result Header is not displayed");
+		}
+
+		// Validate About Accordions
+		int count = 0;
+		scrolldown();
+		sleep(1);
+		scrolldown();
+		sleep(1);
+		scrolldown();
+		sleep(1);
+		for (int i = 1; i <= aboutAccordions.size(); i++) {
+			sleep(1);
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@text='+']/../preceding-sibling::*)[" + i + "]"));
+			String text = element.getText().trim();
+			element.click();
+			sleep(2);
+			logPass(text + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='-']/../preceding-sibling::*)[1]")).click();
+			sleep(1);
+			count++;
+		}
+		if (count == aboutAccordions.size()) {
+			logPass("Sobre Page Accordions Validation Success");
+		} else {
+			logFail("Sobre Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void About_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// Bottom Bar - Sur
+		if (frabout.isDisplayed()) {
+			logPass("Sur link is displayed");
+			if (frabout.getText().trim().equalsIgnoreCase("Sur")) {
+				logPass("Sur link Verified");
+				frabout.click();
+			} else {
+				logFail("Sur Verification Failed");
+			}
+		} else {
+			logFail("Sur link is not displayed");
+		}
+
+		// Validate About Header
+		if (fraboutheader.isDisplayed()) {
+			logPass("Sur Result Header - " + fraboutheader.getText() + " is displayed");
+		} else {
+			logFail("Sur Result Header is not displayed");
+		}
+
+		// Validate About Accordions
+		int count = 0;
+		scrolldown();
+		sleep(1);
+		scrolldown();
+		sleep(1);
+		scrolldown();
+		sleep(1);
+		for (int i = 1; i <= aboutAccordions.size(); i++) {
+			sleep(1);
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@text='+']/../preceding-sibling::*)[" + i + "]"));
+			String text = element.getText().trim();
+			element.click();
+			sleep(2);
+			logPass(text + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@text='-']/../preceding-sibling::*)[1]")).click();
+			sleep(1);
+			count++;
+		}
+		if (count == aboutAccordions.size()) {
+			logPass("Sur Page Accordions Validation Success");
+		} else {
+			logFail("Sur Page Accordions Validation Failed");
+		}
 
 	}
 

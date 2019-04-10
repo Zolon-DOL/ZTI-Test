@@ -29,7 +29,7 @@ public class AndroidPages extends BasePage {
 	@FindBy(how = How.ID, using = Locator.ILAB)
 	public WebElement ILAB;
 
-	@FindBy(how = How.ID, using = Locator.A_COMPLYCHAINHEADER)
+	@FindBy(how = How.XPATH, using = Locator.A_COMPLYCHAINHEADER)
 	public WebElement complychainheader;
 
 	@FindBy(how = How.ID, using = Locator.MENU)
@@ -164,8 +164,11 @@ public class AndroidPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.A_WHATAREHEADER)
 	public WebElement whatareheader;
 
-	@FindBy(how = How.XPATH, using = Locator.A_WHATAREACCORDIONS)
-	public List<WebElement> whatareAccordions;
+	@FindBy(how = How.XPATH, using = Locator.A_CHILDACCORDIONS)
+	public WebElement childlabor;
+
+	@FindBy(how = How.XPATH, using = Locator.A_FORCEDACCORDIONS)
+	public WebElement forcedlabor;
 
 	@FindBy(how = How.XPATH, using = Locator.A_WHYDEVELOPHEADER)
 	public WebElement whydevelopheader;
@@ -1196,8 +1199,7 @@ public class AndroidPages extends BasePage {
 		// WHAT_ARE
 		if (whatare.isDisplayed()) {
 			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link is displayed");
-			if (whatare.getText().trim()
-					.equalsIgnoreCase("Qu'est-ce que le travail des enfants et le travail forcé ?")) {
+			if (whatare.getText().trim().contains("Qu'est-ce que le travail des enfants et le travail forcé")) {
 				logPass("Qu'est-ce que le travail des enfants et le travail forcé ? link Verified");
 			} else {
 				logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Verification Failed");
@@ -1209,7 +1211,7 @@ public class AndroidPages extends BasePage {
 		// WHY_DEVOLOP
 		if (whydevelop.isDisplayed()) {
 			logPass("Pourquoi élaborer un système de conformité sociale ? link is displayed");
-			if (whydevelop.getText().trim().equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+			if (whydevelop.getText().trim().contains("Pourquoi élaborer un système de conformité sociale")) {
 				logPass("Pourquoi élaborer un système de conformité sociale ? link Verified");
 			} else {
 				logFail("Pourquoi élaborer un système de conformité sociale ? Verification Failed");
@@ -2427,23 +2429,23 @@ public class AndroidPages extends BasePage {
 			logFail("What are Child Labor and Forced Labor? Result Header is not displayed");
 		}
 
-		// Validate Step Accordions
+		// Validate Child Labor and Forced Labor Step Accordions
 		int count = 0;
 		scrolldown();
-		for (int i = 1; i <= whatareAccordions.size(); i++) {
-			WebElement element = MOBILEDRIVER.get()
-					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
-			element.click();
-			sleep(2);
-			logPass(MOBILEDRIVER.get()
-					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
-					.trim() + " Accordion step Validation Success");
-			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
-					.click();
-			sleep(1);
-			count++;
-		}
-		if (count == whatareAccordions.size()) {
+		childlabor.click();
+		sleep(1);
+		logPass(childlabor.getText().trim() + " Accordion step Validation Success");
+		childlabor.click();
+		count++;
+
+		scrolldown();
+		forcedlabor.click();
+		sleep(1);
+		logPass(forcedlabor.getText().trim() + " Accordion step Validation Success");
+		forcedlabor.click();
+		count++;
+
+		if (count == 2) {
 			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
 		} else {
 			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
@@ -2512,26 +2514,26 @@ public class AndroidPages extends BasePage {
 			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? Result Header is not displayed");
 		}
 
-		// Validate Step Accordions
+		// Validate Child Labor and Forced Labor Step Accordions
 		int count = 0;
 		scrolldown();
-		for (int i = 1; i <= whatareAccordions.size(); i++) {
-			WebElement element = MOBILEDRIVER.get()
-					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
-			element.click();
-			sleep(2);
-			logPass(MOBILEDRIVER.get()
-					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
-					.trim() + " Accordion step Validation Success");
-			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
-					.click();
-			sleep(1);
-			count++;
-		}
-		if (count == whatareAccordions.size()) {
-			logPass("¿Qué son el trabajo infantil y el trabajo forzoso? Page Accordions Validation Success");
+		childlabor.click();
+		sleep(1);
+		logPass(childlabor.getText().trim() + " Accordion step Validation Success");
+		childlabor.click();
+		count++;
+
+		scrolldown();
+		forcedlabor.click();
+		sleep(1);
+		logPass(forcedlabor.getText().trim() + " Accordion step Validation Success");
+		forcedlabor.click();
+		count++;
+
+		if (count == 2) {
+			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
 		} else {
-			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? Page Accordions Validation Failed");
+			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
 		}
 
 	}
@@ -2597,26 +2599,26 @@ public class AndroidPages extends BasePage {
 			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Result Header is not displayed");
 		}
 
-		// Validate Step Accordions
+		// Validate Child Labor and Forced Labor Step Accordions
 		int count = 0;
 		scrolldown();
-		for (int i = 1; i <= whatareAccordions.size(); i++) {
-			WebElement element = MOBILEDRIVER.get()
-					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
-			element.click();
-			sleep(2);
-			logPass(MOBILEDRIVER.get()
-					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
-					.trim() + " Accordion step Validation Success");
-			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
-					.click();
-			sleep(1);
-			count++;
-		}
-		if (count == whatareAccordions.size()) {
-			logPass("Qu'est-ce que le travail des enfants et le travail forcé ? Page Accordions Validation Success");
+		childlabor.click();
+		sleep(1);
+		logPass(childlabor.getText().trim() + " Accordion step Validation Success");
+		childlabor.click();
+		count++;
+
+		scrolldown();
+		forcedlabor.click();
+		sleep(1);
+		logPass(forcedlabor.getText().trim() + " Accordion step Validation Success");
+		forcedlabor.click();
+		count++;
+
+		if (count == 2) {
+			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
 		} else {
-			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Page Accordions Validation Failed");
+			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
 		}
 
 	}
@@ -3224,17 +3226,24 @@ public class AndroidPages extends BasePage {
 		for (int j = 1; j <= 8; j++) {
 			String header = stepheader.getText().trim();
 			logInfo(header + " Accordion Validation");
-			scrolldown();
 			for (int i = 1; i <= stepAccordions.size(); i++) {
 				WebElement element = MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"));
+				String text = MOBILEDRIVER.get()
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"))
+						.getText().trim();
 				element.click();
 				sleep(2);
-				logPass(MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
-						.getText().trim() + " Accordion step Validation Success");
+				logPass(text + " Accordion step Validation Success");
 				MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).click();
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"))
+						.click();
 				sleep(1);
 				if (i == 2) {
 					scrolldown();
@@ -3322,17 +3331,24 @@ public class AndroidPages extends BasePage {
 		for (int j = 1; j <= 8; j++) {
 			String header = stepheader.getText().trim();
 			logInfo(header + " Accordion Validation");
-			scrolldown();
 			for (int i = 1; i <= stepAccordions.size(); i++) {
 				WebElement element = MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"));
+				String text = MOBILEDRIVER.get()
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"))
+						.getText().trim();
 				element.click();
 				sleep(2);
-				logPass(MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
-						.getText().trim() + " Accordion step Validation Success");
+				logPass(text + " Accordion step Validation Success");
 				MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).click();
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"))
+						.click();
 				sleep(1);
 				if (i == 2) {
 					scrolldown();
@@ -3344,7 +3360,6 @@ public class AndroidPages extends BasePage {
 				sleep(1);
 			}
 		}
-
 	}
 
 	public void StepsAccordion_FR() throws Exception {
@@ -3420,17 +3435,24 @@ public class AndroidPages extends BasePage {
 		for (int j = 1; j <= 8; j++) {
 			String header = stepheader.getText().trim();
 			logInfo(header + " Accordion Validation");
-			scrolldown();
 			for (int i = 1; i <= stepAccordions.size(); i++) {
 				WebElement element = MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"));
+				String text = MOBILEDRIVER.get()
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"))
+						.getText().trim();
 				element.click();
 				sleep(2);
-				logPass(MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
-						.getText().trim() + " Accordion step Validation Success");
+				logPass(text + " Accordion step Validation Success");
 				MOBILEDRIVER.get()
-						.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).click();
+						.findElement(By.xpath(
+								"(//*[@id='step-accordions']/android.view.View/android.view.View/android.view.View[1])["
+										+ i + "]"))
+						.click();
 				sleep(1);
 				if (i == 2) {
 					scrolldown();

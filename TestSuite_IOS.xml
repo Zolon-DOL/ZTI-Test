@@ -8,6 +8,8 @@
 			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_002" />
 			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_003" />
 			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_005" />
+			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_006" />
+			<class name="com.dol.complychain.testcases.IOS.DOL_CC_IOS_TC_008" />
 		</classes>
 	</test>
 </suite> 
