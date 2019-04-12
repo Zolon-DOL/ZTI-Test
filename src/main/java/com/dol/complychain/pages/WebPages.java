@@ -135,6 +135,15 @@ public class WebPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.SHAREPOCKETLINK)
 	public WebElement sharepocketlink;
 
+	@FindBy(how = How.ID, using = Locator.DRAWERABOUT)
+	public WebElement drawerabout;
+
+	@FindBy(how = How.ID, using = Locator.DRAWERFINDINGS)
+	public WebElement drawerfindings;
+
+	@FindBy(how = How.ID, using = Locator.DRAWERGOODS)
+	public WebElement drawergoods;
+
 	@FindBy(how = How.XPATH, using = Locator.ABOUTHEADER)
 	public WebElement aboutheader;
 
@@ -232,8 +241,7 @@ public class WebPages extends BasePage {
 			// highlight(homewhydevelop);
 			logPass("Home Page - Why Develop a Social Compliance System? is displayed");
 			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
-					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Why Develop a Social Compliance System?")) {
+					&& homewhydevelop.getText().trim().equalsIgnoreCase("Why Develop a Social Compliance System?")) {
 				logPass("Home Page - Why Develop a Social Compliance System? link Verified");
 			} else {
 				logFail("Home Page - Why Develop a Social Compliance System? Verification Failed");
@@ -244,10 +252,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homebasics.isDisplayed()) {
-			highlight(homebasics);
+			// highlight(homebasics);
 			logPass("Home Page - Basics of a Social Compliance System is displayed");
-			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
-					.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
+			if (homebasics.getAttribute("href").trim().contains("/basics")
+					&& homebasics.getText().trim().equalsIgnoreCase("Basics of a Social Compliance System")) {
 				logPass("Home Page - Basics of a Social Compliance System link Verified");
 			} else {
 				logFail("Home Page - Basics of a Social Compliance System Verification Failed");
@@ -257,10 +265,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep1.isDisplayed()) {
-			highlight(homestep1);
+			// highlight(homestep1);
 			logPass("Home Page - Step 1: Engage Stakeholders and Partners is displayed");
 			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
-					&& homestep1.findElement(By.tagName("h3")).getText().trim()
+					&& homestep1.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Step 1: Engage Stakeholders and Partners")) {
 				logPass("Home Page - Step 1: Engage Stakeholders and Partners link Verified");
 			} else {
@@ -271,10 +279,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep2.isDisplayed()) {
-			highlight(homestep2);
+			// highlight(homestep2);
 			logPass("Home Page - Step 2: Assess Risks And Impacts is displayed");
 			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
-					&& homestep2.findElement(By.tagName("h3")).getText().trim()
+					&& homestep2.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Step 2: Assess Risks And Impacts")) {
 				logPass("Home Page - Step 2: Assess Risks And Impacts link Verified");
 			} else {
@@ -285,10 +293,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep3.isDisplayed()) {
-			highlight(homestep3);
+			// highlight(homestep3);
 			logPass("Home Page - Step 3: Develop a Code of Conduct is displayed");
 			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
-					&& homestep3.findElement(By.tagName("h3")).getText().trim()
+					&& homestep3.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Step 3: Develop a Code of Conduct")) {
 				logPass("Home Page - Step 3: Develop a Code of Conduct link Verified");
 			} else {
@@ -299,10 +307,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep4.isDisplayed()) {
-			highlight(homestep4);
+			// highlight(homestep4);
 			logPass("Home Page - Step 4: Communicate and Train across your Supply Chain is displayed");
 			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
-					&& homestep4.findElement(By.tagName("h3")).getText().trim()
+					&& homestep4.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Step 4: Communicate and Train across your Supply Chain")) {
 				logPass("Home Page - Step 4: Communicate and Train across your Supply Chain link Verified");
 			} else {
@@ -313,10 +321,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep5.isDisplayed()) {
-			highlight(homestep5);
+			// highlight(homestep5);
 			logPass("Home Page - Step 5: Monitor Compliance is displayed");
 			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5") && homestep5
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")) {
+					.findElement(By.tagName("a")).getText().trim().equalsIgnoreCase("Step 5: Monitor Compliance")) {
 				logPass("Home Page - Step 5: Monitor Compliance link Verified");
 			} else {
 				logFail("Home Page - Step 5: Monitor Compliance Verification Failed");
@@ -326,10 +334,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep6.isDisplayed()) {
-			highlight(homestep6);
+			// highlight(homestep6);
 			logPass("Home Page - Step 6: Remediate Violations is displayed");
 			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6") && homestep6
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")) {
+					.findElement(By.tagName("a")).getText().trim().equalsIgnoreCase("Step 6: Remediate Violations")) {
 				logPass("Home Page - Step 6: Remediate Violations Verified");
 			} else {
 				logFail("Home Page - Step 6: Remediate Violations Verification Failed");
@@ -339,10 +347,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep7.isDisplayed()) {
-			highlight(homestep7);
+			// highlight(homestep7);
 			logPass("Home Page - Step 7: Independent Review is displayed");
 			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7") && homestep7
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 7: Independent Review")) {
+					.findElement(By.tagName("a")).getText().trim().equalsIgnoreCase("Step 7: Independent Review")) {
 				logPass("Home Page - Step 7: Independent Review Verified");
 			} else {
 				logFail("Home Page - Step 7: Independent Review Verification Failed");
@@ -352,10 +360,10 @@ public class WebPages extends BasePage {
 		}
 
 		if (homestep8.isDisplayed()) {
-			highlight(homestep8);
+			// highlight(homestep8);
 			logPass("Home Page - Step 8: Report Performance is displayed");
 			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8") && homestep8
-					.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase("Step 8: Report Performance")) {
+					.findElement(By.tagName("a")).getText().trim().equalsIgnoreCase("Step 8: Report Performance")) {
 				logPass("Home Page - Step 8: Report Performance");
 			} else {
 				logFail("Home Page - Step 8: Report Performance Verification Failed");
@@ -366,13 +374,13 @@ public class WebPages extends BasePage {
 
 		// MENU opening and closing
 		if (menu.isDisplayed()) {
-			highlight(menu);
+			// highlight(menu);
 			logPass("MENU is Displayed");
 			menu.click();
 			sleep(1);
 			if (menu.getText().equalsIgnoreCase("Close")) {
 				logPass("MENU is opened Successfully");
-				highlight(menu);
+				// highlight(menu);
 				menu.click();
 				if (menu.getText().equalsIgnoreCase("Menu")) {
 					logPass("MENU is closed Successfully");
@@ -388,7 +396,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - Bookmarks
 		if (bookmarks.isDisplayed()) {
-			highlight(bookmarks);
+			// highlight(bookmarks);
 			logPass("Bookmarks link is displayed");
 			if (bookmarks.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Bookmarks")
 					&& bookmarks.getAttribute("href").trim().contains("/bookmarks")) {
@@ -402,7 +410,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - Search
 		if (search.isDisplayed()) {
-			highlight(search);
+			// highlight(search);
 			logPass("Search link is displayed");
 			if (search.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Search")
 					&& search.getAttribute("href").trim().contains("/search")) {
@@ -416,7 +424,7 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - Share
 		if (share.isDisplayed()) {
-			highlight(share);
+			// highlight(share);
 			logPass("Share link is displayed");
 			if (share.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Share")) {
 				logPass("Share link Verified");
@@ -429,10 +437,9 @@ public class WebPages extends BasePage {
 
 		// Bottom Bar - About
 		if (about.isDisplayed()) {
-			highlight(about);
+			// highlight(about);
 			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")) {
 				logPass("About link Verified");
 			} else {
 				logFail("About Verification Failed");
@@ -494,9 +501,8 @@ public class WebPages extends BasePage {
 
 		if (homewhydevelop.isDisplayed()) {
 			logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? is displayed");
-			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
-					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
+			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop") && homewhydevelop.getText().trim()
+					.equalsIgnoreCase("¿Por qué crear un sistema de cumplimiento social?")) {
 				logPass("Home Page - ¿Por qué crear un sistema de cumplimiento social? link Verified");
 			} else {
 				logFail("Home Page - ¿Por qué crear un sistema de cumplimiento social? Verification Failed");
@@ -507,8 +513,8 @@ public class WebPages extends BasePage {
 
 		if (homebasics.isDisplayed()) {
 			logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social is displayed");
-			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
-					.getText().trim().equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
+			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.getText().trim()
+					.equalsIgnoreCase("Aspectos básicos de un sistema de cumplimiento social")) {
 				logPass("Home Page - Aspectos básicos de un sistema de cumplimiento social link Verified");
 			} else {
 				logFail("Home Page - Aspectos básicos de un sistema de cumplimiento social Verification Failed");
@@ -520,7 +526,7 @@ public class WebPages extends BasePage {
 		if (homestep1.isDisplayed()) {
 			logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios is displayed");
 			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
-					&& homestep1.findElement(By.tagName("h3")).getText().trim()
+					&& homestep1.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Primer paso: Participación de las partes interesadas y los socios")) {
 				logPass("Home Page - Primer paso: Participación de las partes interesadas y los socios link Verified");
 			} else {
@@ -533,7 +539,7 @@ public class WebPages extends BasePage {
 		if (homestep2.isDisplayed()) {
 			logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto is displayed");
 			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
-					&& homestep2.findElement(By.tagName("h3")).getText().trim()
+					&& homestep2.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Segundo paso: Evaluación de riesgos e impacto")) {
 				logPass("Home Page - Segundo paso: Evaluación de riesgos e impacto link Verified");
 			} else {
@@ -546,7 +552,7 @@ public class WebPages extends BasePage {
 		if (homestep3.isDisplayed()) {
 			logPass("Home Page - Tercer paso: Formulación de un código de conducta is displayed");
 			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
-					&& homestep3.findElement(By.tagName("h3")).getText().trim()
+					&& homestep3.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Tercer paso: Formulación de un código de conducta")) {
 				logPass("Home Page - Tercer paso: Formulación de un código de conducta link Verified");
 			} else {
@@ -559,7 +565,7 @@ public class WebPages extends BasePage {
 		if (homestep4.isDisplayed()) {
 			logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro is displayed");
 			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
-					&& homestep4.findElement(By.tagName("h3")).getText().trim()
+					&& homestep4.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Cuarto paso: Comunicación y capacitación en la cadena de suministro")) {
 				logPass("Home Page - Cuarto paso: Comunicación y capacitación en la cadena de suministro link Verified");
 			} else {
@@ -572,7 +578,7 @@ public class WebPages extends BasePage {
 		if (homestep5.isDisplayed()) {
 			logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento is displayed");
 			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5")
-					&& homestep5.findElement(By.tagName("h3")).getText().trim()
+					&& homestep5.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Quinto paso: Vigilancia y seguimiento del cumplimiento")) {
 				logPass("Home Page - Quinto paso: Vigilancia y seguimiento del cumplimiento link Verified");
 			} else {
@@ -585,7 +591,7 @@ public class WebPages extends BasePage {
 		if (homestep6.isDisplayed()) {
 			logPass("Home Page - Sexto paso: Remediación de infracciones is displayed");
 			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6")
-					&& homestep6.findElement(By.tagName("h3")).getText().trim()
+					&& homestep6.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Sexto paso: Remediación de infracciones")) {
 				logPass("Home Page - Sexto paso: Remediación de infracciones Verified");
 			} else {
@@ -598,7 +604,7 @@ public class WebPages extends BasePage {
 		if (homestep7.isDisplayed()) {
 			logPass("Home Page - Séptimo paso: Examen independiente is displayed");
 			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7")
-					&& homestep7.findElement(By.tagName("h3")).getText().trim()
+					&& homestep7.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Séptimo paso: Examen independiente")) {
 				logPass("Home Séptimo paso: Examen independiente Verified");
 			} else {
@@ -611,7 +617,7 @@ public class WebPages extends BasePage {
 		if (homestep8.isDisplayed()) {
 			logPass("Home Page - Octavo paso: Notificación del desempeño is displayed");
 			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8")
-					&& homestep8.findElement(By.tagName("h3")).getText().trim()
+					&& homestep8.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Octavo paso: Notificación del desempeño")) {
 				logPass("Home Page - Octavo paso: Notificación del desempeño");
 			} else {
@@ -661,8 +667,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Sobre
 		if (about.isDisplayed()) {
 			logPass("Sobre link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")) {
 				logPass("Sobre link Verified");
 			} else {
 				logFail("Sobre Verification Failed");
@@ -725,9 +730,8 @@ public class WebPages extends BasePage {
 
 		if (homewhydevelop.isDisplayed()) {
 			logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? is displayed");
-			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop")
-					&& homewhydevelop.findElement(By.tagName("h3")).getText().trim()
-							.equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
+			if (homewhydevelop.getAttribute("href").trim().contains("/why-develop") && homewhydevelop.getText().trim()
+					.equalsIgnoreCase("Pourquoi élaborer un système de conformité sociale ?")) {
 				logPass("Home Page - Pourquoi élaborer un système de conformité sociale ? link Verified");
 			} else {
 				logFail("Home Page - Pourquoi élaborer un système de conformité sociale ? Verification Failed");
@@ -739,8 +743,8 @@ public class WebPages extends BasePage {
 
 		if (homebasics.isDisplayed()) {
 			logPass("Home Page - Fondements d’un système de conformité sociale is displayed");
-			if (homebasics.getAttribute("href").trim().contains("/basics") && homebasics.findElement(By.tagName("h3"))
-					.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
+			if (homebasics.getAttribute("href").trim().contains("/basics")
+					&& homebasics.getText().trim().equalsIgnoreCase("Fondements d’un système de conformité sociale")) {
 				logPass("Home Page - Fondements d’un système de conformité sociale link Verified");
 			} else {
 				logFail("Home Page - Fondements d’un système de conformité sociale Verification Failed");
@@ -752,7 +756,7 @@ public class WebPages extends BasePage {
 		if (homestep1.isDisplayed()) {
 			logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires is displayed");
 			if (homestep1.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/1")
-					&& homestep1.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase(
+					&& homestep1.findElement(By.tagName("a")).getText().trim().equalsIgnoreCase(
 							"Première étape: faire participer les parties prenantes et les partenaires")) {
 				logPass("Home Page - Première étape: faire participer les parties prenantes et les partenaires link Verified");
 			} else {
@@ -765,7 +769,7 @@ public class WebPages extends BasePage {
 		if (homestep2.isDisplayed()) {
 			logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences is displayed");
 			if (homestep2.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/2")
-					&& homestep2.findElement(By.tagName("h3")).getText().trim()
+					&& homestep2.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Deuxième étape: Évaluer les risques et les incidences")) {
 				logPass("Home Page - Deuxième étape: Évaluer les risques et les incidences link Verified");
 			} else {
@@ -778,7 +782,7 @@ public class WebPages extends BasePage {
 		if (homestep3.isDisplayed()) {
 			logPass("Home Page - Troisième étape: élaborer un code de conduite is displayed");
 			if (homestep3.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/3")
-					&& homestep3.findElement(By.tagName("h3")).getText().trim()
+					&& homestep3.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Troisième étape: élaborer un code de conduite")) {
 				logPass("Home Page - Troisième étape: élaborer un code de conduite link Verified");
 			} else {
@@ -791,7 +795,7 @@ public class WebPages extends BasePage {
 		if (homestep4.isDisplayed()) {
 			logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement is displayed");
 			if (homestep4.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/4")
-					&& homestep4.findElement(By.tagName("h3")).getText().trim().equalsIgnoreCase(
+					&& homestep4.findElement(By.tagName("a")).getText().trim().equalsIgnoreCase(
 							"Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement")) {
 				logPass("Home Page - Quatrième étape: communiquer et former dans l'ensemble de votre chaîne d'approvisionnement link Verified");
 			} else {
@@ -804,7 +808,7 @@ public class WebPages extends BasePage {
 		if (homestep5.isDisplayed()) {
 			logPass("Home Page - Cinquième étape: Surveiller la conformité is displayed");
 			if (homestep5.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/5")
-					&& homestep5.findElement(By.tagName("h3")).getText().trim()
+					&& homestep5.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Cinquième étape: Surveiller la conformité")) {
 				logPass("Home Page - Cinquième étape: Surveiller la conformité link Verified");
 			} else {
@@ -817,7 +821,7 @@ public class WebPages extends BasePage {
 		if (homestep6.isDisplayed()) {
 			logPass("Home Page - Sixième étape: Réparer les infractions is displayed");
 			if (homestep6.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/6")
-					&& homestep6.findElement(By.tagName("h3")).getText().trim()
+					&& homestep6.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Sixième étape: Réparer les infractions")) {
 				logPass("Home Page - Sixième étape: Réparer les infractions Verified");
 			} else {
@@ -830,7 +834,7 @@ public class WebPages extends BasePage {
 		if (homestep7.isDisplayed()) {
 			logPass("Home Page - Septième étape: Examen indépendant is displayed");
 			if (homestep7.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/7")
-					&& homestep7.findElement(By.tagName("h3")).getText().trim()
+					&& homestep7.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Septième étape: Examen indépendant")) {
 				logPass("Home Page - Septième étape: Examen indépendant Verified");
 			} else {
@@ -843,7 +847,7 @@ public class WebPages extends BasePage {
 		if (homestep8.isDisplayed()) {
 			logPass("Home Page - Huitième étape: Rendre compte des résultats is displayed");
 			if (homestep8.findElement(By.tagName("a")).getAttribute("href").trim().contains("/steps/8")
-					&& homestep8.findElement(By.tagName("h3")).getText().trim()
+					&& homestep8.findElement(By.tagName("a")).getText().trim()
 							.equalsIgnoreCase("Huitième étape: Rendre compte des résultats")) {
 				logPass("Home Page - Huitième étape: Rendre compte des résultats");
 			} else {
@@ -894,8 +898,7 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Sur
 		if (about.isDisplayed()) {
 			logPass("Sur link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")) {
 				logPass("Sur link Verified");
 			} else {
 				logFail("Sur Verification Failed");
@@ -2984,16 +2987,30 @@ public class WebPages extends BasePage {
 		// Bottom Bar - About
 		if (about.isDisplayed()) {
 			logPass("About link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")) {
 				logPass("About link Verified");
 				about.click();
-				sleep(2);
+				sleep(1);
 			} else {
 				logFail("About Verification Failed");
 			}
 		} else {
 			logFail("About link is not displayed");
+		}
+
+		// Select the About the comply chain from about drawer menu
+		if (drawerabout.isDisplayed()) {
+			logPass("About the Comply Chain link is displayed");
+			if (drawerabout.getText().trim().equalsIgnoreCase("About the Comply Chain App")
+					&& drawerabout.getAttribute("href").trim().contains("/about")) {
+				logPass("About the Comply Chain link is verified");
+				drawerabout.click();
+				sleep(1);
+			} else {
+				logFail("About the Comply Chain Verification Failed");
+			}
+		} else {
+			logFail("About the Comply Chain link is not displayed");
 		}
 
 		// Validate About Header
@@ -3025,6 +3042,80 @@ public class WebPages extends BasePage {
 			logFail("About Page Accordions Validation Failed");
 		}
 
+		// Bottom Bar - About
+		if (about.isDisplayed()) {
+			logPass("About link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")) {
+				logPass("About link Verified");
+				about.click();
+				sleep(1);
+			} else {
+				logFail("About Verification Failed");
+			}
+		} else {
+			logFail("About link is not displayed");
+		}
+
+		// Select the Findings on the Worst Forms of Child Labor Report from about
+		// drawer menu
+		if (drawerfindings.isDisplayed()) {
+			logPass("Findings on the Worst Forms of Child Labor Report link is displayed");
+			if (drawerfindings.getText().trim().equalsIgnoreCase("Findings on the Worst Forms of Child Labor Report")
+					&& drawerfindings.getAttribute("href").trim().contains("/findings")) {
+				logPass("Findings on the Worst Forms of Child Labor Report link is verified");
+				drawerfindings.click();
+				sleep(1);
+			} else {
+				logFail("Findings on the Worst Forms of Child Labor Report Verification Failed");
+			}
+		} else {
+			logFail("Findings on the Worst Forms of Child Labor Report link is not displayed");
+		}
+
+		// Validate Findings on the Worst Forms of Child Labor Report Header
+		if (aboutheader.isDisplayed()) {
+			logPass("Findings on the Worst Forms of Child Labor Report Header is displayed");
+		} else {
+			logFail("Findings on the Worst Forms of Child Labor Report Header is not displayed");
+		}
+
+		// Bottom Bar - About
+		if (about.isDisplayed()) {
+			logPass("About link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("About")) {
+				logPass("About link Verified");
+				about.click();
+				sleep(1);
+			} else {
+				logFail("About Verification Failed");
+			}
+		} else {
+			logFail("About link is not displayed");
+		}
+
+		// Select the List of Goods Produced by Child Labor or Forced Labor Report from
+		// about drawer menu
+		if (drawergoods.isDisplayed()) {
+			logPass("List of Goods Produced by Child Labor or Forced Labor Report link is displayed");
+			if (drawergoods.getText().trim()
+					.equalsIgnoreCase("List of Goods Produced by Child Labor or Forced Labor Report")
+					&& drawergoods.getAttribute("href").trim().contains("/goods")) {
+				logPass("List of Goods Produced by Child Labor or Forced Labor Report link is verified");
+				drawergoods.click();
+				sleep(1);
+			} else {
+				logFail("List of Goods Produced by Child Labor or Forced Labor Report Verification Failed");
+			}
+		} else {
+			logFail("List of Goods Produced by Child Labor or Forced Labor Report link is not displayed");
+		}
+
+		// Validate List of Goods Produced by Child Labor or Forced Labor Report Header
+		if (aboutheader.isDisplayed()) {
+			logPass("List of Goods Produced by Child Labor or Forced Labor Report Header is displayed");
+		} else {
+			logFail("List of Goods Produced by Child Labor or Forced Labor Report Header is not displayed");
+		}
 	}
 
 	public void About_ES() throws Exception {
@@ -3078,15 +3169,31 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Sobre
 		if (about.isDisplayed()) {
 			logPass("Sobre link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")) {
 				logPass("Sobre link Verified");
 				about.click();
+				sleep(1);
 			} else {
 				logFail("Sobre Verification Failed");
 			}
 		} else {
 			logFail("Sobre link is not displayed");
+		}
+
+		// Select the Acerca de la aplicación de la cadena de cumplimiento from about
+		// drawer menu
+		if (drawerabout.isDisplayed()) {
+			logPass("Acerca de la aplicación de la cadena de cumplimiento is displayed");
+			if (drawerabout.getText().trim().equalsIgnoreCase("Acerca de la aplicación de la cadena de cumplimiento")
+					&& drawerabout.getAttribute("href").trim().contains("/about")) {
+				logPass("Acerca de la aplicación de la cadena de cumplimiento link is verified");
+				drawerabout.click();
+				sleep(1);
+			} else {
+				logFail("Acerca de la aplicación de la cadena de cumplimiento Verification Failed");
+			}
+		} else {
+			logFail("Acerca de la aplicación de la cadena de cumplimiento link is not displayed");
 		}
 
 		// Validate About Header
@@ -3118,6 +3225,78 @@ public class WebPages extends BasePage {
 			logFail("Sobre Page Accordions Validation Failed");
 		}
 
+		// Bottom Bar - Sobre
+		if (about.isDisplayed()) {
+			logPass("Sobre link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")) {
+				logPass("Sobre link Verified");
+				about.click();
+				sleep(1);
+			} else {
+				logFail("Sobre Verification Failed");
+			}
+		} else {
+			logFail("Sobre link is not displayed");
+		}
+		// Select the Findings on the Worst Forms of Child Labor Report from about
+		// drawer menu
+		if (drawerfindings.isDisplayed()) {
+			logPass("Findings on the Worst Forms of Child Labor Report link is displayed");
+			if (drawerfindings.getText().trim().equalsIgnoreCase("Findings on the Worst Forms of Child Labor Report")
+					&& drawerfindings.getAttribute("href").trim().contains("/findings")) {
+				logPass("Findings on the Worst Forms of Child Labor Report link is verified");
+				drawerfindings.click();
+				sleep(1);
+			} else {
+				logFail("Findings on the Worst Forms of Child Labor Report Verification Failed");
+			}
+		} else {
+			logFail("Findings on the Worst Forms of Child Labor Report link is not displayed");
+		}
+
+		// Validate Findings on the Worst Forms of Child Labor Report Header
+		if (aboutheader.isDisplayed()) {
+			logPass("Findings on the Worst Forms of Child Labor Report Header is displayed");
+		} else {
+			logFail("Findings on the Worst Forms of Child Labor Report Header is not displayed");
+		}
+
+		// Bottom Bar - Sobre
+		if (about.isDisplayed()) {
+			logPass("Sobre link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sobre")) {
+				logPass("Sobre link Verified");
+				about.click();
+				sleep(1);
+			} else {
+				logFail("Sobre Verification Failed");
+			}
+		} else {
+			logFail("Sobre link is not displayed");
+		}
+		// Select the List of Goods Produced by Child Labor or Forced Labor Report from
+		// about drawer menu
+		if (drawergoods.isDisplayed()) {
+			logPass("List of Goods Produced by Child Labor or Forced Labor Report link is displayed");
+			if (drawergoods.getText().trim()
+					.equalsIgnoreCase("List of Goods Produced by Child Labor or Forced Labor Report")
+					&& drawergoods.getAttribute("href").trim().contains("/goods")) {
+				logPass("List of Goods Produced by Child Labor or Forced Labor Report link is verified");
+				drawergoods.click();
+				sleep(1);
+			} else {
+				logFail("List of Goods Produced by Child Labor or Forced Labor Report Verification Failed");
+			}
+		} else {
+			logFail("List of Goods Produced by Child Labor or Forced Labor Report link is not displayed");
+		}
+
+		// Validate List of Goods Produced by Child Labor or Forced Labor Report Header
+		if (aboutheader.isDisplayed()) {
+			logPass("List of Goods Produced by Child Labor or Forced Labor Report Header is displayed");
+		} else {
+			logFail("List of Goods Produced by Child Labor or Forced Labor Report Header is not displayed");
+		}
 	}
 
 	public void About_FR() throws Exception {
@@ -3171,15 +3350,30 @@ public class WebPages extends BasePage {
 		// Bottom Bar - Sur
 		if (about.isDisplayed()) {
 			logPass("Sur link is displayed");
-			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")
-					&& about.getAttribute("href").trim().contains("/about")) {
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")) {
 				logPass("Sur link Verified");
 				about.click();
+				sleep(1);
 			} else {
 				logFail("Sur Verification Failed");
 			}
 		} else {
 			logFail("Sur link is not displayed");
+		}
+
+		// Select the About the comply chain from about drawer menu
+		if (drawerabout.isDisplayed()) {
+			logPass("About the Comply Chain link is displayed");
+			if (drawerabout.getText().trim().equalsIgnoreCase("À propos de l’appli Chaîne de conformité")
+					&& drawerabout.getAttribute("href").trim().contains("/about")) {
+				logPass("About the Comply Chain link is verified");
+				drawerabout.click();
+				sleep(1);
+			} else {
+				logFail("About the Comply Chain Verification Failed");
+			}
+		} else {
+			logFail("About the Comply Chain link is not displayed");
 		}
 
 		// Validate About Header
@@ -3209,6 +3403,81 @@ public class WebPages extends BasePage {
 			logPass("Sur Page Accordions Validation Success");
 		} else {
 			logFail("Sur Page Accordions Validation Failed");
+		}
+
+		// Bottom Bar - Sur
+		if (about.isDisplayed()) {
+			logPass("Sur link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")) {
+				logPass("Sur link Verified");
+				about.click();
+				sleep(1);
+			} else {
+				logFail("Sur Verification Failed");
+			}
+		} else {
+			logFail("Sur link is not displayed");
+		}
+
+		// Select the Findings on the Worst Forms of Child Labor Report from about
+		// drawer menu
+		if (drawerfindings.isDisplayed()) {
+			logPass("Findings on the Worst Forms of Child Labor Report link is displayed");
+			if (drawerfindings.getText().trim().equalsIgnoreCase("Findings on the Worst Forms of Child Labor Report")
+					&& drawerfindings.getAttribute("href").trim().contains("/findings")) {
+				logPass("Findings on the Worst Forms of Child Labor Report link is verified");
+				drawerfindings.click();
+				sleep(1);
+			} else {
+				logFail("Findings on the Worst Forms of Child Labor Report Verification Failed");
+			}
+		} else {
+			logFail("Findings on the Worst Forms of Child Labor Report link is not displayed");
+		}
+
+		// Validate Findings on the Worst Forms of Child Labor Report Header
+		if (aboutheader.isDisplayed()) {
+			logPass("Findings on the Worst Forms of Child Labor Report Header is displayed");
+		} else {
+			logFail("Findings on the Worst Forms of Child Labor Report Header is not displayed");
+		}
+
+		// Bottom Bar - Sur
+		if (about.isDisplayed()) {
+			logPass("Sur link is displayed");
+			if (about.findElement(By.tagName("span")).getText().trim().equalsIgnoreCase("Sur")) {
+				logPass("Sur link Verified");
+				about.click();
+				sleep(1);
+			} else {
+				logFail("Sur Verification Failed");
+			}
+		} else {
+			logFail("Sur link is not displayed");
+		}
+
+		// Select the List of Goods Produced by Child Labor or Forced Labor Report from
+		// about drawer menu
+		if (drawergoods.isDisplayed()) {
+			logPass("List of Goods Produced by Child Labor or Forced Labor Report link is displayed");
+			if (drawergoods.getText().trim()
+					.equalsIgnoreCase("List of Goods Produced by Child Labor or Forced Labor Report")
+					&& drawergoods.getAttribute("href").trim().contains("/goods")) {
+				logPass("List of Goods Produced by Child Labor or Forced Labor Report link is verified");
+				drawergoods.click();
+				sleep(1);
+			} else {
+				logFail("List of Goods Produced by Child Labor or Forced Labor Report Verification Failed");
+			}
+		} else {
+			logFail("List of Goods Produced by Child Labor or Forced Labor Report link is not displayed");
+		}
+
+		// Validate List of Goods Produced by Child Labor or Forced Labor Report Header
+		if (aboutheader.isDisplayed()) {
+			logPass("List of Goods Produced by Child Labor or Forced Labor Report Header is displayed");
+		} else {
+			logFail("List of Goods Produced by Child Labor or Forced Labor Report Header is not displayed");
 		}
 
 	}
@@ -3926,8 +4195,8 @@ public class WebPages extends BasePage {
 
 		// GO to Step 1
 		if (homestep1.isDisplayed()) {
-			logPass(homestep1.getText() + " is displayed");
-			homestep1.click();
+			logPass(homestep1.findElement(By.tagName("a")).getText().trim() + " is displayed");
+			homestep1.findElement(By.tagName("a")).click();
 			sleep(1);
 		} else {
 			logFail("Step 1: Engage Stakeholders and Partners is not displayed");
@@ -3995,7 +4264,6 @@ public class WebPages extends BasePage {
 			} else {
 				logFail("All topics are Not Read and Check mark is not displayed");
 			}
-
 		}
 
 	}
@@ -4050,8 +4318,8 @@ public class WebPages extends BasePage {
 
 		// GO to Step 1
 		if (homestep1.isDisplayed()) {
-			logPass(homestep1.getText() + " is displayed");
-			homestep1.click();
+			logPass(homestep1.findElement(By.tagName("a")).getText().trim() + " is displayed");
+			homestep1.findElement(By.tagName("a")).click();
 			sleep(1);
 		} else {
 			logFail("Primer paso: Participación de las partes interesadas y los socios is not displayed");
@@ -4173,8 +4441,8 @@ public class WebPages extends BasePage {
 
 		// GO to Step 1
 		if (homestep1.isDisplayed()) {
-			logPass(homestep1.getText() + " is displayed");
-			homestep1.click();
+			logPass(homestep1.findElement(By.tagName("a")).getText().trim() + " is displayed");
+			homestep1.findElement(By.tagName("a")).click();
 			sleep(1);
 		} else {
 			logFail("Première étape: faire participer les parties prenantes et les partenaires is not displayed");

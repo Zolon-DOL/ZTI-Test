@@ -44,6 +44,9 @@ public class Locator {
 	public static final String SHARECOPYLINK = "//*[@id='share-link']/div[2]/div[3]";
 	public static final String SHAREEMAILLINK = "//*[@id='share-link']/div[2]/div[2]";
 	public static final String SHAREPOCKETLINK = "//*[@id='share-link']/div[2]/div[1]//iframe";
+	public static final String DRAWERABOUT = "bottom-drawer-about-link";
+	public static final String DRAWERGOODS = "bottom-drawer-goods-link";
+	public static final String DRAWERFINDINGS = "bottom-drawer-findings-link";
 	public static final String ABOUTHEADER = "//*[@id='container']//h1";
 	public static final String ABOUTACCORDIONS = "//*[@id='container']//div/strong";
 	public static final String WHATAREHEADER = "//*[@id='container']//h1//strong";

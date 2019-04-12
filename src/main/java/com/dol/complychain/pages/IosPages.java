@@ -362,6 +362,28 @@ public class IosPages extends BasePage {
 	@FindBy(how = How.XPATH, using = Locator.I_STEPTOPICS)
 	public WebElement steptopics;
 
+	@FindBy(how = How.XPATH, using = Locator.A_WHATAREHEADER)
+	public WebElement whatareheader;
+
+	@FindBy(how = How.XPATH, using = Locator.A_CHILDACCORDIONS)
+	public WebElement childlabor;
+
+	@FindBy(how = How.XPATH, using = Locator.A_FORCEDACCORDIONS)
+	public WebElement forcedlabor;
+
+	@FindBy(how = How.XPATH, using = Locator.A_WHYDEVELOPHEADER)
+	public WebElement whydevelopheader;
+
+	@FindBy(how = How.XPATH, using = Locator.A_WHYDEVELOPACCORDIONS)
+	public List<WebElement> whydevelopAccordions;
+
+	@FindBy(how = How.XPATH, using = Locator.A_BASICSHEADER)
+	public WebElement basicsheader;
+
+	@FindBy(how = How.XPATH, using = Locator.A_BASICSACCORDIONS)
+	public List<WebElement> basicsAccordions;
+
+	
 	public IosPages(WebDriver driver, ExtentTest test) {
 		super(MOBILEDRIVER.get(), test);
 	}
@@ -3462,6 +3484,791 @@ public class IosPages extends BasePage {
 			logFail("Sur Page Accordions Validation Failed");
 		}
 
+	}
+
+	public void Childforcedlabor_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (enmenu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			enmenu.click();
+			sleep(1);
+			if (enmenuclose.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+				enwhatare.click();
+				if (enmenu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Validate Child and Forced Labor
+		if (whatareheader.isDisplayed()) {
+			logPass(whatareheader.getText() + " is displayed");
+		} else {
+			logFail("What are Child Labor and Forced Labor? Result Header is not displayed");
+		}
+
+		// Validate Child Labor and Forced Labor Step Accordions
+		int count = 0;
+		scrolldown();
+		childlabor.click();
+		sleep(1);
+		logPass(childlabor.getText().trim() + " Accordion step Validation Success");
+		childlabor.click();
+		count++;
+
+		scrolldown();
+		forcedlabor.click();
+		sleep(1);
+		logPass(forcedlabor.getText().trim() + " Accordion step Validation Success");
+		forcedlabor.click();
+		count++;
+
+		if (count == 2) {
+			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
+		} else {
+			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Childforcedlabor_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (esmenu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			esmenu.click();
+			sleep(1);
+			if (esmenuclose.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				eswhatare.click();
+				if (esmenu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate Child and Forced Labor
+		if (whatareheader.isDisplayed()) {
+			logPass(whatareheader.getText() + " is displayed");
+		} else {
+			logFail("¿Qué son el trabajo infantil y el trabajo forzoso? Result Header is not displayed");
+		}
+
+		// Validate Child Labor and Forced Labor Step Accordions
+		int count = 0;
+		scrolldown();
+		childlabor.click();
+		sleep(1);
+		logPass(childlabor.getText().trim() + " Accordion step Validation Success");
+		childlabor.click();
+		count++;
+
+		scrolldown();
+		forcedlabor.click();
+		sleep(1);
+		logPass(forcedlabor.getText().trim() + " Accordion step Validation Success");
+		forcedlabor.click();
+		count++;
+
+		if (count == 2) {
+			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
+		} else {
+			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Childforcedlabor_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (frmenu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			frmenu.click();
+			sleep(1);
+			if (frmenuclose.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				frwhatare.click();
+				if (frmenu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate Child and Forced Labor
+		if (whatareheader.isDisplayed()) {
+			logPass(whatareheader.getText() + " is displayed");
+		} else {
+			logFail("Qu'est-ce que le travail des enfants et le travail forcé ? Result Header is not displayed");
+		}
+
+		// Validate Child Labor and Forced Labor Step Accordions
+		int count = 0;
+		scrolldown();
+		childlabor.click();
+		sleep(1);
+		logPass(childlabor.getText().trim() + " Accordion step Validation Success");
+		childlabor.click();
+		count++;
+
+		scrolldown();
+		forcedlabor.click();
+		sleep(1);
+		logPass(forcedlabor.getText().trim() + " Accordion step Validation Success");
+		forcedlabor.click();
+		count++;
+
+		if (count == 2) {
+			logPass("What are Child Labor and Forced Labor? Page Accordions Validation Success");
+		} else {
+			logFail("What are Child Labor and Forced Labor? Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void WhyDevelop_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (enmenu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			enmenu.click();
+			sleep(1);
+			if (enmenuclose.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+				enwhydevelop.click();
+				if (enmenu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Validate Why Develop Header
+		if (whydevelopheader.isDisplayed()) {
+			logPass(whydevelopheader.getText() + " is displayed");
+		} else {
+			logFail("Why Develop a Social Compliance System? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		scrolldown();
+		scrolldown();
+		for (int i = 1; i <= whydevelopAccordions.size(); i++) {
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
+					.trim() + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
+					.click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+
+		}
+		if (count == whydevelopAccordions.size()) {
+			logPass("Why Develop a Social Compliance System?  Page Accordions Validation Success");
+		} else {
+			logFail("Why Develop a Social Compliance System?  Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void WhyDevelop_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (esmenu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			esmenu.click();
+			sleep(1);
+			if (esmenuclose.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				eswhydevelop.click();
+				if (esmenu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate Why Develop Header
+		if (whydevelopheader.isDisplayed()) {
+			logPass(whydevelopheader.getText() + " is displayed");
+		} else {
+			logFail("¿Por qué crear un sistema de cumplimiento social? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		scrolldown();
+		scrolldown();
+		for (int i = 1; i <= whydevelopAccordions.size(); i++) {
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
+					.trim() + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
+					.click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+		}
+		if (count == whydevelopAccordions.size()) {
+			logPass("¿Por qué crear un sistema de cumplimiento social?  Page Accordions Validation Success");
+		} else {
+			logFail("¿Por qué crear un sistema de cumplimiento social?  Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void WhyDevelop_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (frmenu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			frmenu.click();
+			sleep(1);
+			if (frmenuclose.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				frwhydevelop.click();
+				if (frmenu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate Why Develop Header
+		if (whydevelopheader.isDisplayed()) {
+			logPass(whydevelopheader.getText() + " is displayed");
+		} else {
+			logFail("Pourquoi élaborer un système de conformité sociale ? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		scrolldown();
+		scrolldown();
+		for (int i = 1; i <= whydevelopAccordions.size(); i++) {
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
+					.trim() + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
+					.click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+		}
+		if (count == whydevelopAccordions.size()) {
+			logPass("Pourquoi élaborer un système de conformité sociale ? Page Accordions Validation Success");
+		} else {
+			logFail("Pourquoi élaborer un système de conformité sociale ? Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Basics_EN() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (english.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			english.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (enmenu.isDisplayed()) {
+			logPass("MENU is Displayed");
+			enmenu.click();
+			sleep(1);
+			if (enmenuclose.getText().equalsIgnoreCase("Close")) {
+				logPass("MENU is opened Successfully");
+				enbasics.click();
+				if (enmenu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("MENU is not opened Successfully");
+			}
+		} else {
+			logFail("MENU is Not Displayed");
+		}
+
+		// Validate basics header
+		if (basicsheader.isDisplayed()) {
+			logPass(basicsheader.getText() + " is displayed");
+		} else {
+			logFail("Basics of Social Compliance System? Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		scrolldown();
+		scrolldown();
+		for (int i = 1; i <= basicsAccordions.size(); i++) {
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
+					.trim() + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
+					.click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+		}
+		if (count == basicsAccordions.size()) {
+			logPass("Basics of Social Compliance System?  Page Accordions Validation Success");
+		} else {
+			logFail("Basics of Social Compliance System?  Page Accordions Validation Failed");
+		}
+
+	}
+
+	public void Basics_ES() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (spanish.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			spanish.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (esmenu.isDisplayed()) {
+			logPass("Menú is Displayed");
+			esmenu.click();
+			sleep(1);
+			if (esmenuclose.getText().equalsIgnoreCase("Cerrar")) {
+				logPass("Menú is opened Successfully");
+				esbasics.click();
+				if (esmenu.getText().equalsIgnoreCase("Menú")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menú is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate basics header
+		if (basicsheader.isDisplayed()) {
+			logPass(basicsheader.getText() + " is displayed");
+		} else {
+			logFail("Aspectos básicos de un sistema de cumplimiento social Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		scrolldown();
+		for (int i = 1; i <= basicsAccordions.size(); i++) {
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
+					.trim() + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
+					.click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+		}
+		if (count == basicsAccordions.size()) {
+			logPass("Aspectos básicos de un sistema de cumplimiento social Page Accordions Validation Success");
+		} else {
+			logFail("Aspectos básicos de un sistema de cumplimiento social Page Accordions Validation Failed");
+		}
+	}
+
+	public void Basics_FR() throws Exception {
+		// Initialize Elements
+		PageFactory.initElements(MOBILEDRIVER.get(), this);
+
+		// Landing Page
+		if (french.isDisplayed()) {
+			logPass("DOL Comply Chain Landing Page is Displayed");
+			french.click();
+		} else {
+			logFail("DOL Comply Chain Landing Page is not Displayed");
+		}
+
+		// Comply Chain Logo
+		if (ComplyChainLogo.isDisplayed()) {
+			logPass("Comply Chain Logo is Displayed");
+		} else {
+			logFail("Comply Chain Logo is Not Displayed");
+		}
+
+		// Header ILAB
+		if (ILAB.isDisplayed()) {
+			logPass("ILAB is displayed");
+		} else {
+			logFail("ILAB is Not Displayed");
+		}
+
+		// Header Comply Chain
+		if (complychainheader.isDisplayed()) {
+			// highlight(ILAB);
+			logPass("Comply Chain Header is displayed");
+		} else {
+			logFail("Comply Chain Header is Not Displayed");
+		}
+
+		// MENU opening and closing
+		if (frmenu.isDisplayed()) {
+			logPass("Menu is Displayed");
+			frmenu.click();
+			sleep(1);
+			if (frmenuclose.getText().equalsIgnoreCase("Fermer")) {
+				logPass("Menú is opened Successfully");
+				frbasics.click();
+				if (frmenu.getText().equalsIgnoreCase("Menu")) {
+					logPass("MENU is closed Successfully");
+				} else {
+					logFail("MENU is not closed Successfully");
+				}
+			} else {
+				logFail("Menu is not opened Successfully");
+			}
+		} else {
+			logFail("Menú is Not Displayed");
+		}
+
+		// Validate basics header
+		if (basicsheader.isDisplayed()) {
+			logPass(basicsheader.getText() + " is displayed");
+		} else {
+			logFail("Notions fondamentales d’un système de conformité sociale Result Header is not displayed");
+		}
+
+		// Validate Step Accordions
+		int count = 0;
+		scrolldown();
+		for (int i = 1; i <= basicsAccordions.size(); i++) {
+			WebElement element = MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='+']//preceding-sibling::*)[" + i + "]"));
+			element.click();
+			sleep(2);
+			logPass(MOBILEDRIVER.get()
+					.findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]")).getText()
+					.trim() + " Accordion step Validation Success");
+			MOBILEDRIVER.get().findElement(By.xpath("(//*[@id='container']//*[@text='−']//preceding-sibling::*)[1]"))
+					.click();
+			sleep(1);
+			count++;
+			if (i == 2) {
+				scrolldown();
+			}
+		}
+		if (count == basicsAccordions.size()) {
+			logPass("Notions fondamentales d’un système de conformité sociale Page Accordions Validation Success");
+		} else {
+			logFail("Notions fondamentales d’un système de conformité sociale Page Accordions Validation Failed");
+		}
 	}
 
 }
