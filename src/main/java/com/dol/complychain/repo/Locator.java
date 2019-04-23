@@ -66,6 +66,10 @@ public class Locator {
 	public static final String HOME_STEP6 = "home_step_6";
 	public static final String HOME_STEP7 = "home_step_7";
 	public static final String HOME_STEP8 = "home_step_8";
+	
+	public static final String BOOKMARK_BUTTON = "//div[@id='container']//button";
+	public static final String REMOVE_BUTTON = "//div[@id='container']//ul/li[1]//button";
+	
 
 	// Android Objects
 	public static final String A_SHARE = "//*[@id='share-link']//*[2]";
